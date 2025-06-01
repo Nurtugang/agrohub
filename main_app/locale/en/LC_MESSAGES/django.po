@@ -1,0 +1,563 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Agrosector 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-01 12:00+0600\n"
+"PO-Revision-Date: 2025-06-01 12:00+0600\n"
+"Last-Translator: Developer <dev@agrosector.kz>\n"
+"Language-Team: English <en@agrosector.kz>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+# Site meta
+msgid "site_title"
+msgstr "Agrosector"
+
+msgid "site_description"
+msgstr "Kazakhstan's largest agricultural portal. Comprehensive services in all sectors of agriculture."
+
+# Navigation
+msgid "nav_about"
+msgstr "About Us"
+
+msgid "nav_about_company"
+msgstr "About Company"
+
+msgid "nav_about_team"
+msgstr "Team"
+
+msgid "nav_services"
+msgstr "Services"
+
+msgid "nav_services_agronomy"
+msgstr "Agronomy"
+
+msgid "nav_services_laboratory"
+msgstr "Laboratory"
+
+msgid "nav_services_veterinary"
+msgstr "Veterinary"
+
+msgid "nav_courses"
+msgstr "Courses"
+
+msgid "nav_courses_online"
+msgstr "Online Courses"
+
+msgid "nav_courses_certification"
+msgstr "Certification"
+
+msgid "nav_partners"
+msgstr "Partners"
+
+msgid "nav_partners_local"
+msgstr "Local Partners"
+
+msgid "nav_partners_international"
+msgstr "International"
+
+msgid "nav_projects"
+msgstr "Projects"
+
+msgid "nav_projects_current"
+msgstr "Current Projects"
+
+msgid "nav_projects_completed"
+msgstr "Completed Projects"
+
+msgid "nav_news"
+msgstr "Knowledge & News"
+
+msgid "nav_contact"
+msgstr "Contact"
+
+# Hero section
+msgid "hero_title"
+msgstr "Agrosector"
+
+msgid "hero_subtitle"
+msgstr "Kazakhstan's Largest Agricultural Portal"
+
+msgid "hero_button"
+msgstr "About Portal"
+
+# Services section
+
+
+msgid "service_agronomy_title"
+msgstr "Agronomy and Forestry"
+
+msgid "service_agronomy_alt"
+msgstr "Agronomy"
+
+msgid "service_laboratory_title"
+msgstr "Laboratory Analysis and Expertise"
+
+msgid "service_laboratory_alt"
+msgstr "Laboratory Research"
+
+msgid "service_veterinary_title"
+msgstr "Veterinary Services"
+
+msgid "service_veterinary_alt"
+msgstr "Veterinary"
+
+msgid "service_food_title"
+msgstr "Food and Processing Industry Design"
+
+msgid "service_food_alt"
+msgstr "Food Industry"
+
+msgid "service_engineering_title"
+msgstr "Engineering and IT Technologies"
+
+msgid "service_engineering_alt"
+msgstr "Engineering"
+
+msgid "service_business_title"
+msgstr "Business Services"
+
+msgid "service_business_alt"
+msgstr "Business"
+
+msgid "service_sociology_title"
+msgstr "Sociological Services"
+
+msgid "service_sociology_alt"
+msgstr "Sociology"
+
+msgid "service_design_title"
+msgstr "Design and Art Services"
+
+msgid "service_design_alt"
+msgstr "Design"
+
+msgid "service_courses_title"
+msgstr "Professional Development Courses"
+
+msgid "service_courses_alt"
+msgstr "Courses"
+
+msgid "service_button"
+msgstr "Go to Catalog"
+
+# Advantages section
+msgid "advantages_title"
+msgstr "Our Advantages"
+
+msgid "advantage_1_title"
+msgstr "Professional Team"
+
+msgid "advantage_1_description"
+msgstr "More than 15 years of experience in agriculture"
+
+msgid "advantage_2_title"
+msgstr "International Standards"
+
+msgid "advantage_2_description"
+msgstr "ISO 9001, HACCP certificates"
+
+msgid "advantage_3_title"
+msgstr "24/7 Support"
+
+msgid "advantage_3_description"
+msgstr "Round-the-clock technical support"
+
+msgid "advantage_4_title"
+msgstr "Innovative Solutions"
+
+msgid "advantage_4_description"
+msgstr "Latest technologies and methods"
+
+
+
+
+# News section
+msgid "news_title"
+msgstr "News"
+
+msgid "news_1_title"
+msgstr "Scientists discovered the sixth state of matter and made a space burger from it"
+
+msgid "news_1_date"
+msgstr "May 21, 2025"
+
+msgid "news_1_excerpt"
+msgstr "Physicists studied a previously unknown state of matter and created a special \"space burger\" based on it."
+
+msgid "news_1_alt"
+msgstr "News"
+
+msgid "news_2_title"
+msgstr "Jet tractor with a speed of 800 km/h - full technical review from the exhibition"
+
+msgid "news_2_date"
+msgstr "May 19, 2025"
+
+msgid "news_2_excerpt"
+msgstr "A new era in agriculture: engineers presented a jet tractor. This equipment with a speed of 800 km/h is not intended for field work, but demonstrates the possibilities of agricultural innovations."
+
+msgid "news_2_alt"
+msgstr "Tractor"
+
+msgid "news_read_more"
+msgstr "Read More"
+
+msgid "news_all"
+msgstr "All News"
+
+# Footer
+msgid "footer_description"
+msgstr "Kazakhstan's largest agricultural portal. We provide comprehensive services in all sectors of agriculture."
+
+msgid "footer_services_title"
+msgstr "Services"
+
+msgid "footer_services_agronomy"
+msgstr "Agronomy"
+
+msgid "footer_services_laboratory"
+msgstr "Laboratory"
+
+msgid "footer_services_veterinary"
+msgstr "Veterinary"
+
+msgid "footer_services_courses"
+msgstr "Courses"
+
+msgid "footer_company_title"
+msgstr "Company"
+
+msgid "footer_company_about"
+msgstr "About Us"
+
+msgid "footer_company_partners"
+msgstr "Partners"
+
+msgid "footer_company_projects"
+msgstr "Projects"
+
+msgid "footer_company_careers"
+msgstr "Careers"
+
+msgid "footer_contact_title"
+msgstr "Contact:"
+
+msgid "footer_contact_address"
+msgstr "Nur-Sultan, Mangilik El Avenue, 55"
+
+msgid "footer_contact_phone"
+msgstr "+7 (7172) 123-456"
+
+msgid "footer_contact_email"
+msgstr "info@agrosector.kz"
+
+msgid "footer_copyright"
+msgstr "© 2025 Agrosector. All rights reserved."
+
+msgid "footer_privacy"
+msgstr "Privacy Policy"
+
+msgid "footer_terms"
+msgstr "Terms of Service"
+
+# Social media
+msgid "social_facebook"
+msgstr "Facebook"
+
+msgid "social_instagram"
+msgstr "Instagram"
+
+msgid "social_telegram"
+msgstr "Telegram"
+
+msgid "social_whatsapp"
+msgstr "WhatsApp"
+
+# Login modal
+msgid "login_title"
+msgstr "Login"
+
+msgid "login_email"
+msgstr "Email"
+
+msgid "login_password"
+msgstr "Password"
+
+msgid "login_remember"
+msgstr "Remember me"
+
+msgid "login_submit"
+msgstr "Login"
+
+msgid "login_forgot_password"
+msgstr "Forgot your password?"
+
+msgid "login_no_account"
+msgstr "Don't have an account?"
+
+msgid "login_register"
+msgstr "Register"
+
+# Other
+msgid "back_to_top"
+msgstr "Back to Top"
+
+# Stats section
+msgid "stats_years_experience"
+msgstr "years of experience"
+
+msgid "stats_years_description"
+msgstr "Quality service in agriculture"
+
+msgid "stats_projects"
+msgstr "+ projects"
+
+msgid "stats_projects_description"
+msgstr "Successfully completed projects"
+
+msgid "stats_clients"
+msgstr "+ clients"
+
+msgid "stats_clients_description"
+msgstr "Reliable partners"
+
+msgid "stats_support"
+msgstr "/7 support"
+
+msgid "stats_support_description"
+msgstr "Round-the-clock service"
+
+# Call to Action section
+msgid "cta_title"
+msgstr "Try Our Services"
+
+msgid "cta_description"
+msgstr "We offer comprehensive solutions for your agricultural business. Contact us today for professional consultation!"
+
+msgid "cta_services_button"
+msgstr "All Services"
+
+msgid "cta_contact_button"
+msgstr "Contact Us"
+
+
+msgid "no_news_available"
+msgstr "No news available yet"
+
+# NEWS PAGE
+
+
+msgid "news_updates_title"
+msgstr "News and Updates"
+
+msgid "subscribe_button"
+msgstr "Subscribe"
+
+msgid "news_description"
+msgstr "Current events in the agricultural sphere and main news, as well as important updates from our portal."
+
+msgid "search_news_placeholder"
+msgstr "Search news"
+
+msgid "search_button"
+msgstr "Search"
+
+msgid "category_all"
+msgstr "All categories"
+
+msgid "sort_newest"
+msgstr "Newest first"
+
+msgid "sort_oldest"
+msgstr "Oldest first"
+
+msgid "sort_title"
+msgstr "By title"
+
+msgid "period_all"
+msgstr "All time"
+
+msgid "period_1month"
+msgstr "Last month"
+
+msgid "period_3months"
+msgstr "Last 3 months"
+
+msgid "period_6months"
+msgstr "Last 6 months"
+
+msgid "period_1year"
+msgstr "Last year"
+
+msgid "apply_filters"
+msgstr "Apply filters"
+
+msgid "reset_filters"
+msgstr "Reset filters"
+
+msgid "read_more"
+msgstr "Read more"
+
+msgid "previous"
+msgstr "Previous"
+
+msgid "next"
+msgstr "Next"
+
+msgid "no_news_found"
+msgstr "No news found"
+
+msgid "try_different_filters"
+msgstr "Try changing your search parameters"
+
+msgid "subscribe_newsletter"
+msgstr "Subscribe to newsletter"
+
+msgid "newsletter_description"
+msgstr "Get notifications about new updates and events via email"
+
+msgid "email_placeholder"
+msgstr "Email address"
+
+msgid "email_address"
+msgstr "Email address"
+
+msgid "reading_time"
+msgstr "Reading time"
+
+msgid "minutes"
+msgstr "min"
+
+msgid "back_to_news"
+msgstr "Back to news"
+
+msgid "share_article"
+msgstr "Share article"
+
+msgid "latest_news"
+msgstr "Latest news"
+
+msgid "view_all_news"
+msgstr "View all news"
+
+msgid "stay_updated"
+msgstr "Stay updated"
+
+msgid "newsletter_widget_description"
+msgstr "Subscribe to our newsletter and get fresh news"
+
+msgid "subscribe"
+msgstr "Subscribe"
+
+msgid "related_news"
+msgstr "Related news"
+
+msgid "dont_miss_updates"
+msgstr "Don't miss updates"
+
+msgid "newsletter_cta_description"
+msgstr "Subscribe to our newsletter and stay informed about all news and events"
+
+msgid "enter_email_address"
+msgstr "Enter email address"
+
+msgid "subscribe_now"
+msgstr "Subscribe now"
+
+msgid "subscription_error"
+msgstr "An error occurred during subscription. Please try again."
+
+
+# Services translations for English
+msgid "services_title"
+msgstr "Services"
+
+msgid "services_laboratory_analysis"
+msgstr "Laboratory Analysis and Expertise"
+
+msgid "promotion_unprecedented_season"
+msgstr "Unprecedented Discount Season"
+
+msgid "promotion_buy_one_get_50_off"
+msgstr "Buy 1 course and get the second one with 50% discount"
+
+msgid "promotion_until_july_4"
+msgstr "Only until July 4th!"
+
+msgid "promotion_about"
+msgstr "About promotion"
+
+msgid "services_agrotech_services"
+msgstr "Agrotechnopark Services"
+
+msgid "filter_title"
+msgstr "Filter"
+
+msgid "all_providers"
+msgstr "All providers"
+
+msgid "search_services_placeholder"
+msgstr "Search services"
+
+msgid "categories_title"
+msgstr "Categories"
+
+msgid "all_categories"
+msgstr "All categories"
+
+msgid "service_name"
+msgstr "Service Name"
+
+msgid "service_description"
+msgstr "Service Description"
+
+msgid "service_price_tenge"
+msgstr "Price, Tenge"
+
+msgid "service_actions"
+msgstr "Actions"
+
+msgid "consultation"
+msgstr "Consultation"
+
+msgid "add_service"
+msgstr "Add"
+
+msgid "no_services_found"
+msgstr "No services found"
+
+msgid "consultation_request"
+msgstr "Consultation Request"
+
+msgid "client_name"
+msgstr "Your Name"
+
+msgid "client_email"
+msgstr "Email"
+
+msgid "client_phone"
+msgstr "Phone"
+
+msgid "message"
+msgstr "Message"
+
+msgid "send_request"
+msgstr "Send Request"
+
+msgid "service_added_to_cart"
+msgstr "Service added to cart"
+
+msgid "request_error"
+msgstr "An error occurred while sending the request"
+
+
+

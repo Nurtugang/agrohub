@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "things_title" %}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1>{% trans "things_title" %}</h1>
+        <p>{% trans "things_description" %}</p>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-12">
+        {% if things %}
+            <div class="row">
+                {% for thing in things %}
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ thing.name }}</h5>
+                                {% if thing.description %}
+                                    <p class="card-text">{{ thing.description }}</p>
+                                {% else %}
+                                    <p class="card-text text-muted">{% trans "no_description" %}</p>
+                                {% endif %}
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">{% trans "created" %}: {{ thing.created_at|date:"SHORT_DATETIME_FORMAT" }}</small>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="alert alert-warning">
+                <h4>{% trans "no_things_title" %}</h4>
+                <p>{% trans "no_things_message" %}</p>
+                <p>{% trans "add_things_instruction" %}</p>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="alert alert-info">
+            <h5>{% trans "translation_demo_title" %}</h5>
+            <p>{% trans "translation_demo_text" %}</p>
+            <ul>
+                <li>{% trans "translation_feature_1" %}</li>
+                <li>{% trans "translation_feature_2" %}</li>
+                <li>{% trans "translation_feature_3" %}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

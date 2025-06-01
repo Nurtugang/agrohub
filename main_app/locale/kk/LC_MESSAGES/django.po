@@ -1,0 +1,556 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Agrosector 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-01 12:00+0600\n"
+"PO-Revision-Date: 2025-06-01 12:00+0600\n"
+"Last-Translator: Developer <dev@agrosector.kz>\n"
+"Language-Team: Kazakh <kk@agrosector.kz>\n"
+"Language: kk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+# Site meta
+msgid "site_title"
+msgstr "Agrosector"
+
+msgid "site_description"
+msgstr "Қазақстандағы ең ірі аграрлық портал. Ауыл шаруашылығының барлық салаларында кешенді қызметтер."
+
+# Navigation
+msgid "nav_about"
+msgstr "Біз туралы"
+
+msgid "nav_about_company"
+msgstr "Компания туралы"
+
+msgid "nav_about_team"
+msgstr "Команда"
+
+msgid "nav_services"
+msgstr "Қызметтер"
+
+msgid "nav_services_agronomy"
+msgstr "Агрономия"
+
+msgid "nav_services_laboratory"
+msgstr "Лабораториялық"
+
+msgid "nav_services_veterinary"
+msgstr "Ветеринария"
+
+msgid "nav_courses"
+msgstr "Курстар"
+
+msgid "nav_courses_online"
+msgstr "Онлайн курстар"
+
+msgid "nav_courses_certification"
+msgstr "Сертификация"
+
+msgid "nav_partners"
+msgstr "Серіктестер"
+
+msgid "nav_partners_local"
+msgstr "Жергілікті серіктестер"
+
+msgid "nav_partners_international"
+msgstr "Халықаралық"
+
+msgid "nav_projects"
+msgstr "Жобалар"
+
+msgid "nav_projects_current"
+msgstr "Ағымдағы жобалар"
+
+msgid "nav_projects_completed"
+msgstr "Аяқталған жобалар"
+
+msgid "nav_news"
+msgstr "Білім мен жаңалықтар"
+
+msgid "nav_contact"
+msgstr "Байланыс"
+
+# Hero section
+msgid "hero_title"
+msgstr "Agrosector"
+
+msgid "hero_subtitle"
+msgstr "Қазақстандағы ең ірі аграрлық портал"
+
+msgid "hero_button"
+msgstr "Портал туралы"
+
+# Services section
+
+
+msgid "service_agronomy_title"
+msgstr "Агрономия және орман шаруашылығы"
+
+msgid "service_agronomy_alt"
+msgstr "Агрономия"
+
+msgid "service_laboratory_title"
+msgstr "Лабораториялық талдау және сараптама"
+
+msgid "service_laboratory_alt"
+msgstr "Лабораториялық"
+
+msgid "service_veterinary_title"
+msgstr "Ветеринариялық қызметтер"
+
+msgid "service_veterinary_alt"
+msgstr "Ветеринария"
+
+msgid "service_food_title"
+msgstr "Тамақ және қайта өңдеу өнеркәсіптерін жобалау"
+
+msgid "service_food_alt"
+msgstr "Тамақ өнеркәсібі"
+
+msgid "service_engineering_title"
+msgstr "Инженерия және IT технологиялар"
+
+msgid "service_engineering_alt"
+msgstr "Инженерия"
+
+msgid "service_business_title"
+msgstr "Бизнес қызметтері"
+
+msgid "service_business_alt"
+msgstr "Бизнес"
+
+msgid "service_sociology_title"
+msgstr "Социологиялық қызметтері"
+
+msgid "service_sociology_alt"
+msgstr "Социология"
+
+msgid "service_design_title"
+msgstr "Дизайн және өнер қызметтері"
+
+msgid "service_design_alt"
+msgstr "Дизайн"
+
+msgid "service_courses_title"
+msgstr "Біліктілікті арттыру курстары"
+
+msgid "service_courses_alt"
+msgstr "Курстар"
+
+msgid "service_button"
+msgstr "Каталогқа өту"
+
+# Advantages section
+msgid "advantages_title"
+msgstr "Біздің артықшылықтарымыз"
+
+msgid "advantage_1_title"
+msgstr "Кәсіби команда"
+
+msgid "advantage_1_description"
+msgstr "Аграрлық саладағы 15 жылдан астам тәжірибе"
+
+msgid "advantage_2_title"
+msgstr "Халықаралық стандарттар"
+
+msgid "advantage_2_description"
+msgstr "ISO 9001, HACCP сертификаттары"
+
+msgid "advantage_3_title"
+msgstr "24/7 қолдау"
+
+msgid "advantage_3_description"
+msgstr "Тәулік бойы техникалық қолдау қызметі"
+
+msgid "advantage_4_title"
+msgstr "Инновациялық шешімдер"
+
+msgid "advantage_4_description"
+msgstr "Соңғы технологиялар мен әдістер"
+
+# News section
+msgid "news_title"
+msgstr "Жаңалықтар"
+
+msgid "news_1_title"
+msgstr "Ғалымдар заттың алтыншы күйін тауып, оның негізінде ғарыштық бургер жасады"
+
+msgid "news_1_date"
+msgstr "21 Мамыр 2025 ж"
+
+msgid "news_1_excerpt"
+msgstr "Физиктер бұрын белгісіз зат күйін зерттеп, оның негізінде ерекше «ғарыштық бургер» құрастырды."
+
+msgid "news_1_alt"
+msgstr "Жаңалық"
+
+msgid "news_2_title"
+msgstr "Сағатына 800 км жылдамдыққа жететін реактивті трактор – көрмедегі толық техникалық шолу"
+
+msgid "news_2_date"
+msgstr "19 Мамыр 2025 ж"
+
+msgid "news_2_excerpt"
+msgstr "Ауыл шаруашылығындағы жаңа дәуір: инженерлер жасалған реактивті тракторды таныстырды. Сағатына 800 км жылдамдыққа жететін бұл техника егістікке арналмағанымен, аграрлық инновациялардың мүмкіндігін паш етеді."
+
+msgid "news_2_alt"
+msgstr "Трактор"
+
+msgid "news_read_more"
+msgstr "Толығырақ оқу"
+
+msgid "news_all"
+msgstr "Барлық жаңалықтар"
+
+# Footer
+msgid "footer_description"
+msgstr "Қазақстандағы ең ірі аграрлық портал. Біз ауыл шаруашылығының барлық салаларында кешенді қызметтер көрсетеміз."
+
+msgid "footer_services_title"
+msgstr "Қызметтер"
+
+msgid "footer_services_agronomy"
+msgstr "Агрономия"
+
+msgid "footer_services_laboratory"
+msgstr "Лабораториялық"
+
+msgid "footer_services_veterinary"
+msgstr "Ветеринария"
+
+msgid "footer_services_courses"
+msgstr "Курстар"
+
+msgid "footer_company_title"
+msgstr "Компания"
+
+msgid "footer_company_about"
+msgstr "Біз туралы"
+
+msgid "footer_company_partners"
+msgstr "Серіктестер"
+
+msgid "footer_company_projects"
+msgstr "Жобалар"
+
+msgid "footer_company_careers"
+msgstr "Мансап"
+
+msgid "footer_contact_title"
+msgstr "Байланыс:"
+
+msgid "footer_contact_address"
+msgstr "Нұр-Сұлтан қ., Мәңгілік Ел даңғылы, 55"
+
+msgid "footer_contact_phone"
+msgstr "+7 (7172) 123-456"
+
+msgid "footer_contact_email"
+msgstr "info@agrosector.kz"
+
+msgid "footer_copyright"
+msgstr "© 2025 Agrosector. Барлық құқықтар қорғалған."
+
+msgid "footer_privacy"
+msgstr "Құпиялылық саясаты"
+
+msgid "footer_terms"
+msgstr "Қызмет көрсету шарттары"
+
+# Social media
+msgid "social_facebook"
+msgstr "Facebook"
+
+msgid "social_instagram"
+msgstr "Instagram"
+
+msgid "social_telegram"
+msgstr "Telegram"
+
+msgid "social_whatsapp"
+msgstr "WhatsApp"
+
+# Login modal
+msgid "login_title"
+msgstr "Кіру"
+
+msgid "login_email"
+msgstr "Email"
+
+msgid "login_password"
+msgstr "Құпия сөз"
+
+msgid "login_remember"
+msgstr "Мені есте сақтау"
+
+msgid "login_submit"
+msgstr "Кіру"
+
+msgid "login_forgot_password"
+msgstr "Құпия сөзді ұмыттыңыз ба?"
+
+msgid "login_no_account"
+msgstr "Аккаунтыңыз жоқ па?"
+
+msgid "login_register"
+msgstr "Тіркелу"
+
+# Other
+msgid "back_to_top"
+msgstr "Жоғары"
+
+# Stats section
+msgid "stats_years_experience"
+msgstr "жыл тәжірибе"
+
+msgid "stats_years_description"
+msgstr "Аграрлық саладағы сапалы қызмет"
+
+msgid "stats_projects"
+msgstr "+ жоба"
+
+msgid "stats_projects_description"
+msgstr "Сәтті аяқталған жобалар"
+
+msgid "stats_clients"
+msgstr "+ клиент"
+
+msgid "stats_clients_description"
+msgstr "Сенімді серіктестер"
+
+msgid "stats_support"
+msgstr "/7 қолдау"
+
+msgid "stats_support_description"
+msgstr "Тәулік бойы қызмет көрсету"
+
+# Call to Action section
+msgid "cta_title"
+msgstr "Біздің қызметтерімізді пайдаланып көріңіз"
+
+msgid "cta_description"
+msgstr "Сіздің аграрлық бизнесіңіз үшін кешенді шешімдер ұсынамыз. Кәсіби кеңес алу үшін бүгін-ақ байланысыңыз!"
+
+msgid "cta_services_button"
+msgstr "Барлық қызметтер"
+
+msgid "cta_contact_button"
+msgstr "Байланысу"
+
+msgid "no_news_available"
+msgstr "Жаңалықтар әлі қолжетімсі"
+
+# NEWS PAGE
+
+
+msgid "news_updates_title"
+msgstr "Жаңалықтар мен жаңартулар"
+
+msgid "subscribe_button"
+msgstr "Жазылу"
+
+msgid "news_description"
+msgstr "Агросфераның өзекті оқиғалары мен басты жаңалықтары, сондай-ақ біздің порталдың маңызды жаңартулары."
+
+msgid "search_news_placeholder"
+msgstr "Жаңалықтар бойынша іздеу"
+
+msgid "search_button"
+msgstr "Табу"
+
+msgid "category_all"
+msgstr "Барлық санаттар"
+
+msgid "sort_newest"
+msgstr "Алдымен жаңалары"
+
+msgid "sort_oldest"
+msgstr "Алдымен ескілері"
+
+msgid "sort_title"
+msgstr "Атауы бойынша"
+
+msgid "period_all"
+msgstr "Барлық уақыт"
+
+msgid "period_1month"
+msgstr "Соңғы ай"
+
+msgid "period_3months"
+msgstr "Соңғы 3 ай"
+
+msgid "period_6months"
+msgstr "Соңғы 6 ай"
+
+msgid "period_1year"
+msgstr "Соңғы жыл"
+
+msgid "apply_filters"
+msgstr "Сүзгілерді қолдану"
+
+msgid "reset_filters"
+msgstr "Сүзгілерді тазалау"
+
+msgid "read_more"
+msgstr "Толығырақ оқу"
+
+msgid "previous"
+msgstr "Алдыңғы"
+
+msgid "next"
+msgstr "Келесі"
+
+msgid "no_news_found"
+msgstr "Жаңалықтар табылмады"
+
+msgid "try_different_filters"
+msgstr "Іздеу параметрлерін өзгертіп көріңіз"
+
+msgid "subscribe_newsletter"
+msgstr "Жаңалықтарға жазылу"
+
+msgid "newsletter_description"
+msgstr "Жаңа жаңартулар мен оқиғалар туралы хабарландырулар алыңыз"
+
+msgid "email_placeholder"
+msgstr "Электронды пошта"
+
+msgid "email_address"
+msgstr "Электронды пошта мекенжайы"
+
+msgid "reading_time"
+msgstr "Оқу уақыты"
+
+msgid "minutes"
+msgstr "мин"
+
+msgid "back_to_news"
+msgstr "Жаңалықтарға оралу"
+
+msgid "share_article"
+msgstr "Мақаланы бөлісу"
+
+msgid "latest_news"
+msgstr "Соңғы жаңалықтар"
+
+msgid "view_all_news"
+msgstr "Барлық жаңалықтарды көру"
+
+msgid "stay_updated"
+msgstr "Хабардар болыңыз"
+
+msgid "newsletter_widget_description"
+msgstr "Біздің жаңалықтарға жазылып, жаңа хабарларды алыңыз"
+
+msgid "subscribe"
+msgstr "Жазылу"
+
+msgid "related_news"
+msgstr "Ұқсас жаңалықтар"
+
+msgid "dont_miss_updates"
+msgstr "Жаңартуларды жіберіп алмаңыз"
+
+msgid "newsletter_cta_description"
+msgstr "Біздің жаңалықтарға жазылып, барлық жаңалықтар мен оқиғалардан хабардар болыңыз"
+
+msgid "enter_email_address"
+msgstr "Электронды пошта мекенжайын енгізіңіз"
+
+msgid "subscribe_now"
+msgstr "Қазір жазылу"
+
+msgid "subscription_error"
+msgstr "Жазылу кезінде қате орын алды. Қайталап көріңіз."
+
+
+# Services translations for Kazakh
+msgid "services_title"
+msgstr "Қызметтер"
+
+msgid "services_laboratory_analysis"
+msgstr "Зертханалық талдау және сараптама"
+
+msgid "promotion_unprecedented_season"
+msgstr "Бұрын-соңды болмаған жеңілдіктер маусымы"
+
+msgid "promotion_buy_one_get_50_off"
+msgstr "1 курс сатып алыңыз және екіншісін 50% жеңілдікпен алыңыз"
+
+msgid "promotion_until_july_4"
+msgstr "Тек 4 шілдеге дейін!"
+
+msgid "promotion_about"
+msgstr "Акция туралы"
+
+msgid "services_agrotech_services"
+msgstr "Агротехнопарк қызметтері"
+
+msgid "filter_title"
+msgstr "Сүзгі"
+
+msgid "all_providers"
+msgstr "Барлық жеткізушілер"
+
+msgid "search_services_placeholder"
+msgstr "Қызметтерді іздеу"
+
+msgid "categories_title"
+msgstr "Санаттар"
+
+msgid "all_categories"
+msgstr "Барлық санаттар"
+
+msgid "service_name"
+msgstr "Қызмет атауы"
+
+msgid "service_description"
+msgstr "Қызмет сипаттамасы"
+
+msgid "service_price_tenge"
+msgstr "Бағасы, теңге"
+
+msgid "service_actions"
+msgstr "Әрекет"
+
+msgid "consultation"
+msgstr "Консультация"
+
+msgid "add_service"
+msgstr "Қосу"
+
+msgid "no_services_found"
+msgstr "Қызметтер табылмады"
+
+msgid "consultation_request"
+msgstr "Консультация сұрауы"
+
+msgid "client_name"
+msgstr "Сіздің атыңыз"
+
+msgid "client_email"
+msgstr "Электронды пошта"
+
+msgid "client_phone"
+msgstr "Телефон"
+
+msgid "message"
+msgstr "Хабарлама"
+
+msgid "send_request"
+msgstr "Өтінім жіберу"
+
+msgid "service_added_to_cart"
+msgstr "Қызмет себетке қосылды"
+
+msgid "request_error"
+msgstr "Өтінім жіберу кезінде қате орын алды"

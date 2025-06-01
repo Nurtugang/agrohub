@@ -1,0 +1,170 @@
+/* Hero section */
+.team-hero {
+    height: 400px;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    margin-top: 74px;
+}
+
+.team-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(12px);
+}
+
+.hero-badge {
+    background: rgba(27, 118, 10, 0.6);
+    border-radius: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-badge h1 {
+    color: white;
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 0;
+    font-family: 'Noto Sans', sans-serif;
+    padding: 0.5rem 1.5rem;
+}
+
+/* Custom styles for team cards */
+.team-card {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.card-photo {
+    border-radius: 8px;
+    overflow: hidden;
+    aspect-ratio: 1;
+}
+
+.card-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-info {
+    background-color: #f1f8e9;
+    border-radius: 8px;
+    margin-top: -20%;
+    padding-top: 25%;
+    position: relative;
+    z-index: 1;
+}
+
+.card-name {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #333;
+    line-height: 1.2;
+}
+
+.card-position {
+    font-size: 0.875rem;
+    font-weight: 300;
+    color: #333;
+    line-height: 1.2;
+    min-height: 3rem;
+}
+
+.card-contact {
+    font-size: 0.875rem;
+    font-weight: 300;
+    color: #333;
+    line-height: 1.2;
+}
+
+/* Circle avatars */
+.circle-avatar {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: #d9d9d9;
+    overflow: hidden;
+    max-width: 250px;
+    margin: 0 auto;
+}
+
+.circle-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.circle-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #2e2e2e;
+    line-height: 1.2;
+    text-align: center;
+}
+
+/* Section spacing */
+.section-spacing {
+    padding: 5rem 0;
+}
+
+.section-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 3rem;
+}
+
+.page-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #2e2e2e;
+}
+
+.page-subtitle {
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: #2e2e2e;
+    line-height: 1.6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .team-hero {
+        height: 300px;
+        margin-top: 60px;
+    }
+    
+    .hero-badge h1 {
+        font-size: 2rem;
+    }
+    
+    .section-spacing {
+        padding: 2.5rem 0;
+    }
+    
+    .page-title {
+        font-size: 1.75rem;
+    }
+    
+    .circle-avatar {
+        max-width: 200px;
+    }
+}
+
+/* Hover effects */
+.team-card:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+}
+
+.circle-avatar:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}

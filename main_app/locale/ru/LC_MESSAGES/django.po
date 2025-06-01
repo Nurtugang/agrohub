@@ -1,0 +1,556 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Agrosector 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-01 12:00+0600\n"
+"PO-Revision-Date: 2025-06-01 12:00+0600\n"
+"Last-Translator: Developer <dev@agrosector.kz>\n"
+"Language-Team: Russian <ru@agrosector.kz>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+# Site meta
+msgid "site_title"
+msgstr "Agrosector"
+
+msgid "site_description"
+msgstr "Крупнейший аграрный портал Казахстана. Комплексные услуги во всех отраслях сельского хозяйства."
+
+# Navigation
+msgid "nav_about"
+msgstr "О нас"
+
+msgid "nav_about_company"
+msgstr "О компании"
+
+msgid "nav_about_team"
+msgstr "Команда"
+
+msgid "nav_services"
+msgstr "Услуги"
+
+msgid "nav_services_agronomy"
+msgstr "Агрономия"
+
+msgid "nav_services_laboratory"
+msgstr "Лабораторные"
+
+msgid "nav_services_veterinary"
+msgstr "Ветеринария"
+
+msgid "nav_courses"
+msgstr "Курсы"
+
+msgid "nav_courses_online"
+msgstr "Онлайн курсы"
+
+msgid "nav_courses_certification"
+msgstr "Сертификация"
+
+msgid "nav_partners"
+msgstr "Партнеры"
+
+msgid "nav_partners_local"
+msgstr "Местные партнеры"
+
+msgid "nav_partners_international"
+msgstr "Международные"
+
+msgid "nav_projects"
+msgstr "Проекты"
+
+msgid "nav_projects_current"
+msgstr "Текущие проекты"
+
+msgid "nav_projects_completed"
+msgstr "Завершенные проекты"
+
+msgid "nav_news"
+msgstr "Знания и новости"
+
+msgid "nav_contact"
+msgstr "Контакты"
+
+# Hero section
+msgid "hero_title"
+msgstr "Agrosector"
+
+msgid "hero_subtitle"
+msgstr "Крупнейший аграрный портал Казахстана"
+
+msgid "hero_button"
+msgstr "О портале"
+
+# Services section
+msgid "services_title"
+msgstr "ВСЕ ЧТО НУЖНО ВАМ И ВАШЕМУ БИЗНЕСУ"
+
+msgid "service_agronomy_title"
+msgstr "Агрономия и лесное хозяйство"
+
+msgid "service_agronomy_alt"
+msgstr "Агрономия"
+
+msgid "service_laboratory_title"
+msgstr "Лабораторный анализ и экспертиза"
+
+msgid "service_laboratory_alt"
+msgstr "Лабораторные исследования"
+
+msgid "service_veterinary_title"
+msgstr "Ветеринарные услуги"
+
+msgid "service_veterinary_alt"
+msgstr "Ветеринария"
+
+msgid "service_food_title"
+msgstr "Проектирование пищевой и перерабатывающей промышленности"
+
+msgid "service_food_alt"
+msgstr "Пищевая промышленность"
+
+msgid "service_engineering_title"
+msgstr "Инженерия и IT технологии"
+
+msgid "service_engineering_alt"
+msgstr "Инженерия"
+
+msgid "service_business_title"
+msgstr "Бизнес услуги"
+
+msgid "service_business_alt"
+msgstr "Бизнес"
+
+msgid "service_sociology_title"
+msgstr "Социологические услуги"
+
+msgid "service_sociology_alt"
+msgstr "Социология"
+
+msgid "service_design_title"
+msgstr "Дизайн и художественные услуги"
+
+msgid "service_design_alt"
+msgstr "Дизайн"
+
+msgid "service_courses_title"
+msgstr "Курсы повышения квалификации"
+
+msgid "service_courses_alt"
+msgstr "Курсы"
+
+msgid "service_button"
+msgstr "Перейти в каталог"
+
+# Advantages section
+msgid "advantages_title"
+msgstr "Наши преимущества"
+
+msgid "advantage_1_title"
+msgstr "Профессиональная команда"
+
+msgid "advantage_1_description"
+msgstr "Более 15 лет опыта в аграрной сфере"
+
+msgid "advantage_2_title"
+msgstr "Международные стандарты"
+
+msgid "advantage_2_description"
+msgstr "Сертификаты ISO 9001, HACCP"
+
+msgid "advantage_3_title"
+msgstr "Поддержка 24/7"
+
+msgid "advantage_3_description"
+msgstr "Круглосуточная техническая поддержка"
+
+msgid "advantage_4_title"
+msgstr "Инновационные решения"
+
+msgid "advantage_4_description"
+msgstr "Новейшие технологии и методы"
+
+# News section
+msgid "news_title"
+msgstr "Новости"
+
+msgid "news_1_title"
+msgstr "Ученые обнаружили шестое состояние вещества и сделали из него космический бургер"
+
+msgid "news_1_date"
+msgstr "21 мая 2025 г"
+
+msgid "news_1_excerpt"
+msgstr "Физики исследовали ранее неизвестное состояние вещества и на его основе создали особый «космический бургер»."
+
+msgid "news_1_alt"
+msgstr "Новость"
+
+msgid "news_2_title"
+msgstr "Реактивный трактор со скоростью 800 км/ч – полный технический обзор с выставки"
+
+msgid "news_2_date"
+msgstr "19 мая 2025 г"
+
+msgid "news_2_excerpt"
+msgstr "Новая эра в сельском хозяйстве: инженеры представили реактивный трактор. Эта техника со скоростью 800 км/ч не предназначена для полевых работ, но демонстрирует возможности аграрных инноваций."
+
+msgid "news_2_alt"
+msgstr "Трактор"
+
+msgid "news_read_more"
+msgstr "Читать подробнее"
+
+msgid "news_all"
+msgstr "Все новости"
+
+# Footer
+msgid "footer_description"
+msgstr "Крупнейший аграрный портал Казахстана. Мы предоставляем комплексные услуги во всех отраслях сельского хозяйства."
+
+msgid "footer_services_title"
+msgstr "Услуги"
+
+msgid "footer_services_agronomy"
+msgstr "Агрономия"
+
+msgid "footer_services_laboratory"
+msgstr "Лабораторные"
+
+msgid "footer_services_veterinary"
+msgstr "Ветеринария"
+
+msgid "footer_services_courses"
+msgstr "Курсы"
+
+msgid "footer_company_title"
+msgstr "Компания"
+
+msgid "footer_company_about"
+msgstr "О нас"
+
+msgid "footer_company_partners"
+msgstr "Партнеры"
+
+msgid "footer_company_projects"
+msgstr "Проекты"
+
+msgid "footer_company_careers"
+msgstr "Карьера"
+
+msgid "footer_contact_title"
+msgstr "Контакты:"
+
+msgid "footer_contact_address"
+msgstr "г. Нур-Султан, пр. Мангилик Ел, 55"
+
+msgid "footer_contact_phone"
+msgstr "+7 (7172) 123-456"
+
+msgid "footer_contact_email"
+msgstr "info@agrosector.kz"
+
+msgid "footer_copyright"
+msgstr "© 2025 Agrosector. Все права защищены."
+
+msgid "footer_privacy"
+msgstr "Политика конфиденциальности"
+
+msgid "footer_terms"
+msgstr "Условия предоставления услуг"
+
+# Social media
+msgid "social_facebook"
+msgstr "Facebook"
+
+msgid "social_instagram"
+msgstr "Instagram"
+
+msgid "social_telegram"
+msgstr "Telegram"
+
+msgid "social_whatsapp"
+msgstr "WhatsApp"
+
+# Login modal
+msgid "login_title"
+msgstr "Войти"
+
+msgid "login_email"
+msgstr "Email"
+
+msgid "login_password"
+msgstr "Пароль"
+
+msgid "login_remember"
+msgstr "Запомнить меня"
+
+msgid "login_submit"
+msgstr "Войти"
+
+msgid "login_forgot_password"
+msgstr "Забыли пароль?"
+
+msgid "login_no_account"
+msgstr "Нет аккаунта?"
+
+msgid "login_register"
+msgstr "Регистрация"
+
+# Other
+msgid "back_to_top"
+msgstr "Наверх"
+
+# Stats section
+msgid "stats_years_experience"
+msgstr "лет опыта"
+
+msgid "stats_years_description"
+msgstr "Качественное обслуживание в аграрной сфере"
+
+msgid "stats_projects"
+msgstr "+ проектов"
+
+msgid "stats_projects_description"
+msgstr "Успешно завершенных проектов"
+
+msgid "stats_clients"
+msgstr "+ клиентов"
+
+msgid "stats_clients_description"
+msgstr "Надежных партнеров"
+
+msgid "stats_support"
+msgstr "/7 поддержка"
+
+msgid "stats_support_description"
+msgstr "Круглосуточное обслуживание"
+
+# Call to Action section
+msgid "cta_title"
+msgstr "Попробуйте наши услуги"
+
+msgid "cta_description"
+msgstr "Мы предлагаем комплексные решения для вашего аграрного бизнеса. Свяжитесь с нами сегодня для получения профессиональной консультации!"
+
+msgid "cta_services_button"
+msgstr "Все услуги"
+
+msgid "cta_contact_button"
+msgstr "Связаться"
+
+msgid "no_news_available"
+msgstr "Новости пока недоступны"
+
+
+# NEWS PAGE
+
+
+msgid "news_updates_title"
+msgstr "Новости и обновления"
+
+msgid "subscribe_button"
+msgstr "Подписаться"
+
+msgid "news_description"
+msgstr "Актуальные события агросферы и главные новости, а также важные обновления нашего портала."
+
+msgid "search_news_placeholder"
+msgstr "Поиск по новостям"
+
+msgid "search_button"
+msgstr "Найти"
+
+msgid "category_all"
+msgstr "Все категории"
+
+msgid "sort_newest"
+msgstr "Сначала новые"
+
+msgid "sort_oldest"
+msgstr "Сначала старые"
+
+msgid "sort_title"
+msgstr "По названию"
+
+msgid "period_all"
+msgstr "Все время"
+
+msgid "period_1month"
+msgstr "Последний месяц"
+
+msgid "period_3months"
+msgstr "Последние 3 месяца"
+
+msgid "period_6months"
+msgstr "Последние 6 месяцев"
+
+msgid "period_1year"
+msgstr "Последний год"
+
+msgid "apply_filters"
+msgstr "Применить фильтры"
+
+msgid "reset_filters"
+msgstr "Сбросить фильтры"
+
+msgid "read_more"
+msgstr "Читать далее"
+
+msgid "previous"
+msgstr "Предыдущая"
+
+msgid "next"
+msgstr "Следующая"
+
+msgid "no_news_found"
+msgstr "Новости не найдены"
+
+msgid "try_different_filters"
+msgstr "Попробуйте изменить параметры поиска"
+
+msgid "subscribe_newsletter"
+msgstr "Подписаться на рассылку"
+
+msgid "newsletter_description"
+msgstr "Получайте уведомления о новых обновлениях и событиях на почту"
+
+msgid "email_placeholder"
+msgstr "Электронная почта"
+
+msgid "email_address"
+msgstr "Адрес электронной почты"
+
+msgid "reading_time"
+msgstr "Время чтения"
+
+msgid "minutes"
+msgstr "мин"
+
+msgid "back_to_news"
+msgstr "Вернуться к новостям"
+
+msgid "share_article"
+msgstr "Поделиться статьей"
+
+msgid "latest_news"
+msgstr "Последние новости"
+
+msgid "view_all_news"
+msgstr "Смотреть все новости"
+
+msgid "stay_updated"
+msgstr "Оставайтесь в курсе"
+
+msgid "newsletter_widget_description"
+msgstr "Подпишитесь на нашу рассылку и получайте свежие новости"
+
+msgid "subscribe"
+msgstr "Подписаться"
+
+msgid "related_news"
+msgstr "Похожие новости"
+
+msgid "dont_miss_updates"
+msgstr "Не пропустите обновления"
+
+msgid "newsletter_cta_description"
+msgstr "Подпишитесь на нашу рассылку и будьте в курсе всех новостей и событий"
+
+msgid "enter_email_address"
+msgstr "Введите адрес электронной почты"
+
+msgid "subscribe_now"
+msgstr "Подписаться сейчас"
+
+msgid "subscription_error"
+msgstr "Произошла ошибка при подписке. Попробуйте еще раз."
+
+
+# Services translations for Russian
+
+msgid "services_laboratory_analysis"
+msgstr "Лабораторный анализ и экспертиза"
+
+msgid "promotion_unprecedented_season"
+msgstr "Беспрецедентный сезон скидок"
+
+msgid "promotion_buy_one_get_50_off"
+msgstr "Купите 1 курс и получите второй со скидкой 50%"
+
+msgid "promotion_until_july_4"
+msgstr "Только до 4 июля!"
+
+msgid "promotion_about"
+msgstr "О акции"
+
+msgid "services_agrotech_services"
+msgstr "Услуги Агротехнопарка"
+
+msgid "filter_title"
+msgstr "Фильтр"
+
+msgid "all_providers"
+msgstr "Все поставщики"
+
+msgid "search_services_placeholder"
+msgstr "Поиск услуг"
+
+msgid "categories_title"
+msgstr "Категории"
+
+msgid "all_categories"
+msgstr "Все категории"
+
+msgid "service_name"
+msgstr "Наименование услуги"
+
+msgid "service_description"
+msgstr "Описание услуги"
+
+msgid "service_price_tenge"
+msgstr "Цена, тенге"
+
+msgid "service_actions"
+msgstr "Действие"
+
+msgid "consultation"
+msgstr "Консультация"
+
+msgid "add_service"
+msgstr "Добавить"
+
+msgid "no_services_found"
+msgstr "Услуги не найдены"
+
+msgid "consultation_request"
+msgstr "Запрос на консультацию"
+
+msgid "client_name"
+msgstr "Ваше имя"
+
+msgid "client_email"
+msgstr "Email"
+
+msgid "client_phone"
+msgstr "Телефон"
+
+msgid "message"
+msgstr "Сообщение"
+
+msgid "send_request"
+msgstr "Отправить заявку"
+
+msgid "service_added_to_cart"
+msgstr "Услуга добавлена в корзину"
+
+msgid "request_error"
+msgstr "Произошла ошибка при отправке заявки"

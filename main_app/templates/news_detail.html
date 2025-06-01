@@ -1,0 +1,521 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}{{ news.title }} - {% trans "site_title" %}{% endblock %}
+
+{% block extra_css %}
+<style>
+.news-detail-hero {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                url('{{ news.image.url }}');
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    color: white;
+    margin-top: 76px;
+    position: relative;
+}
+
+.news-detail-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.4);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.news-detail-hero h1 {
+    font-size: 48px;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.news-meta-hero {
+    display: flex;
+    gap: 30px;
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+.news-meta-hero span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.news-content-section {
+    padding: 80px 0;
+    background: white;
+}
+
+.news-content {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #333;
+}
+
+.news-content h2 {
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--dark-green);
+    margin: 40px 0 20px 0;
+}
+
+.news-content h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--dark-green);
+    margin: 30px 0 15px 0;
+}
+
+.news-content p {
+    margin-bottom: 20px;
+}
+
+.news-content ul, .news-content ol {
+    margin: 20px 0;
+    padding-left: 30px;
+}
+
+.news-content li {
+    margin-bottom: 10px;
+}
+
+.news-content blockquote {
+    background: var(--section-bg);
+    border-left: 4px solid var(--primary-green);
+    padding: 20px 30px;
+    margin: 30px 0;
+    font-style: italic;
+    font-size: 20px;
+}
+
+.news-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 30px 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.share-section {
+    background: var(--section-bg);
+    padding: 30px;
+    border-radius: 12px;
+    margin: 40px 0;
+}
+
+.share-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.share-btn {
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.share-btn.facebook {
+    background: #3b5998;
+    color: white;
+}
+
+.share-btn.twitter {
+    background: #1da1f2;
+    color: white;
+}
+
+.share-btn.telegram {
+    background: #0088cc;
+    color: white;
+}
+
+.share-btn.whatsapp {
+    background: #25d366;
+    color: white;
+}
+
+.share-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    color: white;
+}
+
+.related-news-section {
+    background: var(--light-bg);
+    padding: 80px 0;
+}
+
+.related-news-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.related-news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.related-news-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.related-news-card .card-body {
+    padding: 25px;
+}
+
+.related-news-card .card-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.related-news-card .card-text {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.btn-back {
+    background: var(--primary-green);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 30px;
+}
+
+.btn-back:hover {
+    background: var(--dark-green);
+    transform: translateY(-2px);
+    color: white;
+}
+
+.newsletter-cta {
+    background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+    color: white;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.newsletter-cta h3 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.newsletter-cta p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.newsletter-form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.newsletter-form .input-group {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.newsletter-form .form-control {
+    border: none;
+    padding: 15px 20px;
+    font-size: 16px;
+}
+
+.newsletter-form .btn {
+    background: var(--orange);
+    border: none;
+    padding: 15px 30px;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.newsletter-form .btn:hover {
+    background: #e68910;
+}
+
+@media (max-width: 768px) {
+    .news-detail-hero {
+        height: 350px;
+    }
+    
+    .news-detail-hero h1 {
+        font-size: 32px;
+    }
+    
+    .news-meta-hero {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .share-buttons {
+        justify-content: center;
+    }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section with News Image -->
+<section class="news-detail-hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10">
+                <div class="hero-content">
+                    <h1>{{ news.title }}</h1>
+                    <div class="news-meta-hero">
+                        <span>
+                            <i class="fas fa-calendar-alt"></i>
+                            {{ news.created_at|date:"d F Y" }}
+                        </span>
+                        <span>
+                            <i class="fas fa-folder"></i>
+                            {{ news.category.name }}
+                        </span>
+                        <span>
+                            <i class="fas fa-clock"></i>
+                            {% trans "reading_time" %}: ~{{ news.content|wordcount|floatformat:0 }} {% trans "minutes" %}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- News Content -->
+<section class="news-content-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <a href="{% url 'news_list' %}" class="btn-back">
+                    <i class="fas fa-arrow-left"></i>
+                    {% trans "back_to_news" %}
+                </a>
+                
+                <div class="news-content">
+                    {{ news.content|linebreaks }}
+                </div>
+                
+                <!-- Share Section -->
+                <div class="share-section">
+                    <h4 class="mb-3">{% trans "share_article" %}</h4>
+                    <div class="share-buttons">
+                        <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" 
+                           target="_blank" class="share-btn facebook">
+                            <i class="fab fa-facebook-f"></i>
+                            Facebook
+                        </a>
+                        <a href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}&text={{ news.title }}" 
+                           target="_blank" class="share-btn twitter">
+                            <i class="fab fa-twitter"></i>
+                            Twitter
+                        </a>
+                        <a href="https://t.me/share/url?url={{ request.build_absolute_uri }}&text={{ news.title }}" 
+                           target="_blank" class="share-btn telegram">
+                            <i class="fab fa-telegram"></i>
+                            Telegram
+                        </a>
+                        <a href="https://api.whatsapp.com/send?text={{ news.title }} {{ request.build_absolute_uri }}" 
+                           target="_blank" class="share-btn whatsapp">
+                            <i class="fab fa-whatsapp"></i>
+                            WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sidebar -->
+            <div class="col-lg-4">
+                <div class="sticky-top" style="top: 100px;">
+                    <!-- Latest News Widget -->
+                    <div class="widget mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">{% trans "latest_news" %}</h5>
+                                {% for latest in related_news %}
+                                    <div class="d-flex mb-3">
+                                        <img src="{{ latest.image.url }}" alt="{{ latest.title }}" 
+                                             class="me-3" style="width: 80px; height: 60px; object-fit: cover; border-radius: 4px;">
+                                        <div>
+                                            <h6 class="mb-1">
+                                                <a href="{% url 'news_detail' latest.pk %}" class="text-decoration-none text-dark">
+                                                    {{ latest.title|truncatechars:60 }}
+                                                </a>
+                                            </h6>
+                                            <small class="text-muted">{{ latest.created_at|date:"d M Y" }}</small>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                                <a href="{% url 'news_list' %}" class="btn btn-outline-primary btn-sm">
+                                    {% trans "view_all_news" %}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Newsletter Subscription Widget -->
+                    <div class="widget">
+                        <div class="card bg-primary text-white">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">{% trans "stay_updated" %}</h5>
+                                <p class="card-text">{% trans "newsletter_widget_description" %}</p>
+                                <form id="sidebarNewsletterForm">
+                                    {% csrf_token %}
+                                    <div class="input-group">
+                                        <input type="email" name="email" class="form-control" 
+                                               placeholder="{% trans 'email_placeholder' %}" required>
+                                        <button type="submit" class="btn btn-warning">
+                                            {% trans "subscribe" %}
+                                        </button>
+                                    </div>
+                                </form>
+                                <div id="sidebarMessage" class="mt-2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Related News -->
+{% if related_news %}
+<section class="related-news-section">
+    <div class="container">
+        <h2 class="section-title">{% trans "related_news" %}</h2>
+        <div class="row">
+            {% for related in related_news %}
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="related-news-card">
+                        <img src="{{ related.image.url }}" alt="{{ related.title }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ related.title }}</h5>
+                            <p class="card-text">{{ related.created_at|date:"d M Y" }} • {{ related.category.name }}</p>
+                            <a href="{% url 'news_detail' related.pk %}" class="btn btn-outline-primary btn-sm">
+                                {% trans "read_more" %}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Newsletter subscription functions
+function handleNewsletterSubmission(formId, messageId) {
+    document.getElementById(formId).addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(this);
+        
+        fetch('{% url "newsletter_subscribe" %}', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-CSRFToken': formData.get('csrfmiddlewaretoken')
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            const messageDiv = document.getElementById(messageId);
+            if (data.success) {
+                messageDiv.innerHTML = '<div class="alert alert-success">' + data.message + '</div>';
+                this.reset();
+            } else {
+                messageDiv.innerHTML = '<div class="alert alert-danger">' + data.message + '</div>';
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            const messageDiv = document.getElementById(messageId);
+            messageDiv.innerHTML = '<div class="alert alert-danger">{% trans "subscription_error" %}</div>';
+        });
+    });
+}
+
+// Initialize newsletter forms
+handleNewsletterSubmission('sidebarNewsletterForm', 'sidebarMessage');
+handleNewsletterSubmission('ctaNewsletterForm', 'ctaMessage');
+
+// Smooth scrolling for internal links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// Reading progress indicator
+window.addEventListener('scroll', function() {
+    const article = document.querySelector('.news-content');
+    if (article) {
+        const articleTop = article.offsetTop;
+        const articleHeight = article.offsetHeight;
+        const windowHeight = window.innerHeight;
+        const scrollTop = window.pageYOffset;
+        
+        const progress = Math.min(100, Math.max(0, 
+            ((scrollTop - articleTop + windowHeight) / articleHeight) * 100
+        ));
+        
+        // You can use this progress value to show a reading progress bar
+        // console.log('Reading progress:', progress + '%');
+    }
+});
+</script>
+{% endblock %}

@@ -1,0 +1,279 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+{% block title %}{% trans "site_title" %} - {% trans "hero_subtitle" %}{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section id="home" class="hero-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="hero-content">
+                    <h1>{% trans "hero_title" %}</h1>
+                    <p>{% trans "hero_subtitle" %}</p>
+                    <button class="btn btn-hero" onclick="scrollToSection('services')">{% trans "hero_button" %}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="stats-section">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="stat-item">
+                    <span class="counter" data-count="15">0</span>
+                    <h5>{% trans "stats_years_experience" %}</h5>
+                    <p>{% trans "stats_years_description" %}</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="stat-item">
+                    <span class="counter" data-count="1000">0</span>
+                    <h5>{% trans "stats_projects" %}</h5>
+                    <p>{% trans "stats_projects_description" %}</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="stat-item">
+                    <span class="counter" data-count="500">0</span>
+                    <h5>{% trans "stats_clients" %}</h5>
+                    <p>{% trans "stats_clients_description" %}</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="stat-item">
+                    <span class="counter" data-count="24">0</span>
+                    <h5>{% trans "stats_support" %}</h5>
+                    <p>{% trans "stats_support_description" %}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="py-5">
+    <div class="container">
+        <h2 class="section-title">{% trans "services_title" %}</h2>
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="card service-card" onclick="goToService('agronomy')">
+                    <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                         class="card-img-top" alt="{% trans 'service_agronomy_alt' %}">
+                    <div class="card-body">
+                        <h5 class="card-title">{% trans "service_agronomy_title" %}</h5>
+                        <button class="btn btn-service">{% trans "service_button" %}</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card service-card" onclick="goToService('laboratory')">
+                    <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                         class="card-img-top" alt="{% trans 'service_laboratory_alt' %}">
+                    <div class="card-body">
+                        <h5 class="card-title">{% trans "service_laboratory_title" %}</h5>
+                        <button class="btn btn-service">{% trans "service_button" %}</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card service-card" onclick="goToService('veterinary')">
+                    <img src="https://images.unsplash.com/photo-1516467508483-a7212febe31a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                         class="card-img-top" alt="{% trans 'service_veterinary_alt' %}">
+                    <div class="card-body">
+                        <h5 class="card-title">{% trans "service_veterinary_title" %}</h5>
+                        <button class="btn btn-service">{% trans "service_button" %}</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card service-card" onclick="goToService('food')">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                         class="card-img-top" alt="{% trans 'service_food_alt' %}">
+                    <div class="card-body">
+                        <h5 class="card-title">{% trans "service_food_title" %}</h5>
+                        <button class="btn btn-service">{% trans "service_button" %}</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card service-card" onclick="goToService('engineering')">
+                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                         class="card-img-top" alt="{% trans 'service_engineering_alt' %}">
+                    <div class="card-body">
+                        <h5 class="card-title">{% trans "service_engineering_title" %}</h5>
+                        <button class="btn btn-service">{% trans "service_button" %}</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card service-card" onclick="goToService('business')">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                         class="card-img-top" alt="{% trans 'service_business_alt' %}">
+                    <div class="card-body">
+                        <h5 class="card-title">{% trans "service_business_title" %}</h5>
+                        <button class="btn btn-service">{% trans "service_button" %}</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card service-card" onclick="goToService('sociology')">
+                    <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                         class="card-img-top" alt="{% trans 'service_sociology_alt' %}">
+                    <div class="card-body">
+                        <h5 class="card-title">{% trans "service_sociology_title" %}</h5>
+                        <button class="btn btn-service">{% trans "service_button" %}</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card service-card" onclick="goToService('design')">
+                    <img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                         class="card-img-top" alt="{% trans 'service_design_alt' %}">
+                    <div class="card-body">
+                        <h5 class="card-title">{% trans "service_design_title" %}</h5>
+                        <button class="btn btn-service">{% trans "service_button" %}</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card service-card" onclick="goToService('courses')">
+                    <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                         class="card-img-top" alt="{% trans 'service_courses_alt' %}">
+                    <div class="card-body">
+                        <h5 class="card-title">{% trans "service_courses_title" %}</h5>
+                        <button class="btn btn-service">{% trans "service_button" %}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Advantages Section -->
+<section class="advantages-section">
+    <div class="container">
+        <h2 class="advantages-title">{% trans "advantages_title" %}</h2>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="advantage-item mb-4" data-aos="fade-right">
+                    <div class="d-flex align-items-center">
+                        <div class="advantage-icon me-3">
+                            <i class="fas fa-check-circle text-success fs-2"></i>
+                        </div>
+                        <div>
+                            <h4>{% trans "advantage_1_title" %}</h4>
+                            <p class="mb-0">{% trans "advantage_1_description" %}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="advantage-item mb-4" data-aos="fade-left">
+                    <div class="d-flex align-items-center">
+                        <div class="advantage-icon me-3">
+                            <i class="fas fa-medal text-warning fs-2"></i>
+                        </div>
+                        <div>
+                            <h4>{% trans "advantage_2_title" %}</h4>
+                            <p class="mb-0">{% trans "advantage_2_description" %}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="advantage-item mb-4" data-aos="fade-right" data-aos-delay="200">
+                    <div class="d-flex align-items-center">
+                        <div class="advantage-icon me-3">
+                            <i class="fas fa-clock text-primary fs-2"></i>
+                        </div>
+                        <div>
+                            <h4>{% trans "advantage_3_title" %}</h4>
+                            <p class="mb-0">{% trans "advantage_3_description" %}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="advantage-item mb-4" data-aos="fade-left" data-aos-delay="200">
+                    <div class="d-flex align-items-center">
+                        <div class="advantage-icon me-3">
+                            <i class="fas fa-chart-line text-info fs-2"></i>
+                        </div>
+                        <div>
+                            <h4>{% trans "advantage_4_title" %}</h4>
+                            <p class="mb-0">{% trans "advantage_4_description" %}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- News Section -->
+<section id="news" class="py-5">
+    <div class="container">
+        <h2 class="section-title">{% trans "news_title" %}</h2>
+        <div class="row">
+            {% for news in latest_news %}
+                <div class="col-12">
+                    <div class="news-card" onclick="location.href='{% url 'news_detail' news.pk %}'">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="{{ news.image.url }}" 
+                                     class="news-image" alt="{{ news.title }}">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h3 class="news-title">{{ news.title }}</h3>
+                                    <p class="news-date">{{ news.created_at|date:"d F Y" }}</p>
+                                    <p class="news-excerpt">{{ news.content|truncatewords:25 }}</p>
+                                    <button class="btn btn-news">{% trans "news_read_more" %}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <div class="col-12">
+                    <div class="text-center py-5">
+                        <p>{% trans "no_news_available" %}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="text-center mt-4">
+            <a href="{% url 'news_list' %}" class="btn btn-news btn-lg">{% trans "news_all" %}</a>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action Section -->
+<section class="py-5" style="background: linear-gradient(135deg, var(--orange), #e68910);">
+    <div class="container">
+        <div class="row text-center text-white">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="mb-4">{% trans "cta_title" %}</h2>
+                <p class="lead mb-4">{% trans "cta_description" %}</p>
+                <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
+                    <a href="{% url 'index' %}" class="btn btn-light btn-lg">{% trans "cta_services_button" %}</a>
+                    <a href="{% url 'index' %}" class="btn btn-outline-light btn-lg">{% trans "cta_contact_button" %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/index.js' %}"></script>
+{% endblock %}
