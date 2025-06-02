@@ -554,3 +554,6 @@ msgstr "Услуга добавлена в корзину"
 
 msgid "request_error"
 msgstr "Произошла ошибка при отправке заявки"
+
+msgid "testtext"
+msgstr "Тест"

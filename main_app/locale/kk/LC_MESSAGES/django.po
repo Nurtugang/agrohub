@@ -554,3 +554,6 @@ msgstr "Қызмет себетке қосылды"
 
 msgid "request_error"
 msgstr "Өтінім жіберу кезінде қате орын алды"
+
+msgid "testtext"
+msgstr "Тесті"
