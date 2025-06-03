@@ -558,8 +558,3 @@ msgstr "Service added to cart"
 
 msgid "request_error"
 msgstr "An error occurred while sending the request"
-
-msgid "testtext"
-msgstr "Test"
-
-

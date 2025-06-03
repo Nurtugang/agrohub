@@ -287,3 +287,11 @@ def courses(request):
         'current_language': locale,
     }
     return render(request, 'courses.html', context)
+
+def course(request):
+    locale = translation.get_language()
+    
+    context = {
+        'current_language': locale,
+    }
+    return render(request, 'course.html', context)

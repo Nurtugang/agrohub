@@ -156,6 +156,9 @@
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 480px; /* Fixed height to match design */
 }
 
 .course-card:hover {
@@ -205,6 +208,9 @@
 
 .card-content {
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .card-content h3 {
@@ -235,7 +241,8 @@
     font-size: 14px;
     font-weight: 600;
     transition: background-color 0.3s ease;
-    margin: 0 auto;
+    margin: auto auto 0;
+    margin-top: auto;
 }
 
 .course-btn:hover {
