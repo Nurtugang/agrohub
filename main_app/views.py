@@ -279,3 +279,19 @@ def service_detail(request, slug):
     }
     
     return render(request, 'service_detail.html', context)
+
+def courses(request):
+    locale = translation.get_language()
+    
+    context = {
+        'current_language': locale,
+    }
+    return render(request, 'courses.html', context)
+
+def course(request):
+    locale = translation.get_language()
+    
+    context = {
+        'current_language': locale,
+    }
+    return render(request, 'course.html', context)

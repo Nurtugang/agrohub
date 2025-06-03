@@ -1,0 +1,302 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}Молекулалық биология және генетика - Agrosector{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/course.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="course-hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1>Молекулалық биология және генетика</h1>
+            <a href="#registration-form" class="btn-primary btn-green">Оставить заявку</a>
+        </div>
+    </div>
+</section>
+
+<!-- Breadcrumbs -->
+<div class="breadcrumbs">
+    <div class="container">
+        <a href="javascript:history.back()"><i class="fas fa-arrow-left"></i> Назад</a>
+        <span>/</span>
+        <a href="{% url 'courses' %}">Курс каталогы</a>
+        <span>/</span>
+        <span>Молекулалық биология және генетика</span>
+    </div>
+</div>
+
+<!-- Course Content -->
+<section class="course-content">
+    <div class="container">
+        <h2>Молекулалық биология және генетика</h2>
+        
+        <!-- Course Info Section -->
+        <div class="course-info-section">
+            <div class="course-description">
+                <h3>Курс туралы</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+            <div class="course-sidebar">
+                <div class="course-details-card">
+                    <h3>Негізгі ақпарат</h3>
+                    <div class="detail-item">
+                        <i class="fas fa-clock"></i>
+                        <div class="detail-text">
+                            <span>Аптасына 3 сағат</span>
+                            <span>Барлығы 36 сағат</span>
+                        </div>
+                    </div>
+                    <div class="price">₸ 150 000 теңге</div>
+                    <a href="#registration-form" class="btn-primary btn-full">Оставить заявку</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- What You'll Learn Section -->
+        <div class="learning-section">
+            <h3>Курстан не үйренесіз?</h3>
+            <div class="learning-grid">
+                <div class="learning-item">
+                    <i class="fas fa-check-circle"></i>
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</p>
+                </div>
+                <div class="learning-item">
+                    <i class="fas fa-check-circle"></i>
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</p>
+                </div>
+                <div class="learning-item">
+                    <i class="fas fa-check-circle"></i>
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</p>
+                </div>
+                <div class="learning-item">
+                    <i class="fas fa-check-circle"></i>
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</p>
+                </div>
+                <div class="learning-item">
+                    <i class="fas fa-check-circle"></i>
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</p>
+                </div>
+                <div class="learning-item">
+                    <i class="fas fa-check-circle"></i>
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Course Curriculum Section -->
+        <div class="curriculum-section">
+            <h3>Курс бағдарламасы</h3>
+            <div class="curriculum-modules">
+                <div class="module">
+                    <div class="module-header">
+                        <h4>Модуль 1. Duis aute irure dolor in reprehenderit in voluptate velit esse</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="module-content hidden">
+                        <div class="topic">
+                            <i class="fas fa-play-circle"></i>
+                            <p>Тақырып 1. Duis aute irure dolor in reprehenderit in voluptate velit</p>
+                        </div>
+                        <div class="topic">
+                            <i class="fas fa-play-circle"></i>
+                            <p>Тақырып 1. Duis aute irure dolor in reprehenderit in voluptate velit</p>
+                        </div>
+                        <div class="topic">
+                            <i class="fas fa-play-circle"></i>
+                            <p>Тақырып 1. Duis aute irure dolor in reprehenderit in voluptate velit</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="module">
+                    <div class="module-header">
+                        <h4>Модуль 2. Duis aute irure dolor in reprehenderit in voluptate velit esse</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="module-content hidden">
+                        <!-- Topics will be shown when clicked -->
+                    </div>
+                </div>
+                <div class="module">
+                    <div class="module-header">
+                        <h4>Модуль 3. Duis aute irure dolor in reprehenderit in voluptate velit esse</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="module-content hidden">
+                        <!-- Topics will be shown when clicked -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Instructors Section -->
+        <div class="instructors-section">
+            <h3>Курс оқытушылары</h3>
+            <div class="instructor-card">
+                <div class="instructor-image">
+                    <img src="{% static 'images/instructor.jpg' %}" alt="Масков Илон Эрролулы">
+                </div>
+                <div class="instructor-info">
+                    <h4>Масков Илон Эрролулы</h4>
+                    <p class="instructor-title">Курс оқытушысы</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Reviews Section -->
+        <div class="reviews-section">
+            <h3>Курс туралы пікірлер</h3>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-image">
+                            <img src="{% static 'images/avatar-placeholder.jpg' %}" alt="Reviewer">
+                        </div>
+                        <div class="reviewer-info">
+                            <h4>Иванов Иван Иванович</h4>
+                            <div class="review-date">27.05.2025</div>
+                            <div class="review-stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        <p>Курс өте ұнады, супер бағдарлама. Оқытушылар жауапты, тәжірибелі. Мен барлық көршілерге кеңес беремін, курс ақшаға тұрарлық.</p>
+                    </div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-image">
+                            <img src="{% static 'images/avatar-placeholder.jpg' %}" alt="Reviewer">
+                        </div>
+                        <div class="reviewer-info">
+                            <h4>Иванов Иван Иванович</h4>
+                            <div class="review-date">27.05.2025</div>
+                            <div class="review-stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        <p>Курс өте ұнады, супер бағдарлама. Оқытушылар жауапты, тәжірибелі. Мен барлық көршілерге кеңес беремін, курс ақшаға тұрарлық.</p>
+                    </div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-image">
+                            <img src="{% static 'images/avatar-placeholder.jpg' %}" alt="Reviewer">
+                        </div>
+                        <div class="reviewer-info">
+                            <h4>Иванов Иван Иванович</h4>
+                            <div class="review-date">27.05.2025</div>
+                            <div class="review-stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        <p>Курс өте ұнады, супер бағдарлама. Оқытушылар жауапты, тәжірибелі. Мен барлық көршілерге кеңес беремін, курс ақшаға тұрарлық.</p>
+                    </div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-image">
+                            <img src="{% static 'images/avatar-placeholder.jpg' %}" alt="Reviewer">
+                        </div>
+                        <div class="reviewer-info">
+                            <h4>Иванов Иван Иванович</h4>
+                            <div class="review-date">27.05.2025</div>
+                            <div class="review-stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        <p>Курс өте ұнады, супер бағдарлама. Оқытушылар жауапты, тәжірибелі. Мен барлық көршілерге кеңес беремін, курс ақшаға тұрарлық.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hidden reviews that will be shown with button click -->
+            <div class="hidden-reviews hidden">
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-image">
+                                <img src="{% static 'images/avatar-placeholder.jpg' %}" alt="Reviewer">
+                            </div>
+                            <div class="reviewer-info">
+                                <h4>Иванов Иван Иванович</h4>
+                                <div class="review-date">27.05.2025</div>
+                                <div class="review-stars">★★★★★</div>
+                            </div>
+                        </div>
+                        <div class="review-content">
+                            <p>Курс өте ұнады, супер бағдарлама. Оқытушылар жауапты, тәжірибелі. Мен барлық көршілерге кеңес беремін, курс ақшаға тұрарлық.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-image">
+                                <img src="{% static 'images/avatar-placeholder.jpg' %}" alt="Reviewer">
+                            </div>
+                            <div class="reviewer-info">
+                                <h4>Иванов Иван Иванович</h4>
+                                <div class="review-date">27.05.2025</div>
+                                <div class="review-stars">★★★★★</div>
+                            </div>
+                        </div>
+                        <div class="review-content">
+                            <p>Курс өте ұнады, супер бағдарлама. Оқытушылар жауапты, тәжірибелі. Мен барлық көршілерге кеңес беремін, курс ақшаға тұрарлық.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="read-more-container">
+                <button class="btn-secondary read-more-reviews">Читать все отзывы</button>
+            </div>
+        </div>
+        
+        <!-- Registration Form Section -->
+        <div id="registration-form" class="registration-section">
+            <div class="registration-container">
+                <div class="registration-heading">
+                    <h3>Курсқа жазылыңыз немесе тегін кеңес алыңыз</h3>
+                </div>
+                <div class="registration-form-container">
+                    <form class="registration-form">
+                        <div class="form-group">
+                            <input type="text" placeholder="Толық аты-жөні" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="tel" placeholder="Телефон" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" placeholder="Электронная почта" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-primary">Оставить заявку</button>
+                        <div class="form-checkbox">
+                            <input type="checkbox" id="privacy-policy" required>
+                            <label for="privacy-policy" class="form-disclaimer">Өтінімді жіберу арқылы сіз Құпиялылық саясатына сәйкес жеке деректеріңізді өңдеуге келісім бересіз.</label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<script src="{% static 'js/course.js' %}"></script>
+{% endblock %}
