@@ -7,11 +7,11 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-SECRET_KEY = '+!9cpr#&)1!wn$k@)4wmai*87n95z2)664z5191)+#iu)^cy5q'
+SECRET_KEY = os.getenv("SECRET_KEY")
 
-DEBUG = True
+DEBUG = os.getenv("DEBUG")
 
-ALLOWED_HOSTS = ['agrohub.shakarim.kz']
+ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", default='').split(" ")
 
 INSTALLED_APPS = [
     # Django apps
@@ -61,12 +61,12 @@ WSGI_APPLICATION = 'agrohub.wsgi.application'
 
 DATABASES = {
     'default': {
-        "ENGINE": 'django.db.backends.mysql',
-        "NAME": 'agrohub_db',
-        "USER": 'agrohub_user',
-        "PASSWORD": '?Xv1e859/BN,',
-        "HOST": 'localhost',
-        "PORT": '3306',
+        "ENGINE": os.getenv("SQL_ENGINE", "django.db.backends.sqlite3"),
+        "NAME": os.getenv("SQL_DATABASE", BASE_DIR / "db.sqlite3"),
+        "USER": os.getenv("SQL_USER", "user"),
+        "PASSWORD": os.getenv("SQL_PASSWORD", "password"),
+        "HOST": os.getenv("SQL_HOST", "localhost"),
+        "PORT": os.getenv("SQL_PORT", "5432"),
     }
 }
 
