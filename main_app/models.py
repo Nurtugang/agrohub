@@ -102,6 +102,7 @@ class ServiceCategory(models.Model):
     """Категории услуг (анализ крови, почвы, молока и т.д.)"""
     name = models.CharField(max_length=150)
     slug = models.SlugField(unique=True)
+    provider = models.ForeignKey(ServiceProvider, related_name='categories', on_delete=models.CASCADE)
     is_active = models.BooleanField(default=True)
     order = models.PositiveIntegerField(default=0)
     
@@ -112,6 +113,7 @@ class ServiceCategory(models.Model):
         verbose_name = "Service Category"
         verbose_name_plural = "Service Categories"
         ordering = ['order', 'name']
+        unique_together = ['provider', 'slug']
 
 
 class Service(models.Model):
@@ -125,7 +127,6 @@ class Service(models.Model):
     
     # Связи
     category = models.ForeignKey(ServiceCategory, related_name='services', on_delete=models.CASCADE)
-    provider = models.ForeignKey(ServiceProvider, related_name='services', on_delete=models.CASCADE)
     
     # Дополнительные поля
     duration = models.CharField(max_length=100, blank=True, help_text="Время выполнения")

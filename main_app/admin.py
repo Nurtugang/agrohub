@@ -61,17 +61,18 @@ class ServiceProviderAdmin(TranslationAdmin):
 
 @admin.register(ServiceCategory)
 class ServiceCategoryAdmin(TranslationAdmin):
-    list_display = ('name', 'slug', 'order', 'is_active')
-    list_filter = ('is_active',)
-    search_fields = ('name',)
+    list_display = ('name', 'provider', 'slug', 'order', 'is_active')
+    list_filter = ('provider', 'is_active')
+    search_fields = ('name', 'provider__name')
     prepopulated_fields = {'slug': ('name',)}
     list_editable = ('order', 'is_active')
     
     fieldsets = (
         (None, {
-            'fields': ('name', 'slug', 'order', 'is_active')
+            'fields': ('name', 'slug', 'provider', 'order', 'is_active')
         }),
     )
+
 
 
 class ServiceImageInline(admin.TabularInline):
@@ -90,17 +91,22 @@ class ServiceImageInline(admin.TabularInline):
 
 @admin.register(Service)
 class ServiceAdmin(TranslationAdmin):
-    list_display = ('name', 'category', 'provider', 'price', 'currency', 'is_active', 'created_at')
-    list_filter = ('category', 'provider', 'is_active', 'created_at')
+    list_display = ('name', 'category', 'get_provider', 'price', 'currency', 'is_active', 'created_at')
+    list_filter = ('category__provider', 'category', 'is_active', 'created_at')
     search_fields = ('name', 'description', 'short_description')
     prepopulated_fields = {'slug': ('name',)}
     list_editable = ('price', 'is_active')
     date_hierarchy = 'created_at'
     inlines = [ServiceImageInline]
     
+    def get_provider(self, obj):
+        return obj.category.provider.name
+    get_provider.short_description = 'Provider'
+    get_provider.admin_order_field = 'category__provider__name'
+    
     fieldsets = (
         ('Основная информация', {
-            'fields': ('name', 'slug', 'category', 'provider')
+            'fields': ('name', 'slug', 'category')
         }),
         ('Описание', {
             'fields': ('short_description', 'description', 'duration')
@@ -119,6 +125,11 @@ class ServiceAdmin(TranslationAdmin):
         if obj:  # editing an existing object
             return self.readonly_fields + ('created_at', 'updated_at')
         return self.readonly_fields
+    
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        if db_field.name == "category":
+            kwargs["queryset"] = ServiceCategory.objects.filter(is_active=True).select_related('provider').order_by('provider__name', 'order', 'name')
+        return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
 
 @admin.register(ServiceImage)
@@ -138,12 +149,17 @@ class ServiceImageAdmin(admin.ModelAdmin):
 
 @admin.register(ServiceRequest)
 class ServiceRequestAdmin(admin.ModelAdmin):
-    list_display = ('service', 'client_name', 'client_email', 'status', 'created_at')
-    list_filter = ('status', 'created_at', 'service__category', 'service__provider')
+    list_display = ('service', 'get_provider', 'client_name', 'client_email', 'status', 'created_at')
+    list_filter = ('status', 'created_at', 'service__category__provider', 'service__category')
     search_fields = ('client_name', 'client_email', 'service__name')
     list_editable = ('status',)
     date_hierarchy = 'created_at'
     readonly_fields = ('created_at', 'updated_at')
+    
+    def get_provider(self, obj):
+        return obj.service.category.provider.name
+    get_provider.short_description = 'Provider'
+    get_provider.admin_order_field = 'service__category__provider__name'
     
     fieldsets = (
         ('Услуга', {

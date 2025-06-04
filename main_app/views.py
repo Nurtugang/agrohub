@@ -180,14 +180,19 @@ def services_list(request):
     search_query = request.GET.get('search', '')
     
     # Получаем все активные услуги
-    services = Service.objects.filter(is_active=True).select_related('category', 'provider')
+    services = Service.objects.filter(is_active=True).select_related('category', 'category__provider')
     
     # Применяем фильтры
-    if provider_filter and provider_filter != 'all':
-        services = services.filter(provider__slug=provider_filter)
+    if provider_filter:
+        services = services.filter(category__provider__slug=provider_filter)
     
-    if category_filter and category_filter != 'all':
+    if category_filter:
         services = services.filter(category__slug=category_filter)
+        try:
+            selected_category = ServiceCategory.objects.get(slug=category_filter)
+            services = services.filter(category__provider=selected_category.provider)
+        except ServiceCategory.DoesNotExist:
+            pass
     
     if search_query:
         services = services.filter(
@@ -203,7 +208,12 @@ def services_list(request):
     
     # Данные для фильтров
     providers = ServiceProvider.objects.filter(is_active=True)
-    categories = ServiceCategory.objects.filter(is_active=True).order_by('order', 'name')
+    
+    # Категории зависят от выбранного провайдера
+    categories = ServiceCategory.objects.filter(is_active=True)
+    if provider_filter and provider_filter != 'all':
+        categories = categories.filter(provider__slug=provider_filter)
+    categories = categories.order_by('order', 'name')
     
     # Текущая активная акция (если есть)
     current_promotion = None

@@ -333,13 +333,9 @@
             <div class="mb-4">
                 <h6 class="text-muted mb-3">{% trans "filter_title" %}</h6>
                 <div class="filter-buttons">
-                    <a href="?provider=all{% if category_filter %}&category={{ category_filter }}{% endif %}{% if search_query %}&search={{ search_query }}{% endif %}" 
-                       class="filter-btn {% if not provider_filter or provider_filter == 'all' %}active{% endif %}">
-                        {% trans "all_providers" %}
-                    </a>
                     {% for provider in providers %}
                         <a href="?provider={{ provider.slug }}{% if category_filter %}&category={{ category_filter }}{% endif %}{% if search_query %}&search={{ search_query }}{% endif %}" 
-                           class="filter-btn {% if provider_filter == provider.slug %}active{% endif %}">
+                           class="filter-btn {% if provider_filter == provider.slug or not provider_filter and forloop.first %}active{% endif %}">
                             {{ provider.name }}
                         </a>
                     {% endfor %}
@@ -372,13 +368,9 @@
     <div class="container">
         <h6 class="text-muted mb-3">{% trans "categories_title" %}</h6>
         <div class="category-grid">
-            <a href="?category=all{% if provider_filter %}&provider={{ provider_filter }}{% endif %}{% if search_query %}&search={{ search_query }}{% endif %}" 
-               class="category-btn {% if not category_filter or category_filter == 'all' %}active{% endif %}">
-                {% trans "all_categories" %}
-            </a>
             {% for category in categories %}
                 <a href="?category={{ category.slug }}{% if provider_filter %}&provider={{ provider_filter }}{% endif %}{% if search_query %}&search={{ search_query }}{% endif %}" 
-                   class="category-btn {% if category_filter == category.slug %}active{% endif %}">
+                   class="category-btn {% if category_filter == category.slug or not category_filter and forloop.first %}active{% endif %}">
                     {{ category.name }}
                 </a>
             {% endfor %}
@@ -389,89 +381,118 @@
 <!-- Services Table Section -->
 <section class="services-table-section">
     <div class="container">
-        {% if page_obj %}
-            <div class="services-table">
-                <!-- Table Header -->
-                <div class="table-header">
-                    <div class="row">
-                        <div class="col-md-3">{% trans "service_name" %}</div>
-                        <div class="col-md-4">{% trans "service_description" %}</div>
-                        <div class="col-md-2">{% trans "service_price_tenge" %}</div>
-                        <div class="col-md-3">{% trans "service_actions" %}</div>
+        {% if page_obj or not provider_filter and not category_filter %}
+            <!-- Показываем услуги первого провайдера и первой категории если ничего не выбрано -->
+            {% if not provider_filter and not category_filter and not search_query %}
+                {% with first_provider=providers.first %}
+                    {% if first_provider %}
+                        {% with first_category=first_provider.categories.first %}
+                            {% if first_category %}
+                                {% for service in first_category.services.all|slice:":12" %}
+                                    {% if forloop.first %}
+                                        <div class="services-table">
+                                            <div class="table-header">
+                                                <div class="row">
+                                                    <div class="col-md-3">{% trans "service_name" %}</div>
+                                                    <div class="col-md-4">{% trans "service_description" %}</div>
+                                                    <div class="col-md-2">{% trans "service_price_tenge" %}</div>
+                                                    <div class="col-md-3">{% trans "service_actions" %}</div>
+                                                </div>
+                                            </div>
+                                    {% endif %}
+                                    
+                                    <div class="service-row">
+                                        <div class="row align-items-center">
+                                            <div class="col-md-3">
+                                                <div class="service-name">{{ service.name }}</div>
+                                                {% if service.duration %}
+                                                    <small class="text-muted">{{ service.duration }}</small>
+                                                {% endif %}
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="service-description">
+                                                    {{ service.short_description|default:service.description|truncatewords:20 }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="service-price">
+                                                    {{ service.price|floatformat:0 }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="service-actions">
+                                                    <a href="#" class="btn-consultation" 
+                                                       onclick="openConsultationModal({{ service.id }}, '{{ service.name }}')">
+                                                        {% trans "consultation" %}
+                                                    </a>
+                                                    <button type="button" class="btn-add-service" 
+                                                            onclick="addToCart({{ service.id }}, '{{ service.name }}', {{ service.price }})">
+                                                        <i class="fas fa-shopping-cart"></i>
+                                                        {% trans "add_service" %}
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    {% if forloop.last %}
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+                    {% endif %}
+                {% endwith %}
+            {% else %}
+                <!-- Обычная логика для выбранных фильтров -->
+                <div class="services-table">
+                    <!-- Table Header -->
+                    <div class="table-header">
+                        <div class="row">
+                            <div class="col-md-3">{% trans "service_name" %}</div>
+                            <div class="col-md-4">{% trans "service_description" %}</div>
+                            <div class="col-md-2">{% trans "service_price_tenge" %}</div>
+                            <div class="col-md-3">{% trans "service_actions" %}</div>
+                        </div>
                     </div>
-                </div>
-                
-                <!-- Services Rows -->
-                {% for service in page_obj %}
-                    <div class="service-row">
-                        <div class="row align-items-center">
-                            <div class="col-md-3">
-                                <div class="service-name">{{ service.name }}</div>
-                                {% if service.duration %}
-                                    <small class="text-muted">{{ service.duration }}</small>
-                                {% endif %}
-                            </div>
-                            <div class="col-md-4">
-                                <div class="service-description">
-                                    {{ service.short_description|default:service.description|truncatewords:20 }}
+                    
+                    <!-- Services Rows -->
+                    {% for service in page_obj %}
+                        <div class="service-row">
+                            <div class="row align-items-center">
+                                <div class="col-md-3">
+                                    <div class="service-name">{{ service.name }}</div>
+                                    {% if service.duration %}
+                                        <small class="text-muted">{{ service.duration }}</small>
+                                    {% endif %}
                                 </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="service-price">
-                                    {{ service.price|floatformat:0 }}
+                                <div class="col-md-4">
+                                    <div class="service-description">
+                                        {{ service.short_description|default:service.description|truncatewords:20 }}
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="service-actions">
-                                    <a href="#" class="btn-consultation" 
-                                       onclick="openConsultationModal({{ service.id }}, '{{ service.name }}')">
-                                        {% trans "consultation" %}
-                                    </a>
-                                    <button type="button" class="btn-add-service" 
-                                            onclick="addToCart({{ service.id }}, '{{ service.name }}', {{ service.price }})">
-                                        <i class="fas fa-shopping-cart"></i>
-                                        {% trans "add_service" %}
-                                    </button>
+                                <div class="col-md-2">
+                                    <div class="service-price">
+                                        {{ service.price|floatformat:0 }}
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="service-actions">
+                                        <a href="#" class="btn-consultation" 
+                                           onclick="openConsultationModal({{ service.id }}, '{{ service.name }}')">
+                                            {% trans "consultation" %}
+                                        </a>
+                                        <button type="button" class="btn-add-service" 
+                                                onclick="addToCart({{ service.id }}, '{{ service.name }}', {{ service.price }})">
+                                            <i class="fas fa-shopping-cart"></i>
+                                            {% trans "add_service" %}
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                {% endfor %}
-            </div>
-            
-            <!-- Pagination -->
-            {% if page_obj.has_other_pages %}
-                <nav aria-label="Services pagination">
-                    <ul class="pagination">
-                        {% if page_obj.has_previous %}
-                            <li class="page-item">
-                                <a class="page-link" href="?page={{ page_obj.previous_page_number }}{% if search_query %}&search={{ search_query }}{% endif %}{% if category_filter %}&category={{ category_filter }}{% endif %}{% if provider_filter %}&provider={{ provider_filter }}{% endif %}">
-                                    {% trans "previous" %}
-                                </a>
-                            </li>
-                        {% endif %}
-                        
-                        {% for num in page_obj.paginator.page_range %}
-                            {% if page_obj.number == num %}
-                                <li class="page-item active">
-                                    <span class="page-link">{{ num }}</span>
-                                </li>
-                            {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
-                                <li class="page-item">
-                                    <a class="page-link" href="?page={{ num }}{% if search_query %}&search={{ search_query }}{% endif %}{% if category_filter %}&category={{ category_filter }}{% endif %}{% if provider_filter %}&provider={{ provider_filter }}{% endif %}">{{ num }}</a>
-                                </li>
-                            {% endif %}
-                        {% endfor %}
-                        
-                        {% if page_obj.has_next %}
-                            <li class="page-item">
-                                <a class="page-link" href="?page={{ page_obj.next_page_number }}{% if search_query %}&search={{ search_query }}{% endif %}{% if category_filter %}&category={{ category_filter }}{% endif %}{% if provider_filter %}&provider={{ provider_filter }}{% endif %}">
-                                    {% trans "next" %}
-                                </a>
-                            </li>
-                        {% endif %}
-                    </ul>
-                </nav>
+                    {% endfor %}
+                </div>
             {% endif %}
         {% else %}
             <div class="text-center py-5">
