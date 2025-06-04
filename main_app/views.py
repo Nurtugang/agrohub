@@ -1,3 +1,4 @@
+import json
 from django.db.models import Q
 from django.conf import settings
 from django.utils import translation
@@ -232,49 +233,126 @@ def services_list(request):
 
 
 @require_POST
-def service_request(request):
-    """Обработка заявки на услугу"""
-    service_id = request.POST.get('service_id')
-    client_name = request.POST.get('client_name', '')
-    client_email = request.POST.get('client_email', '')
-    client_phone = request.POST.get('client_phone', '')
-    message = request.POST.get('message', '')
-    
-    # Валидация
-    if not all([service_id, client_name, client_email, client_phone]):
-        return JsonResponse({
-            'success': False,
-            'message': _('Все поля обязательны для заполнения')
-        })
-    
+def cart_service_request(request):
+    """Создание заявки на консультацию для нескольких услуг из корзины"""
     try:
-        service = Service.objects.get(id=service_id, is_active=True)
+        # Получаем данные из формы
+        service_ids_json = request.POST.get('service_ids')
+        client_name = request.POST.get('client_name')
+        client_email = request.POST.get('client_email')
+        client_phone = request.POST.get('client_phone')
+        message = request.POST.get('message', '')
+        print(service_ids_json, client_name, client_email, client_phone, message)
+        # Валидация данных
+        if not all([service_ids_json, client_name, client_email, client_phone]):
+            return JsonResponse({
+                'success': False,
+                'message': 'Заполните все обязательные поля'
+            })
+        
+        # Парсим список ID услуг
+        try:
+            service_ids = json.loads(service_ids_json)
+        except json.JSONDecodeError:
+            return JsonResponse({
+                'success': False,
+                'message': 'Ошибка в данных корзины'
+            })
+        
+        # Получаем услуги
+        services = Service.objects.filter(id__in=service_ids, is_active=True)
+        
+        if not services.exists():
+            return JsonResponse({
+                'success': False,
+                'message': 'Выбранные услуги не найдены'
+            })
         
         # Создаем заявку
         service_request = ServiceRequest.objects.create(
-            service=service,
             client_name=client_name,
             client_email=client_email,
             client_phone=client_phone,
             message=message
         )
         
+        # Добавляем услуги к заявке
+        service_request.services.set(services)
+        
+        # Пересчитываем общую сумму
+        service_request.calculate_total()
+        
+        # Формируем сообщение об успехе
+        services_names = [service.name for service in services]
+        success_message = f"Заявка на консультацию создана! Услуги: {', '.join(services_names)}. Общая сумма: {service_request.total_price} ₸"
+        
         return JsonResponse({
             'success': True,
-            'message': _('Ваша заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.')
+            'message': success_message,
+            'request_id': service_request.id
         })
         
-    except Service.DoesNotExist:
-        return JsonResponse({
-            'success': False,
-            'message': _('Услуга не найдена')
-        })
     except Exception as e:
         return JsonResponse({
             'success': False,
-            'message': _('Произошла ошибка при отправке заявки')
+            'message': f'Произошла ошибка: {str(e)}'
+        })
+
+
+@require_POST  
+def service_request(request):
+    """Создание заявки на консультацию для одной услуги (существующая функциональность)"""
+    try:
+        # Получаем данные из формы
+        service_id = request.POST.get('service_id')
+        client_name = request.POST.get('client_name')
+        client_email = request.POST.get('client_email')
+        client_phone = request.POST.get('client_phone')
+        message = request.POST.get('message', '')
+        
+        # Валидация данных
+        if not all([service_id, client_name, client_email, client_phone]):
+            return JsonResponse({
+                'success': False,
+                'message': 'Заполните все обязательные поля'
+            })
+        
+        # Получаем услугу
+        try:
+            service = Service.objects.get(id=service_id, is_active=True)
+        except Service.DoesNotExist:
+            return JsonResponse({
+                'success': False,
+                'message': 'Услуга не найдена'
+            })
+        
+        # Создаем заявку
+        service_request = ServiceRequest.objects.create(
+            client_name=client_name,
+            client_email=client_email,
+            client_phone=client_phone,
+            message=message
+        )
+        
+        # Добавляем одну услугу к заявке
+        service_request.services.add(service)
+        
+        # Пересчитываем общую сумму
+        service_request.calculate_total()
+        
+        return JsonResponse({
+            'success': True,
+            'message': f'Заявка на консультацию по услуге "{service.name}" создана!',
+            'request_id': service_request.id
         })
         
+    except Exception as e:
+        return JsonResponse({
+            'success': False,
+            'message': f'Произошла ошибка: {str(e)}'
+        })
+        
+          
 def service_detail(request, slug):
     """Детальная страница услуги"""
     service = get_object_or_404(Service, slug=slug, is_active=True)

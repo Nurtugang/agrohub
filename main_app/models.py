@@ -191,7 +191,7 @@ class ServiceImage(models.Model):
 
 
 class ServiceRequest(models.Model):
-    """Заявки на услуги"""
+    """Заявки на услуги - теперь поддерживает множественный выбор"""
     STATUS_CHOICES = [
         ('pending', 'Ожидает'),
         ('confirmed', 'Подтверждена'),
@@ -200,20 +200,42 @@ class ServiceRequest(models.Model):
         ('cancelled', 'Отменена'),
     ]
     
-    service = models.ForeignKey(Service, related_name='requests', on_delete=models.CASCADE)
+    # Изменяем связь с услугами на ManyToMany
+    services = models.ManyToManyField(Service, related_name='requests')
+    
+    # Клиентская информация
     client_name = models.CharField(max_length=200)
     client_email = models.EmailField()
     client_phone = models.CharField(max_length=20)
     message = models.TextField(blank=True)
+    
+    # Добавляем общую сумму
+    total_price = models.DecimalField(max_digits=12, decimal_places=2, default=0)
+    
+    # Статус и временные метки
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='pending')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     
+    def calculate_total(self):
+        """Подсчет общей стоимости заказа"""
+        total = sum(service.price for service in self.services.all())
+        self.total_price = total
+        self.save()
+        return total
+    
+    def get_services_list(self):
+        """Получить список названий услуг"""
+        return ", ".join([service.name for service in self.services.all()])
+    
     def __str__(self):
-        return f"Request for {self.service.name} by {self.client_name}"
+        services_count = self.services.count()
+        if services_count == 1:
+            return f"Request for {self.services.first().name} by {self.client_name}"
+        else:
+            return f"Request for {services_count} services by {self.client_name}"
     
     class Meta:
         verbose_name = "Service Request"
         verbose_name_plural = "Service Requests"
         ordering = ['-created_at']
-

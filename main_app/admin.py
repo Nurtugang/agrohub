@@ -149,27 +149,36 @@ class ServiceImageAdmin(admin.ModelAdmin):
 
 @admin.register(ServiceRequest)
 class ServiceRequestAdmin(admin.ModelAdmin):
-    list_display = ('service', 'get_provider', 'client_name', 'client_email', 'status', 'created_at')
-    list_filter = ('status', 'created_at', 'service__category__provider', 'service__category')
-    search_fields = ('client_name', 'client_email', 'service__name')
+    list_display = ('client_name', 'get_services_count', 'get_services_list_short', 'total_price', 'status', 'created_at')
+    list_filter = ('status', 'created_at', 'services__category__provider', 'services__category')
+    search_fields = ('client_name', 'client_email', 'services__name')
     list_editable = ('status',)
     date_hierarchy = 'created_at'
-    readonly_fields = ('created_at', 'updated_at')
+    readonly_fields = ('created_at', 'updated_at', 'total_price')
+    filter_horizontal = ('services',)  # Удобный виджет для выбора множественных услуг
     
-    def get_provider(self, obj):
-        return obj.service.category.provider.name
-    get_provider.short_description = 'Provider'
-    get_provider.admin_order_field = 'service__category__provider__name'
+    def get_services_count(self, obj):
+        return obj.services.count()
+    get_services_count.short_description = 'Количество услуг'
+    get_services_count.admin_order_field = 'services__count'
+    
+    def get_services_list_short(self, obj):
+        services = obj.services.all()[:3]  # Показываем только первые 3
+        names = [service.name for service in services]
+        if obj.services.count() > 3:
+            names.append(f"... и еще {obj.services.count() - 3}")
+        return ", ".join(names)
+    get_services_list_short.short_description = 'Услуги'
     
     fieldsets = (
-        ('Услуга', {
-            'fields': ('service',)
+        ('Услуги', {
+            'fields': ('services',)
         }),
         ('Клиент', {
             'fields': ('client_name', 'client_email', 'client_phone')
         }),
         ('Заявка', {
-            'fields': ('message', 'status')
+            'fields': ('message', 'status', 'total_price')
         }),
         ('Временные метки', {
             'fields': ('created_at', 'updated_at'),
@@ -177,7 +186,12 @@ class ServiceRequestAdmin(admin.ModelAdmin):
         }),
     )
     
-    actions = ['mark_as_confirmed', 'mark_as_completed', 'mark_as_cancelled']
+    def save_model(self, request, obj, form, change):
+        super().save_model(request, obj, form, change)
+        # Пересчитываем общую сумму после сохранения
+        obj.calculate_total()
+    
+    actions = ['mark_as_confirmed', 'mark_as_completed', 'mark_as_cancelled', 'recalculate_totals']
     
     def mark_as_confirmed(self, request, queryset):
         updated = queryset.update(status='confirmed')
@@ -193,3 +207,11 @@ class ServiceRequestAdmin(admin.ModelAdmin):
         updated = queryset.update(status='cancelled')
         self.message_user(request, f'{updated} заявок отмечены как отмененные.')
     mark_as_cancelled.short_description = "Отметить как отмененные"
+    
+    def recalculate_totals(self, request, queryset):
+        updated = 0
+        for obj in queryset:
+            obj.calculate_total()
+            updated += 1
+        self.message_user(request, f'Пересчитана общая сумма для {updated} заявок.')
+    recalculate_totals.short_description = "Пересчитать общие суммы"

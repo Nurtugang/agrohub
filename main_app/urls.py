@@ -15,8 +15,9 @@ urlpatterns = [
     path('newsletter/subscribe/', views.newsletter_subscribe, name='newsletter_subscribe'),
     
     path('services/', views.services_list, name='services_list'),
+    path('services/request/', views.service_request, name='service_request'),
+    path('services/cart-request/', views.cart_service_request, name='cart_service_request'),
     path('services/<slug:slug>/', views.service_detail, name='service_detail'),
-    path('service-request/', views.service_request, name='service_request'),
 
     path('courses/', views.courses, name='courses'),    
     path('course/', views.course, name='course'),    
