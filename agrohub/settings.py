@@ -115,9 +115,6 @@ MEDIA_ROOT = BASE_DIR / 'uploads'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-gettext = lambda s: s
-LANGUAGES = (
-    ('en', gettext('English')),
-    ('ru', gettext('Russian')),
-    ('kk', gettext('Kazakh')),
-)
+LOCALE_PATHS = [
+    BASE_DIR / 'locale',
+]
