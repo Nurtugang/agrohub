@@ -13,6 +13,8 @@ db.sqlite3-journal
 # Media files (загруженные пользователями файлы)
 media/
 uploads/
+staticfiles_production/
+
 
 # Environment variables
 .env
