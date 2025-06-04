@@ -118,3 +118,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOCALE_PATHS = [
     BASE_DIR / 'locale',
 ]
+
+ROSETTA_AUTO_COMPILE = True
+ROSETTA_WSGI_AUTO_RELOAD = True
+ROSETTA_UWSGI_AUTO_RELOAD = True

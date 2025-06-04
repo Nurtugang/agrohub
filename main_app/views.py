@@ -1,14 +1,23 @@
+import os
 import json
 from django.db.models import Q
 from django.conf import settings
 from django.utils import translation
-from django.http import JsonResponse
 from datetime import datetime, timedelta
 from django.core.paginator import Paginator
 from django.utils.translation import gettext as _
+from django.http import JsonResponse, HttpResponse
 from django.views.decorators.http import require_POST
 from .models import Thing, News, NewsCategory, Newsletter, Service, ServiceProvider, ServiceCategory, ServiceProvider, ServiceRequest
 from django.shortcuts import render, redirect, get_object_or_404
+
+def reload_translations_view(request):
+    """Перезагрузка переводов. Используется только в продакшне"""
+    if request.user.is_superuser:
+        os.system('cd /var/www/agrohub && python manage.py compilemessages')
+        os.utime('/var/www/agrohub/agrohub/wsgi.py', None)
+        return HttpResponse("✅ Переводы обновлены и WSGI перезагружен!")
+    return HttpResponse("❌ Нет прав доступа")
 
 def index(request):
     """Main page with multilingual content"""
