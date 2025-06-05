@@ -289,6 +289,27 @@ class Course(models.Model):
     
     def __str__(self):
         return self.title
+    
+    def save(self, *args, **kwargs):
+        if self.main_image:
+            self.main_image = self.compress_image(self.main_image)
+        super().save(*args, **kwargs)
+    
+    def compress_image(self, image):
+        img = Image.open(image)
+        img = img.convert('RGB')
+        
+        if img.width > 1200:
+            ratio = 1200 / img.width
+            new_height = int(img.height * ratio)
+            img = img.resize((1200, new_height), Image.Resampling.LANCZOS)
+        
+        output = BytesIO()
+        img.save(output, format='WebP', quality=85, optimize=True)
+        output.seek(0)
+        
+        name = os.path.splitext(image.name)[0] + '.webp'
+        return ContentFile(output.read(), name=name)
 
 
 class Instructor(models.Model):
@@ -301,6 +322,27 @@ class Instructor(models.Model):
     class Meta:
         verbose_name = "Instructor"
         verbose_name_plural = "Instructors"
+    
+    def save(self, *args, **kwargs):
+        if self.photo:
+            self.photo = self.compress_image(self.photo)
+        super().save(*args, **kwargs)
+    
+    def compress_image(self, image):
+        img = Image.open(image)
+        img = img.convert('RGB')
+        
+        if img.width > 400:
+            ratio = 400 / img.width
+            new_height = int(img.height * ratio)
+            img = img.resize((400, new_height), Image.Resampling.LANCZOS)
+        
+        output = BytesIO()
+        img.save(output, format='WebP', quality=85, optimize=True)
+        output.seek(0)
+        
+        name = os.path.splitext(image.name)[0] + '.webp'
+        return ContentFile(output.read(), name=name)
 
 
 class CourseModule(models.Model):
@@ -344,6 +386,27 @@ class CourseReview(models.Model):
         verbose_name = "Course Review"
         verbose_name_plural = "Course Reviews"
         ordering = ['-created_at']
+    
+    def save(self, *args, **kwargs):
+        if self.reviewer_photo:
+            self.reviewer_photo = self.compress_image(self.reviewer_photo)
+        super().save(*args, **kwargs)
+    
+    def compress_image(self, image):
+        img = Image.open(image)
+        img = img.convert('RGB')
+        
+        if img.width > 300:
+            ratio = 300 / img.width
+            new_height = int(img.height * ratio)
+            img = img.resize((300, new_height), Image.Resampling.LANCZOS)
+        
+        output = BytesIO()
+        img.save(output, format='WebP', quality=85, optimize=True)
+        output.seek(0)
+        
+        name = os.path.splitext(image.name)[0] + '.webp'
+        return ContentFile(output.read(), name=name)
 
 
 class CourseApplication(models.Model):
