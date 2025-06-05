@@ -8,21 +8,24 @@ msgstr ""
 "Project-Id-Version: Agrosector 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-01 12:00+0600\n"
-"PO-Revision-Date: 2025-06-01 12:00+0600\n"
-"Last-Translator: Developer <dev@agrosector.kz>\n"
+"PO-Revision-Date: 2025-06-04 17:41+0000\n"
+"Last-Translator:   <>\n"
 "Language-Team: Russian <ru@agrosector.kz>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+"X-Translated-Using: django-rosetta 0.10.2\n"
 
 # Site meta
 msgid "site_title"
 msgstr "Agrosector"
 
 msgid "site_description"
-msgstr "Крупнейший аграрный портал Казахстана. Комплексные услуги во всех отраслях сельского хозяйства."
+msgstr ""
+"Крупнейший аграрный портал Казахстана. Комплексные услуги во всех отраслях "
+"сельского хозяйства."
 
 # Navigation
 msgid "nav_about"
@@ -183,25 +186,34 @@ msgid "news_title"
 msgstr "Новости"
 
 msgid "news_1_title"
-msgstr "Ученые обнаружили шестое состояние вещества и сделали из него космический бургер"
+msgstr ""
+"Ученые обнаружили шестое состояние вещества и сделали из него космический "
+"бургер"
 
 msgid "news_1_date"
 msgstr "21 мая 2025 г"
 
 msgid "news_1_excerpt"
-msgstr "Физики исследовали ранее неизвестное состояние вещества и на его основе создали особый «космический бургер»."
+msgstr ""
+"Физики исследовали ранее неизвестное состояние вещества и на его основе "
+"создали особый «космический бургер»."
 
 msgid "news_1_alt"
 msgstr "Новость"
 
 msgid "news_2_title"
-msgstr "Реактивный трактор со скоростью 800 км/ч – полный технический обзор с выставки"
+msgstr ""
+"Реактивный трактор со скоростью 800 км/ч – полный технический обзор с "
+"выставки"
 
 msgid "news_2_date"
 msgstr "19 мая 2025 г"
 
 msgid "news_2_excerpt"
-msgstr "Новая эра в сельском хозяйстве: инженеры представили реактивный трактор. Эта техника со скоростью 800 км/ч не предназначена для полевых работ, но демонстрирует возможности аграрных инноваций."
+msgstr ""
+"Новая эра в сельском хозяйстве: инженеры представили реактивный трактор. Эта"
+" техника со скоростью 800 км/ч не предназначена для полевых работ, но "
+"демонстрирует возможности аграрных инноваций."
 
 msgid "news_2_alt"
 msgstr "Трактор"
@@ -214,7 +226,9 @@ msgstr "Все новости"
 
 # Footer
 msgid "footer_description"
-msgstr "Крупнейший аграрный портал Казахстана. Мы предоставляем комплексные услуги во всех отраслях сельского хозяйства."
+msgstr ""
+"Крупнейший аграрный портал Казахстана. Мы предоставляем комплексные услуги "
+"во всех отраслях сельского хозяйства."
 
 msgid "footer_services_title"
 msgstr "Услуги"
@@ -339,7 +353,9 @@ msgid "cta_title"
 msgstr "Попробуйте наши услуги"
 
 msgid "cta_description"
-msgstr "Мы предлагаем комплексные решения для вашего аграрного бизнеса. Свяжитесь с нами сегодня для получения профессиональной консультации!"
+msgstr ""
+"Мы предлагаем комплексные решения для вашего аграрного бизнеса. Свяжитесь с "
+"нами сегодня для получения профессиональной консультации!"
 
 msgid "cta_services_button"
 msgstr "Все услуги"
@@ -350,10 +366,7 @@ msgstr "Связаться"
 msgid "no_news_available"
 msgstr "Новости пока недоступны"
 
-
 # NEWS PAGE
-
-
 msgid "news_updates_title"
 msgstr "Новости и обновления"
 
@@ -361,7 +374,9 @@ msgid "subscribe_button"
 msgstr "Подписаться"
 
 msgid "news_description"
-msgstr "Актуальные события агросферы и главные новости, а также важные обновления нашего портала."
+msgstr ""
+"Актуальные события агросферы и главные новости, а также важные обновления "
+"нашего портала."
 
 msgid "search_news_placeholder"
 msgstr "Поиск по новостям"
@@ -474,9 +489,7 @@ msgstr "Подписаться сейчас"
 msgid "subscription_error"
 msgstr "Произошла ошибка при подписке. Попробуйте еще раз."
 
-
 # Services translations for Russian
-
 msgid "services_laboratory_analysis"
 msgstr "Лабораторный анализ и экспертиза"
 
@@ -493,7 +506,7 @@ msgid "promotion_about"
 msgstr "О акции"
 
 msgid "services_agrotech_services"
-msgstr "Услуги Агротехнопарка"
+msgstr "Услуги"
 
 msgid "filter_title"
 msgstr "Фильтр"
@@ -549,8 +562,258 @@ msgstr "Сообщение"
 msgid "send_request"
 msgstr "Отправить заявку"
 
-msgid "service_added_to_cart"
-msgstr "Услуга добавлена в корзину"
 
 msgid "request_error"
 msgstr "Произошла ошибка при отправке заявки"
+
+msgid "cart_title"
+msgstr "Корзина"
+
+msgid "your_cart"
+msgstr "Ваша корзина"
+
+msgid "cart_empty"
+msgstr "Корзина пустая"
+
+msgid "total_amount"
+msgstr "Общая сумма"
+
+msgid "clear_cart"
+msgstr "Очистить"
+
+msgid "consultation_selected_services"
+msgstr "Консультация по выбранным услугам"
+
+msgid "selected_services"
+msgstr "Выбранные услуги"
+
+msgid "additional_wishes_placeholder"
+msgstr "Дополнительные пожелания или вопросы по выбранным услугам"
+
+msgid "send_consultation_request"
+msgstr "Отправить заявку на консультацию"
+
+msgid "service_already_in_cart"
+msgstr "Услуга уже добавлена в корзину!"
+
+msgid "service_added_to_cart"
+msgstr "Услуга добавлена в корзину"
+
+msgid "service_removed_from_cart"
+msgstr "Услуга удалена из корзины"
+
+msgid "cart_cleared"
+msgstr "Корзина очищена"
+
+msgid "cart_empty_warning"
+msgstr "Корзина пуста!"
+
+msgid "remove_item"
+msgstr "Удалить"
+
+
+
+# about.html
+msgid "about_title"
+msgstr "О нас"
+
+msgid "about_hero_title"
+msgstr "Агросектор – ғылым мен бизнестің тоғысқан нүктесі"
+
+msgid "about_hero_subtitle"
+msgstr "Ғылыми әзірлемелерді, оқыту курстарын және сараптамалық қолдауды бір алаңда біріктірдік"
+
+msgid "who_we_are_title"
+msgstr "Кто мы?"
+
+msgid "who_we_are_p1"
+msgstr "Agrosector — это ведущая казахстанская платформа, объединяющая науку, образование и практическое применение в области сельского хозяйства."
+
+msgid "who_we_are_p2"
+msgstr "Мы создали уникальную экосистему, где фермеры, агрономы, ветеринары и исследователи могут обмениваться опытом, получать актуальные знания и развивать свой бизнес."
+
+msgid "who_we_are_p3"
+msgstr "Наша команда состоит из опытных специалистов с многолетним стажем работы в различных отраслях сельского хозяйства, которые понимают реальные потребности агропромышленного комплекса."
+
+msgid "who_we_are_p4"
+msgstr "За годы работы мы помогли сотням предприятий повысить эффективность производства, внедрить современные технологии и достичь устойчивого развития."
+
+msgid "our_purpose_title"
+msgstr "Наша цель"
+
+msgid "our_purpose_p1"
+msgstr "Модернизация казахстанского сельского хозяйства через внедрение инновационных технологий, научных разработок и современных методов управления."
+
+msgid "our_purpose_p2"
+msgstr "Мы стремимся сделать аграрный сектор более продуктивным, устойчивым и конкурентоспособным на международном уровне."
+
+msgid "our_purpose_p3"
+msgstr "Наша цель — создать цифровую экосистему, которая объединит всех участников агропромышленного комплекса и обеспечит им доступ к лучшим практикам, технологиям и знаниям."
+
+msgid "our_purpose_p4"
+msgstr "Мы верим, что только через объединение усилий науки, бизнеса и государства можно достичь революционных изменений в сельском хозяйстве."
+
+msgid "our_mission_title"
+msgstr "Наша миссия"
+
+msgid "our_mission_p1"
+msgstr "Обеспечить устойчивое развитие сельского хозяйства Казахстана через интеграцию научных достижений, современных технологий и лучших мировых практик."
+
+msgid "our_mission_p2"
+msgstr "Мы предоставляем комплексные решения для агробизнеса: от научно-исследовательских работ и лабораторных анализов до образовательных программ и консультационных услуг."
+
+msgid "our_mission_p3"
+msgstr "Наша миссия включает поддержку малых и средних фермерских хозяйств, помощь в освоении новых технологий и методов ведения сельского хозяйства."
+
+msgid "our_mission_p4"
+msgstr "Мы стремимся создать условия для роста продовольственной безопасности страны и повышения конкурентоспособности казахстанской сельскохозяйственной продукции на мировых рынках."
+
+msgid "our_team_title"
+msgstr "Наша команда"
+
+msgid "our_team_description"
+msgstr "Профессионалы с многолетним опытом в агропромышленном комплексе, готовые поделиться знаниями и помочь в развитии вашего бизнеса."
+
+msgid "meet_the_team_button"
+msgstr "Познакомиться с командой"
+
+msgid "our_team_alt"
+msgstr "Наша команда"
+
+msgid "agriculture_innovations_alt"
+msgstr "Инновации в сельском хозяйстве"
+
+msgid "modern_agriculture_alt"
+msgstr "Современное сельское хозяйство"
+
+
+# course.html
+
+msgid "courses_title"
+msgstr "Курсы"
+
+msgid "hero_unprecedented_season"
+msgstr "Бұрын-соңды болмаған жеңілдіктер маусымы"
+
+msgid "hero_until_july"
+msgstr "Тек 4 шілдеге дейін!"
+
+msgid "hero_buy_one_get_50_off"
+msgstr "1 курс сатып алыңыз және екіншісін 50 % жеңілдікпен алыңыз"
+
+msgid "about_promotion"
+msgstr "Акция туралы"
+
+msgid "course_catalog"
+msgstr "Каталог курсов"
+
+msgid "filter_label"
+msgstr "Фильтр"
+
+msgid "all_courses"
+msgstr "Барлық курстар"
+
+msgid "popular_courses"
+msgstr "Танымал курстар"
+
+msgid "discount_courses"
+msgstr "Жеңілдік бар курстары"
+
+msgid "search_courses_placeholder"
+msgstr "Поиск курсов..."
+
+msgid "categories_label"
+msgstr "Санаттар"
+
+msgid "discount_label"
+msgstr "Жеңілдік"
+
+msgid "top_course_label"
+msgstr "ТОП курс"
+
+msgid "learn_more_about_course"
+msgstr "Узнать больше о курсе"
+
+msgid "no_courses_found"
+msgstr "Курсы не найдены"
+
+
+# course.html
+
+msgid "leave_application"
+msgstr "Оставить заявку"
+
+msgid "back"
+msgstr "Назад"
+
+msgid "about_course"
+msgstr "О курсе"
+
+msgid "main_information"
+msgstr "Основная информация"
+
+msgid "per_week"
+msgstr "В неделю"
+
+msgid "hours"
+msgstr "часов"
+
+msgid "total"
+msgstr "Всего"
+
+msgid "tenge"
+msgstr "тенге"
+
+msgid "discount"
+msgstr "Скидка"
+
+msgid "what_you_learn"
+msgstr "Что вы изучите?"
+
+msgid "comprehensive_knowledge"
+msgstr "Получите всесторонние знания в предметной области"
+
+msgid "practical_skills"
+msgstr "Освоите практические навыки и методы работы"
+
+msgid "modern_methods"
+msgstr "Изучите современные методы и подходы"
+
+msgid "expert_guidance"
+msgstr "Получите экспертное руководство от опытных преподавателей"
+
+msgid "certificate_completion"
+msgstr "Получите сертификат о прохождении курса"
+
+msgid "course_curriculum"
+msgstr "Программа курса"
+
+msgid "module"
+msgstr "Модуль"
+
+msgid "topic"
+msgstr "Тема"
+
+msgid "course_instructors"
+msgstr "Преподаватели курса"
+
+msgid "course_reviews"
+msgstr "Отзывы о курсе"
+
+msgid "read_all_reviews"
+msgstr "Читать все отзывы"
+
+msgid "hide_reviews"
+msgstr "Скрыть отзывы"
+
+msgid "enroll_course_or_get_consultation"
+msgstr "Записаться на курс или получить бесплатную консультацию"
+
+msgid "full_name"
+msgstr "Полное имя"
+
+msgid "phone"
+msgstr "Телефон"
+
+msgid "email"
+msgstr "Email"

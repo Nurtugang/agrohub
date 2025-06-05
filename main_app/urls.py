@@ -19,8 +19,9 @@ urlpatterns = [
     path('services/cart-request/', views.cart_service_request, name='cart_service_request'),
     path('services/<slug:slug>/', views.service_detail, name='service_detail'),
 
-    path('courses/', views.courses, name='courses'),    
-    path('course/', views.course, name='course'),    
+    path('courses/', views.courses_list, name='courses_list'),
+    path('course/application/', views.course_application, name='course_application'), 
+    path('course/<slug:slug>/', views.course_detail, name='course_detail'),
     
     path('change-language/<str:language_code>/', views.change_language, name='change_language'),
 ]

@@ -1,5 +1,6 @@
 import os
 import json
+from .models import *
 from django.db.models import Q
 from django.conf import settings
 from django.utils import translation
@@ -8,7 +9,6 @@ from django.core.paginator import Paginator
 from django.utils.translation import gettext as _
 from django.http import JsonResponse, HttpResponse
 from django.views.decorators.http import require_POST
-from .models import Thing, News, NewsCategory, Newsletter, Service, ServiceProvider, ServiceCategory, ServiceProvider, ServiceRequest
 from django.shortcuts import render, redirect, get_object_or_404
 
 def reload_translations_view(request):
@@ -377,13 +377,13 @@ def service_detail(request, slug):
     
     return render(request, 'service_detail.html', context)
 
-def courses(request):
-    locale = translation.get_language()
+# def courses(request):
+#     locale = translation.get_language()
     
-    context = {
-        'current_language': locale,
-    }
-    return render(request, 'courses.html', context)
+#     context = {
+#         'current_language': locale,
+#     }
+#     return render(request, 'courses.html', context)
 
 def course(request):
     locale = translation.get_language()
@@ -392,3 +392,125 @@ def course(request):
         'current_language': locale,
     }
     return render(request, 'course.html', context)
+
+def courses_list(request):
+    """Страница списка курсов с фильтрацией"""
+    # Фильтры
+    category_filter = request.GET.get('category', '')
+    filter_type = request.GET.get('filter', 'all')  # all, popular, discount
+    
+    # Получаем все активные курсы
+    courses = Course.objects.filter(is_active=True).select_related('category')
+    
+    # Применяем фильтры по типу
+    if filter_type == 'popular':
+        courses = courses.filter(is_popular=True)
+    elif filter_type == 'discount':
+        courses = courses.filter(has_discount=True)
+    
+    # Фильтр по категории
+    if category_filter:
+        courses = courses.filter(category__slug=category_filter)
+    
+    # Сортировка
+    courses = courses.order_by('-created_at')
+    
+    # Пагинация
+    paginator = Paginator(courses, 9)  # 9 курсов на страницу
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    
+    # Данные для фильтров
+    categories = CourseCategory.objects.filter(is_active=True).order_by('order', 'name')
+    
+    locale = translation.get_language()
+    
+    context = {
+        'page_obj': page_obj,
+        'categories': categories,
+        'category_filter': category_filter,
+        'filter_type': filter_type,
+        'current_language': locale,
+    }
+    
+    return render(request, 'courses.html', context)
+
+
+def course_detail(request, slug):
+    """Детальная страница курса"""
+    course = get_object_or_404(Course, slug=slug, is_active=True)
+    
+    # Получаем модули с темами
+    modules = course.modules.filter().order_by('order').prefetch_related('topics')
+    
+    # Получаем преподавателей
+    instructors = course.instructors.all()
+    
+    # Получаем одобренные отзывы
+    reviews = course.reviews.filter(is_approved=True).order_by('-created_at')
+    
+    # Похожие курсы
+    related_courses = Course.objects.filter(
+        category=course.category,
+        is_active=True
+    ).exclude(slug=slug)[:3]
+    
+    context = {
+        'course': course,
+        'modules': modules,
+        'instructors': instructors,
+        'reviews': reviews,
+        'related_courses': related_courses,
+    }
+    
+    return render(request, 'course.html', context)
+
+
+def course_application(request):
+    """Обработка заявок на курс"""
+    if request.method == 'POST':
+        try:
+            course_id = request.POST.get('course_id')
+            full_name = request.POST.get('full_name')
+            phone = request.POST.get('phone')
+            email = request.POST.get('email')
+            # Валидация
+            if not all([course_id, full_name, phone, email]):
+                return JsonResponse({
+                    'success': False,
+                    'message': 'Заполните все обязательные поля'
+                })
+            
+            # Получаем курс
+            try:
+                course = Course.objects.get(id=course_id, is_active=True)
+            except Course.DoesNotExist:
+                return JsonResponse({
+                    'success': False,
+                    'message': 'Курс не найден'
+                })
+            
+            # Создаем заявку
+            application = CourseApplication.objects.create(
+                course=course,
+                full_name=full_name,
+                phone=phone,
+                email=email,
+            )
+            
+            return JsonResponse({
+                'success': True,
+                'message': f'Заявка на курс "{course.title}" успешно отправлена!',
+                'application_id': application.id
+            })
+            
+        except Exception as e:
+            return JsonResponse({
+                'success': False,
+                'message': f'Произошла ошибка: {str(e)}'
+            })
+    
+    return JsonResponse({
+        'success': False,
+        'message': 'Метод не поддерживается'
+    })

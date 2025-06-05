@@ -8,21 +8,24 @@ msgstr ""
 "Project-Id-Version: Agrosector 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-01 12:00+0600\n"
-"PO-Revision-Date: 2025-06-01 12:00+0600\n"
-"Last-Translator: Developer <dev@agrosector.kz>\n"
+"PO-Revision-Date: 2025-06-04 17:42+0000\n"
+"Last-Translator:   <>\n"
 "Language-Team: Kazakh <kk@agrosector.kz>\n"
 "Language: kk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Translated-Using: django-rosetta 0.10.2\n"
 
 # Site meta
 msgid "site_title"
 msgstr "Agrosector"
 
 msgid "site_description"
-msgstr "Қазақстандағы ең ірі аграрлық портал. Ауыл шаруашылығының барлық салаларында кешенді қызметтер."
+msgstr ""
+"Қазақстандағы ең ірі аграрлық портал. Ауыл шаруашылығының барлық салаларында"
+" кешенді қызметтер."
 
 # Navigation
 msgid "nav_about"
@@ -90,8 +93,6 @@ msgid "hero_button"
 msgstr "Портал туралы"
 
 # Services section
-
-
 msgid "service_agronomy_title"
 msgstr "Агрономия және орман шаруашылығы"
 
@@ -182,25 +183,33 @@ msgid "news_title"
 msgstr "Жаңалықтар"
 
 msgid "news_1_title"
-msgstr "Ғалымдар заттың алтыншы күйін тауып, оның негізінде ғарыштық бургер жасады"
+msgstr ""
+"Ғалымдар заттың алтыншы күйін тауып, оның негізінде ғарыштық бургер жасады"
 
 msgid "news_1_date"
 msgstr "21 Мамыр 2025 ж"
 
 msgid "news_1_excerpt"
-msgstr "Физиктер бұрын белгісіз зат күйін зерттеп, оның негізінде ерекше «ғарыштық бургер» құрастырды."
+msgstr ""
+"Физиктер бұрын белгісіз зат күйін зерттеп, оның негізінде ерекше «ғарыштық "
+"бургер» құрастырды."
 
 msgid "news_1_alt"
 msgstr "Жаңалық"
 
 msgid "news_2_title"
-msgstr "Сағатына 800 км жылдамдыққа жететін реактивті трактор – көрмедегі толық техникалық шолу"
+msgstr ""
+"Сағатына 800 км жылдамдыққа жететін реактивті трактор – көрмедегі толық "
+"техникалық шолу"
 
 msgid "news_2_date"
 msgstr "19 Мамыр 2025 ж"
 
 msgid "news_2_excerpt"
-msgstr "Ауыл шаруашылығындағы жаңа дәуір: инженерлер жасалған реактивті тракторды таныстырды. Сағатына 800 км жылдамдыққа жететін бұл техника егістікке арналмағанымен, аграрлық инновациялардың мүмкіндігін паш етеді."
+msgstr ""
+"Ауыл шаруашылығындағы жаңа дәуір: инженерлер жасалған реактивті тракторды "
+"таныстырды. Сағатына 800 км жылдамдыққа жететін бұл техника егістікке "
+"арналмағанымен, аграрлық инновациялардың мүмкіндігін паш етеді."
 
 msgid "news_2_alt"
 msgstr "Трактор"
@@ -213,7 +222,9 @@ msgstr "Барлық жаңалықтар"
 
 # Footer
 msgid "footer_description"
-msgstr "Қазақстандағы ең ірі аграрлық портал. Біз ауыл шаруашылығының барлық салаларында кешенді қызметтер көрсетеміз."
+msgstr ""
+"Қазақстандағы ең ірі аграрлық портал. Біз ауыл шаруашылығының барлық "
+"салаларында кешенді қызметтер көрсетеміз."
 
 msgid "footer_services_title"
 msgstr "Қызметтер"
@@ -338,7 +349,9 @@ msgid "cta_title"
 msgstr "Біздің қызметтерімізді пайдаланып көріңіз"
 
 msgid "cta_description"
-msgstr "Сіздің аграрлық бизнесіңіз үшін кешенді шешімдер ұсынамыз. Кәсіби кеңес алу үшін бүгін-ақ байланысыңыз!"
+msgstr ""
+"Сіздің аграрлық бизнесіңіз үшін кешенді шешімдер ұсынамыз. Кәсіби кеңес алу "
+"үшін бүгін-ақ байланысыңыз!"
 
 msgid "cta_services_button"
 msgstr "Барлық қызметтер"
@@ -350,8 +363,6 @@ msgid "no_news_available"
 msgstr "Жаңалықтар әлі қолжетімсі"
 
 # NEWS PAGE
-
-
 msgid "news_updates_title"
 msgstr "Жаңалықтар мен жаңартулар"
 
@@ -359,7 +370,9 @@ msgid "subscribe_button"
 msgstr "Жазылу"
 
 msgid "news_description"
-msgstr "Агросфераның өзекті оқиғалары мен басты жаңалықтары, сондай-ақ біздің порталдың маңызды жаңартулары."
+msgstr ""
+"Агросфераның өзекті оқиғалары мен басты жаңалықтары, сондай-ақ біздің "
+"порталдың маңызды жаңартулары."
 
 msgid "search_news_placeholder"
 msgstr "Жаңалықтар бойынша іздеу"
@@ -461,7 +474,9 @@ msgid "dont_miss_updates"
 msgstr "Жаңартуларды жіберіп алмаңыз"
 
 msgid "newsletter_cta_description"
-msgstr "Біздің жаңалықтарға жазылып, барлық жаңалықтар мен оқиғалардан хабардар болыңыз"
+msgstr ""
+"Біздің жаңалықтарға жазылып, барлық жаңалықтар мен оқиғалардан хабардар "
+"болыңыз"
 
 msgid "enter_email_address"
 msgstr "Электронды пошта мекенжайын енгізіңіз"
@@ -471,7 +486,6 @@ msgstr "Қазір жазылу"
 
 msgid "subscription_error"
 msgstr "Жазылу кезінде қате орын алды. Қайталап көріңіз."
-
 
 # Services translations for Kazakh
 msgid "services_title"
@@ -493,7 +507,7 @@ msgid "promotion_about"
 msgstr "Акция туралы"
 
 msgid "services_agrotech_services"
-msgstr "Агротехнопарк қызметтері"
+msgstr "Қызметтер"
 
 msgid "filter_title"
 msgstr "Сүзгі"
@@ -549,8 +563,258 @@ msgstr "Хабарлама"
 msgid "send_request"
 msgstr "Өтінім жіберу"
 
+msgid "request_error"
+msgstr "Өтінім жіберу кезінде қате орын алды"
+
+msgid "cart_title"
+msgstr "Себет"
+
+msgid "your_cart"
+msgstr "Сіздің себетіңіз"
+
+msgid "cart_empty"
+msgstr "Себет бос"
+
+msgid "total_amount"
+msgstr "Жалпы сома"
+
+msgid "clear_cart"
+msgstr "Тазалау"
+
+msgid "consultation_selected_services"
+msgstr "Таңдалған қызметтер бойынша кеңес"
+
+msgid "selected_services"
+msgstr "Таңдалған қызметтер"
+
+msgid "additional_wishes_placeholder"
+msgstr "Таңдалған қызметтер бойынша қосымша тілектер немесе сұрақтар"
+
+msgid "send_consultation_request"
+msgstr "Кеңес сұрауын жіберу"
+
+msgid "service_already_in_cart"
+msgstr "Қызмет себетке қосылды!"
+
 msgid "service_added_to_cart"
 msgstr "Қызмет себетке қосылды"
 
-msgid "request_error"
-msgstr "Өтінім жіберу кезінде қате орын алды"
+msgid "service_removed_from_cart"
+msgstr "Қызмет себеттен алынды"
+
+msgid "cart_cleared"
+msgstr "Себет тазаланды"
+
+msgid "cart_empty_warning"
+msgstr "Себет бос!"
+
+msgid "remove_item"
+msgstr "Алып тастау"
+
+
+# about.html
+
+
+msgid "about_title"
+msgstr "Біз туралы"
+
+msgid "about_hero_title"
+msgstr "Агросектор – ғылым мен бизнестің тоғысқан нүктесі"
+
+msgid "about_hero_subtitle"
+msgstr "Ғылыми әзірлемелерді, оқыту курстарын және сараптамалық қолдауды бір алаңда біріктірдік"
+
+msgid "who_we_are_title"
+msgstr "Біз кімбіз?"
+
+msgid "who_we_are_p1"
+msgstr "Agrosector — ауыл шаруашылығы саласындағы ғылым, білім беру және практикалық қолдануды біріктіретін жетекші қазақстандық платформа."
+
+msgid "who_we_are_p2"
+msgstr "Біз фермерлер, агрономдар, ветеринарлар мен зерттеушілер тәжірибе алмаса алатын, өзекті білім ала алатын және өз бизнесін дамыта алатын бірегей экожүйе құрдық."
+
+msgid "who_we_are_p3"
+msgstr "Біздің команда агроөнеркәсіптік кешеннің нақты қажеттіліктерін түсінетін ауыл шаруашылығының әртүрлі салаларында көп жылдық тәжірибесі бар тәжірибелі мамандардан тұрады."
+
+msgid "who_we_are_p4"
+msgstr "Жұмыс жылдары біз жүздеген кәсіпорынға өндіріс тиімділігін арттыруға, заманауи технологияларды енгізуге және тұрақты дамуға қол жеткізуге көмектестік."
+
+msgid "our_purpose_title"
+msgstr "Біздің мақсатымыз"
+
+msgid "our_purpose_p1"
+msgstr "Инновациялық технологиялар, ғылыми әзірлемелер мен заманауи басқару әдістерін енгізу арқылы Қазақстан ауыл шаруашылығын жаңғырту."
+
+msgid "our_purpose_p2"
+msgstr "Біз аграрлық секторды халықаралық деңгейде неғұрлым өнімді, тұрақты және бәсекеге қабілетті ету үшін ұмтыламыз."
+
+msgid "our_purpose_p3"
+msgstr "Біздің мақсатымыз — агроөнеркәсіптік кешеннің барлық қатысушыларын біріктіретін және оларға ең жақсы тәжірибелер, технологиялар мен білімге қол жеткізуді қамтамасыз ететін цифрлық экожүйе құру."
+
+msgid "our_purpose_p4"
+msgstr "Біз ғылым, бизнес пен мемлекеттің күш-жігерін біріктіру арқылы ғана ауыл шаруашылығында революциялық өзгерістерге қол жеткізуге болатынына сенеміз."
+
+msgid "our_mission_title"
+msgstr "Біздің миссиямыз"
+
+msgid "our_mission_p1"
+msgstr "Ғылыми жетістіктерді, заманауи технологиялар мен ең жақсы әлемдік тәжірибелерді интеграциялау арқылы Қазақстан ауыл шаруашылығының тұрақты дамуын қамтамасыз ету."
+
+msgid "our_mission_p2"
+msgstr "Біз агробизнес үшін кешенді шешімдер ұсынамыз: ғылыми-зерттеу жұмыстары мен зертханалық талдаулардан бастап білім беру бағдарламалары мен консультациялық қызметтерге дейін."
+
+msgid "our_mission_p3"
+msgstr "Біздің миссия шағын және орта шаруашылықтарды қолдауды, жаңа технологиялар мен ауыл шаруашылығын жүргізу әдістерін игеруге көмек беруді қамтиды."
+
+msgid "our_mission_p4"
+msgstr "Біз елдің азық-түлік қауіпсіздігінің өсуі және әлемдік нарықтарда қазақстандық ауыл шаруашылығы өнімдерінің бәсекеге қабілеттілігін арттыру үшін жағдай жасауға ұмтыламыз."
+
+msgid "our_team_title"
+msgstr "Біздің команда"
+
+msgid "our_team_description"
+msgstr "Агроөнеркәсіптік кешенде көп жылдық тәжірибесі бар, біліммен бөлісуге және сіздің бизнесіңізді дамытуға көмектесуге дайын мамандар."
+
+msgid "meet_the_team_button"
+msgstr "Командамен танысу"
+
+msgid "our_team_alt"
+msgstr "Біздің команда"
+
+msgid "agriculture_innovations_alt"
+msgstr "Ауыл шаруашылығындағы инновациялар"
+
+msgid "modern_agriculture_alt"
+msgstr "Заманауи ауыл шаруашылығы"
+
+
+# course.html
+
+msgid "courses_title"
+msgstr "Курстар"
+
+msgid "hero_unprecedented_season"
+msgstr "Бұрын-соңды болмаған жеңілдіктер маусымы"
+
+msgid "hero_until_july"
+msgstr "Тек 4 шілдеге дейін!"
+
+msgid "hero_buy_one_get_50_off"
+msgstr "1 курс сатып алыңыз және екіншісін 50 % жеңілдікпен алыңыз"
+
+msgid "about_promotion"
+msgstr "Акция туралы"
+
+msgid "course_catalog"
+msgstr "Курс каталогы"
+
+msgid "filter_label"
+msgstr "Сүзгі"
+
+msgid "all_courses"
+msgstr "Барлық курстар"
+
+msgid "popular_courses"
+msgstr "Танымал курстар"
+
+msgid "discount_courses"
+msgstr "Жеңілдік бар курстары"
+
+msgid "search_courses_placeholder"
+msgstr "Курстарды іздеу..."
+
+msgid "categories_label"
+msgstr "Санаттар"
+
+msgid "discount_label"
+msgstr "Жеңілдік"
+
+msgid "top_course_label"
+msgstr "ТОП курс"
+
+msgid "learn_more_about_course"
+msgstr "Курс туралы көбірек білу"
+
+msgid "no_courses_found"
+msgstr "Курстар табылмады"
+
+
+# course.html
+
+msgid "leave_application"
+msgstr "Өтінім қалдыру"
+
+msgid "back"
+msgstr "Артқа"
+
+msgid "about_course"
+msgstr "Курс туралы"
+
+msgid "main_information"
+msgstr "Негізгі ақпарат"
+
+msgid "per_week"
+msgstr "Аптасына"
+
+msgid "hours"
+msgstr "сағат"
+
+msgid "total"
+msgstr "Барлығы"
+
+msgid "tenge"
+msgstr "теңге"
+
+msgid "discount"
+msgstr "Жеңілдік"
+
+msgid "what_you_learn"
+msgstr "Курстан не үйренесіз?"
+
+msgid "comprehensive_knowledge"
+msgstr "Пән саласында жан-жақты білім алыңыз"
+
+msgid "practical_skills"
+msgstr "Практикалық дағдылар мен жұмыс әдістерін игеріңіз"
+
+msgid "modern_methods"
+msgstr "Заманауи әдістер мен тәсілдерді үйреніңіз"
+
+msgid "expert_guidance"
+msgstr "Тәжірибелі оқытушылардан сарапшы жетекшілігін алыңыз"
+
+msgid "certificate_completion"
+msgstr "Курсты аяқтағаны туралы сертификат алыңыз"
+
+msgid "course_curriculum"
+msgstr "Курс бағдарламасы"
+
+msgid "module"
+msgstr "Модуль"
+
+msgid "topic"
+msgstr "Тақырып"
+
+msgid "course_instructors"
+msgstr "Курс оқытушылары"
+
+msgid "course_reviews"
+msgstr "Курс туралы пікірлер"
+
+msgid "read_all_reviews"
+msgstr "Барлық пікірлерді оқу"
+
+msgid "hide_reviews"
+msgstr "Пікірлерді жасыру"
+
+msgid "enroll_course_or_get_consultation"
+msgstr "Курсқа жазылыңыз немесе тегін кеңес алыңыз"
+
+msgid "full_name"
+msgstr "Толық аты-жөні"
+
+msgid "phone"
+msgstr "Телефон"
+
+msgid "email"
+msgstr "Email"

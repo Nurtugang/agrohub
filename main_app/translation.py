@@ -1,5 +1,5 @@
 from modeltranslation.translator import TranslationOptions, register
-from .models import Thing, NewsCategory, News, Newsletter, ServiceProvider, ServiceCategory, Service
+from .models import *
 
 
 @register(Thing)
@@ -35,3 +35,33 @@ class ServiceCategoryTranslationOptions(TranslationOptions):
 @register(Service)
 class ServiceTranslationOptions(TranslationOptions):
     fields = ('name', 'description', 'short_description', 'duration')
+    
+
+@register(CourseCategory)
+class CourseCategoryTranslationOptions(TranslationOptions):
+    fields = ('name',)
+
+
+@register(Course)
+class CourseTranslationOptions(TranslationOptions):
+    fields = ('title', 'description', 'short_description')
+
+
+@register(Instructor)
+class InstructorTranslationOptions(TranslationOptions):
+    fields = ('name', 'title', 'bio')
+
+
+@register(CourseModule)
+class CourseModuleTranslationOptions(TranslationOptions):
+    fields = ('title',)
+
+
+@register(CourseTopic)
+class CourseTopicTranslationOptions(TranslationOptions):
+    fields = ('title',)
+
+
+@register(CourseReview)
+class CourseReviewTranslationOptions(TranslationOptions):
+    fields = ('reviewer_name', 'comment')

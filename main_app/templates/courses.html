@@ -2,7 +2,7 @@
 {% load i18n %}
 {% load static %}
 
-{% block title %}Курсы - Agrosector{% endblock %}
+{% block title %}{% trans "courses_title" %} - {% trans "site_title" %}{% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/courses.css' %}">
@@ -38,10 +38,10 @@
     <div class="hero-image"></div>
     <div class="container">
         <div class="hero-content">
-            <h1>Бұрын-соңды болмаған жеңілдіктер маусымы</h1>
-            <h3 class="highlight">Тек 4 шілдеге дейін!</h3>
-            <p>1 курс сатып алыңыз және екіншісін 50 % жеңілдікпен алыңыз</p>
-            <a href="#" class="promo-btn">Акция туралы</a>
+            <h1>{% trans "hero_unprecedented_season" %}</h1>
+            <h3 class="highlight">{% trans "hero_until_july" %}</h3>
+            <p>{% trans "hero_buy_one_get_50_off" %}</p>
+            <a href="#" class="promo-btn">{% trans "about_promotion" %}</a>
         </div>
     </div>
 </section>
@@ -49,158 +49,96 @@
 <!-- Course Catalog Section -->
 <section class="catalog-section">
     <div class="container">
-        <h2>Курс каталогы</h2>
+        <h2>{% trans "course_catalog" %}</h2>
         
         <!-- Filter Section -->
         <div class="filter-section">
-            <p class="filter-label">Фильтр</p>
+            <p class="filter-label">{% trans "filter_label" %}</p>
             <div class="filter-buttons">
-                <button class="filter-btn active">Барлық курстар</button>
-                <button class="filter-btn">Танымал курстар</button>
-                <button class="filter-btn outline">Жеңілдік бар курстары</button>
+                <a href="?filter=all{% if category_filter %}&category={{ category_filter }}{% endif %}" 
+                   class="filter-btn {% if filter_type == 'all' or not filter_type %}active{% endif %}">
+                    {% trans "all_courses" %}
+                </a>
+                <a href="?filter=popular{% if category_filter %}&category={{ category_filter }}{% endif %}" 
+                   class="filter-btn {% if filter_type == 'popular' %}active{% endif %}">
+                    {% trans "popular_courses" %}
+                </a>
+                <a href="?filter=discount{% if category_filter %}&category={{ category_filter }}{% endif %}" 
+                   class="filter-btn outline {% if filter_type == 'discount' %}active{% endif %}">
+                    {% trans "discount_courses" %}
+                </a>
             </div>
         </div>
 
         <!-- Categories Section -->
         <div class="categories-section">
-            <p class="categories-label">Санаттар</p>
+            <p class="categories-label">{% trans "categories_label" %}</p>
             <div class="category-buttons">
-                <button class="category-btn active">Бизнес</button>
-                <button class="category-btn">Биология</button>
-                <button class="category-btn">Тамақ өнеркәсібі</button>
-                <button class="category-btn">Тамақ өнеркәсібі</button>
-                <button class="category-btn">Тамақ өнеркәсібі</button>
-                <button class="category-btn">Биология</button>
-                <button class="category-btn">Биология</button>
-                <button class="category-btn">Тамақ өнеркәсібі</button>
-                <button class="category-btn">Тамақ өнеркәсібі</button>
-                <button class="category-btn">Тамақ өнеркәсібі</button>
+                <a href="?{% if filter_type %}filter={{ filter_type }}{% endif %}" 
+                   class="category-btn {% if not category_filter %}active{% endif %}">
+                    {% trans "all_categories" %}
+                </a>
+                {% for category in categories %}
+                    <a href="?category={{ category.slug }}{% if filter_type %}&filter={{ filter_type }}{% endif %}" 
+                       class="category-btn {% if category_filter == category.slug %}active{% endif %}">
+                        {{ category.name }}
+                    </a>
+                {% endfor %}
             </div>
         </div>
 
         <!-- Courses Grid -->
         <div class="courses-grid">
-            <!-- Course Card 1 -->
-            <div class="course-card">
-                <div class="card-image">
-                    <img src="{% static 'images/w=720.jpg' %}" alt="Course image">
+            {% for course in page_obj %}
+                <div class="course-card">
+                    <div class="card-image">
+                        <img src="{{ course.main_image.url }}" alt="{{ course.title }}">
+                        {% if course.has_discount and course.discount_percentage %}
+                            <div class="discount-badge">{% trans "discount_label" %} - {{ course.discount_percentage }}%</div>
+                        {% endif %}
+                        {% if course.is_popular %}
+                            <div class="top-badge">{% trans "top_course_label" %}</div>
+                        {% endif %}
+                    </div>
+                    <div class="card-content">
+                        <h3>{{ course.title }}</h3>
+                        <p>{{ course.short_description }}</p>
+                        <a href="{% url 'course_detail' course.slug %}" class="course-btn">
+                            {% trans "learn_more_about_course" %}
+                        </a>
+                    </div>
                 </div>
-                <div class="card-content">
-                    <h3>Молекулалық биология және генетика</h3>
-                    <p>Барлығына арналған молекулалық биология бойынша жетілдірілген курс.</p>
-                    <a href="{% url 'course' %}" class="course-btn">Курс туралы көбірек білу</a>
+            {% empty %}
+                <div class="col-12 text-center">
+                    <h3>{% trans "no_courses_found" %}</h3>
+                    <p>{% trans "try_different_filters" %}</p>
                 </div>
-            </div>
-
-            <!-- Course Card 2 -->
-            <div class="course-card">
-                <div class="card-image">
-                    <img src="{% static 'images/w=720.jpg' %}" alt="Course image">
-                    <div class="discount-badge">Жеңілдік - 10 %</div>
-                </div>
-                <div class="card-content">
-                    <h3>Биотехнологиялық әдістер</h3>
-                    <p>Барлығына арналған молекулалық биология бойынша жетілдірілген курс.</p>
-                    <a href="#" class="course-btn">Курс туралы көбірек білу</a>
-                </div>
-            </div>
-
-            <!-- Course Card 3 -->
-            <div class="course-card">
-                <div class="card-image">
-                    <img src="{% static 'images/w=720.jpg' %}" alt="Course image">
-                    <div class="top-badge">ТОП курс</div>
-                </div>
-                <div class="card-content">
-                    <h3>Қаржылық сауаттылық</h3>
-                    <p>Барлығына арналған молекулалық биология бойынша жетілдірілген курс.</p>
-                    <a href="#" class="course-btn">Курс туралы көбірек білу</a>
-                </div>
-            </div>
-            
-            <!-- Course Card 4 -->
-            <div class="course-card">
-                <div class="card-image">
-                    <img src="{% static 'images/w=720.jpg' %}" alt="Course image">
-                </div>
-                <div class="card-content">
-                    <h3>Молекулалық биология және генетика</h3>
-                    <p>Барлығына арналған молекулалық биология бойынша жетілдірілген курс.</p>
-                    <a href="#" class="course-btn">Курс туралы көбірек білу</a>
-                </div>
-            </div>
-
-            <!-- Course Card 5 -->
-            <div class="course-card">
-                <div class="card-image">
-                    <img src="{% static 'images/w=720.jpg' %}" alt="Course image">
-                    <div class="discount-badge">Жеңілдік - 10 %</div>
-                </div>
-                <div class="card-content">
-                    <h3>Биотехнологиялық әдістер</h3>
-                    <p>Барлығына арналған молекулалық биология бойынша жетілдірілген курс.</p>
-                    <a href="#" class="course-btn">Курс туралы көбірек білу</a>
-                </div>
-            </div>
-
-            <!-- Course Card 6 -->
-            <div class="course-card">
-                <div class="card-image">
-                    <img src="{% static 'images/w=720.jpg' %}" alt="Course image">
-                    <div class="top-badge">ТОП курс</div>
-                </div>
-                <div class="card-content">
-                    <h3>Қаржылық сауаттылық</h3>
-                    <p>Барлығына арналған молекулалық биология бойынша жетілдірілген курс.</p>
-                    <a href="#" class="course-btn">Курс туралы көбірек білу</a>
-                </div>
-            </div>
-            
-            <!-- Course Card 7 -->
-            <div class="course-card">
-                <div class="card-image">
-                    <img src="{% static 'images/w=720.jpg' %}" alt="Course image">
-                </div>
-                <div class="card-content">
-                    <h3>Молекулалық биология және генетика</h3>
-                    <p>Барлығына арналған молекулалық биология бойынша жетілдірілген курс.</p>
-                    <a href="#" class="course-btn">Курс туралы көбірек білу</a>
-                </div>
-            </div>
-
-            <!-- Course Card 8 -->
-            <div class="course-card">
-                <div class="card-image">
-                    <img src="{% static 'images/w=720.jpg' %}" alt="Course image">
-                    <div class="discount-badge">Жеңілдік - 10 %</div>
-                </div>
-                <div class="card-content">
-                    <h3>Биотехнологиялық әдістер</h3>
-                    <p>Барлығына арналған молекулалық биология бойынша жетілдірілген курс.</p>
-                    <a href="#" class="course-btn">Курс туралы көбірек білу</a>
-                </div>
-            </div>
-
-            <!-- Course Card 9 -->
-            <div class="course-card">
-                <div class="card-image">
-                    <img src="{% static 'images/w=720.jpg' %}" alt="Course image">
-                    <div class="top-badge">ТОП курс</div>
-                </div>
-                <div class="card-content">
-                    <h3>Қаржылық сауаттылық</h3>
-                    <p>Барлығына арналған молекулалық биология бойынша жетілдірілген курс.</p>
-                    <a href="#" class="course-btn">Курс туралы көбірек білу</a>
-                </div>
-            </div>
+            {% endfor %}
         </div>
         
         <!-- Pagination -->
-        <div class="pagination">
-            <a href="#" class="pagination-item active">1</a>
-            <a href="#" class="pagination-item">2</a>
-            <a href="#" class="pagination-item">3</a>
-        </div>
+        {% if page_obj.has_other_pages %}
+            <div class="pagination">
+                {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}{% if category_filter %}&category={{ category_filter }}{% endif %}{% if filter_type %}&filter={{ filter_type }}{% endif %}" 
+                       class="pagination-item">{% trans "previous" %}</a>
+                {% endif %}
+                
+                {% for num in page_obj.paginator.page_range %}
+                    {% if page_obj.number == num %}
+                        <span class="pagination-item active">{{ num }}</span>
+                    {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                        <a href="?page={{ num }}{% if category_filter %}&category={{ category_filter }}{% endif %}{% if filter_type %}&filter={{ filter_type }}{% endif %}" 
+                           class="pagination-item">{{ num }}</a>
+                    {% endif %}
+                {% endfor %}
+                
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}{% if category_filter %}&category={{ category_filter }}{% endif %}{% if filter_type %}&filter={{ filter_type }}{% endif %}" 
+                       class="pagination-item">{% trans "next" %}</a>
+                {% endif %}
+            </div>
+        {% endif %}
     </div>
 </section>
 {% endblock %}

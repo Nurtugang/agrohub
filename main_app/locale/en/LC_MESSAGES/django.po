@@ -8,21 +8,24 @@ msgstr ""
 "Project-Id-Version: Agrosector 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-01 12:00+0600\n"
-"PO-Revision-Date: 2025-06-01 12:00+0600\n"
-"Last-Translator: Developer <dev@agrosector.kz>\n"
+"PO-Revision-Date: 2025-06-04 17:42+0000\n"
+"Last-Translator:   <>\n"
 "Language-Team: English <en@agrosector.kz>\n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.10.2\n"
 
 # Site meta
 msgid "site_title"
 msgstr "Agrosector"
 
 msgid "site_description"
-msgstr "Kazakhstan's largest agricultural portal. Comprehensive services in all sectors of agriculture."
+msgstr ""
+"Kazakhstan's largest agricultural portal. Comprehensive services in all "
+"sectors of agriculture."
 
 # Navigation
 msgid "nav_about"
@@ -90,8 +93,6 @@ msgid "hero_button"
 msgstr "About Portal"
 
 # Services section
-
-
 msgid "service_agronomy_title"
 msgstr "Agronomy and Forestry"
 
@@ -177,33 +178,39 @@ msgstr "Innovative Solutions"
 msgid "advantage_4_description"
 msgstr "Latest technologies and methods"
 
-
-
-
 # News section
 msgid "news_title"
 msgstr "News"
 
 msgid "news_1_title"
-msgstr "Scientists discovered the sixth state of matter and made a space burger from it"
+msgstr ""
+"Scientists discovered the sixth state of matter and made a space burger from"
+" it"
 
 msgid "news_1_date"
 msgstr "May 21, 2025"
 
 msgid "news_1_excerpt"
-msgstr "Physicists studied a previously unknown state of matter and created a special \"space burger\" based on it."
+msgstr ""
+"Physicists studied a previously unknown state of matter and created a "
+"special \"space burger\" based on it."
 
 msgid "news_1_alt"
 msgstr "News"
 
 msgid "news_2_title"
-msgstr "Jet tractor with a speed of 800 km/h - full technical review from the exhibition"
+msgstr ""
+"Jet tractor with a speed of 800 km/h - full technical review from the "
+"exhibition"
 
 msgid "news_2_date"
 msgstr "May 19, 2025"
 
 msgid "news_2_excerpt"
-msgstr "A new era in agriculture: engineers presented a jet tractor. This equipment with a speed of 800 km/h is not intended for field work, but demonstrates the possibilities of agricultural innovations."
+msgstr ""
+"A new era in agriculture: engineers presented a jet tractor. This equipment "
+"with a speed of 800 km/h is not intended for field work, but demonstrates "
+"the possibilities of agricultural innovations."
 
 msgid "news_2_alt"
 msgstr "Tractor"
@@ -216,7 +223,9 @@ msgstr "All News"
 
 # Footer
 msgid "footer_description"
-msgstr "Kazakhstan's largest agricultural portal. We provide comprehensive services in all sectors of agriculture."
+msgstr ""
+"Kazakhstan's largest agricultural portal. We provide comprehensive services "
+"in all sectors of agriculture."
 
 msgid "footer_services_title"
 msgstr "Services"
@@ -341,7 +350,9 @@ msgid "cta_title"
 msgstr "Try Our Services"
 
 msgid "cta_description"
-msgstr "We offer comprehensive solutions for your agricultural business. Contact us today for professional consultation!"
+msgstr ""
+"We offer comprehensive solutions for your agricultural business. Contact us "
+"today for professional consultation!"
 
 msgid "cta_services_button"
 msgstr "All Services"
@@ -349,13 +360,10 @@ msgstr "All Services"
 msgid "cta_contact_button"
 msgstr "Contact Us"
 
-
 msgid "no_news_available"
 msgstr "No news available yet"
 
 # NEWS PAGE
-
-
 msgid "news_updates_title"
 msgstr "News and Updates"
 
@@ -363,7 +371,9 @@ msgid "subscribe_button"
 msgstr "Subscribe"
 
 msgid "news_description"
-msgstr "Current events in the agricultural sphere and main news, as well as important updates from our portal."
+msgstr ""
+"Current events in the agricultural sphere and main news, as well as "
+"important updates from our portal."
 
 msgid "search_news_placeholder"
 msgstr "Search news"
@@ -416,9 +426,6 @@ msgstr "Next"
 msgid "no_news_found"
 msgstr "No news found"
 
-msgid "try_different_filters"
-msgstr "Try changing your search parameters"
-
 msgid "subscribe_newsletter"
 msgstr "Subscribe to newsletter"
 
@@ -465,7 +472,8 @@ msgid "dont_miss_updates"
 msgstr "Don't miss updates"
 
 msgid "newsletter_cta_description"
-msgstr "Subscribe to our newsletter and stay informed about all news and events"
+msgstr ""
+"Subscribe to our newsletter and stay informed about all news and events"
 
 msgid "enter_email_address"
 msgstr "Enter email address"
@@ -475,7 +483,6 @@ msgstr "Subscribe now"
 
 msgid "subscription_error"
 msgstr "An error occurred during subscription. Please try again."
-
 
 # Services translations for English
 msgid "services_title"
@@ -497,7 +504,7 @@ msgid "promotion_about"
 msgstr "About promotion"
 
 msgid "services_agrotech_services"
-msgstr "Agrotechnopark Services"
+msgstr "Services"
 
 msgid "filter_title"
 msgstr "Filter"
@@ -558,3 +565,253 @@ msgstr "Service added to cart"
 
 msgid "request_error"
 msgstr "An error occurred while sending the request"
+
+msgid "cart_title"
+msgstr "Cart"
+
+msgid "your_cart"
+msgstr "Your Cart"
+
+msgid "cart_empty"
+msgstr "Cart is empty"
+
+msgid "total_amount"
+msgstr "Total amount"
+
+msgid "clear_cart"
+msgstr "Clear"
+
+msgid "consultation_selected_services"
+msgstr "Consultation for selected services"
+
+msgid "selected_services"
+msgstr "Selected services"
+
+msgid "additional_wishes_placeholder"
+msgstr "Additional wishes or questions about selected services"
+
+msgid "send_consultation_request"
+msgstr "Send consultation request"
+
+msgid "service_already_in_cart"
+msgstr "Service already added to cart!"
+
+msgid "service_removed_from_cart"
+msgstr "Service removed from cart"
+
+msgid "cart_cleared"
+msgstr "Cart cleared"
+
+msgid "cart_empty_warning"
+msgstr "Cart is empty!"
+
+msgid "remove_item"
+msgstr "Remove"
+
+
+# about.html
+
+msgid "about_title"
+msgstr "About Us"
+
+msgid "about_hero_title"
+msgstr "Agrosector – the intersection of science and business"
+
+msgid "about_hero_subtitle"
+msgstr "We have united scientific developments, training courses and expert support on one platform"
+
+msgid "who_we_are_title"
+msgstr "Who We Are?"
+
+msgid "who_we_are_p1"
+msgstr "Agrosector is a leading Kazakhstani platform that combines science, education and practical application in agriculture."
+
+msgid "who_we_are_p2"
+msgstr "We have created a unique ecosystem where farmers, agronomists, veterinarians and researchers can share experiences, gain relevant knowledge and develop their business."
+
+msgid "who_we_are_p3"
+msgstr "Our team consists of experienced specialists with many years of experience in various agricultural sectors who understand the real needs of the agricultural complex."
+
+msgid "who_we_are_p4"
+msgstr "Over the years, we have helped hundreds of companies increase production efficiency, implement modern technologies and achieve sustainable development."
+
+msgid "our_purpose_title"
+msgstr "Our Purpose"
+
+msgid "our_purpose_p1"
+msgstr "Modernization of Kazakhstani agriculture through the introduction of innovative technologies, scientific developments and modern management methods."
+
+msgid "our_purpose_p2"
+msgstr "We strive to make the agricultural sector more productive, sustainable and competitive at the international level."
+
+msgid "our_purpose_p3"
+msgstr "Our goal is to create a digital ecosystem that will unite all participants in the agricultural complex and provide them with access to best practices, technologies and knowledge."
+
+msgid "our_purpose_p4"
+msgstr "We believe that only through combining the efforts of science, business and government can revolutionary changes in agriculture be achieved."
+
+msgid "our_mission_title"
+msgstr "Our Mission"
+
+msgid "our_mission_p1"
+msgstr "To ensure sustainable development of Kazakhstan's agriculture through the integration of scientific achievements, modern technologies and best world practices."
+
+msgid "our_mission_p2"
+msgstr "We provide comprehensive solutions for agribusiness: from research and laboratory analysis to educational programs and consulting services."
+
+msgid "our_mission_p3"
+msgstr "Our mission includes supporting small and medium-sized farms, helping them master new technologies and methods of agriculture."
+
+msgid "our_mission_p4"
+msgstr "We strive to create conditions for the growth of the country's food security and increase the competitiveness of Kazakhstani agricultural products in world markets."
+
+msgid "our_team_title"
+msgstr "Our Team"
+
+msgid "our_team_description"
+msgstr "Professionals with many years of experience in the agricultural complex, ready to share knowledge and help develop your business."
+
+msgid "meet_the_team_button"
+msgstr "Meet the Team"
+
+msgid "our_team_alt"
+msgstr "Our team"
+
+msgid "agriculture_innovations_alt"
+msgstr "Innovations in agriculture"
+
+msgid "modern_agriculture_alt"
+msgstr "Modern agriculture"
+
+
+# course.html
+
+msgid "courses_title"
+msgstr "Courses"
+
+msgid "hero_unprecedented_season"
+msgstr "Unprecedented season of discounts"
+
+msgid "hero_until_july"
+msgstr "Only until July 4th!"
+
+msgid "hero_buy_one_get_50_off"
+msgstr "Buy 1 course and get the second one 50% off"
+
+msgid "about_promotion"
+msgstr "About promotion"
+
+msgid "course_catalog"
+msgstr "Course Catalog"
+
+msgid "filter_label"
+msgstr "Filter"
+
+msgid "all_courses"
+msgstr "All Courses"
+
+msgid "popular_courses"
+msgstr "Popular Courses"
+
+msgid "discount_courses"
+msgstr "Discount Courses"
+
+msgid "search_courses_placeholder"
+msgstr "Search courses..."
+
+msgid "categories_label"
+msgstr "Categories"
+
+
+msgid "discount_label"
+msgstr "Discount"
+
+msgid "top_course_label"
+msgstr "TOP Course"
+
+msgid "learn_more_about_course"
+msgstr "Learn more about course"
+
+msgid "no_courses_found"
+msgstr "No courses found"
+
+
+# course.html
+
+msgid "leave_application"
+msgstr "Leave Application"
+
+msgid "back"
+msgstr "Back"
+
+msgid "about_course"
+msgstr "About Course"
+
+msgid "main_information"
+msgstr "Main Information"
+
+msgid "per_week"
+msgstr "Per week"
+
+msgid "hours"
+msgstr "hours"
+
+msgid "total"
+msgstr "Total"
+
+msgid "tenge"
+msgstr "tenge"
+
+msgid "discount"
+msgstr "Discount"
+
+msgid "what_you_learn"
+msgstr "What You'll Learn?"
+
+msgid "comprehensive_knowledge"
+msgstr "Gain comprehensive knowledge in the subject area"
+
+msgid "practical_skills"
+msgstr "Master practical skills and working methods"
+
+msgid "modern_methods"
+msgstr "Learn modern methods and approaches"
+
+msgid "expert_guidance"
+msgstr "Get expert guidance from experienced instructors"
+
+msgid "certificate_completion"
+msgstr "Receive a certificate of course completion"
+
+msgid "course_curriculum"
+msgstr "Course Curriculum"
+
+msgid "module"
+msgstr "Module"
+
+msgid "topic"
+msgstr "Topic"
+
+msgid "course_instructors"
+msgstr "Course Instructors"
+
+msgid "course_reviews"
+msgstr "Course Reviews"
+
+msgid "read_all_reviews"
+msgstr "Read All Reviews"
+
+msgid "hide_reviews"
+msgstr "Hide Reviews"
+
+msgid "enroll_course_or_get_consultation"
+msgstr "Enroll in Course or Get Free Consultation"
+
+msgid "full_name"
+msgstr "Full Name"
+
+msgid "phone"
+msgstr "Phone"
+
+msgid "email"
+msgstr "Email"

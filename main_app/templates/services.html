@@ -216,31 +216,31 @@
 <div class="cart-widget">
     <button class="cart-button" onclick="toggleCart()">
         <i class="fas fa-shopping-cart"></i>
-        <span class="cart-text">Корзина</span>
+        <span class="cart-text">{% trans "cart_title" %}</span>
         <span class="cart-counter" id="cartCounter">0</span>
     </button>
     
     <div class="cart-dropdown" id="cartDropdown">
         <div class="cart-header">
-            Ваша корзина
+            {% trans "your_cart" %}
         </div>
         
         <div id="cartItems">
             <div class="cart-empty">
-                Корзина пустая
+                {% trans "cart_empty" %}
             </div>
         </div>
         
         <div class="cart-footer" id="cartFooter" style="display: none;">
             <div class="cart-total" id="cartTotal">
-                Общая сумма: 0 ₸
+                {% trans "total_amount" %}: 0 ₸
             </div>
             <div class="cart-actions">
                 <button class="btn-cart-consultation" onclick="openCartConsultationModal()">
-                    Консультация
+                    {% trans "consultation" %}
                 </button>
                 <button class="btn-cart-clear" onclick="clearCart()">
-                    Очистить
+                    {% trans "clear_cart" %}
                 </button>
             </div>
         </div>
@@ -252,7 +252,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Консультация по выбранным услугам</h5>
+                <h5 class="modal-title">{% trans "consultation_selected_services" %}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
@@ -262,38 +262,38 @@
                     
                     <!-- Список выбранных услуг -->
                     <div class="mb-4">
-                        <h6>Выбранные услуги:</h6>
+                        <h6>{% trans "selected_services" %}:</h6>
                         <div id="selectedServicesList" class="border p-3 rounded bg-light">
                             <!-- Здесь будет список услуг -->
                         </div>
                         <div class="mt-2">
-                            <strong>Общая сумма: <span id="modalCartTotal">0 ₸</span></strong>
+                            <strong>{% trans "total_amount" %}: <span id="modalCartTotal">0 ₸</span></strong>
                         </div>
                     </div>
                     
                     <div class="mb-3">
-                        <label for="cartClientName" class="form-label">Имя</label>
+                        <label for="cartClientName" class="form-label">{% trans "client_name" %}</label>
                         <input type="text" class="form-control" id="cartClientName" name="client_name" required>
                     </div>
                     
                     <div class="mb-3">
-                        <label for="cartClientEmail" class="form-label">Email</label>
+                        <label for="cartClientEmail" class="form-label">{% trans "client_email" %}</label>
                         <input type="email" class="form-control" id="cartClientEmail" name="client_email" required>
                     </div>
                     
                     <div class="mb-3">
-                        <label for="cartClientPhone" class="form-label">Телефон</label>
+                        <label for="cartClientPhone" class="form-label">{% trans "client_phone" %}</label>
                         <input type="tel" class="form-control" id="cartClientPhone" name="client_phone" required>
                     </div>
                     
                     <div class="mb-3">
-                        <label for="cartMessage" class="form-label">Сообщение</label>
+                        <label for="cartMessage" class="form-label">{% trans "message" %}</label>
                         <textarea class="form-control" id="cartMessage" name="message" rows="3" 
-                                  placeholder="Дополнительные пожелания или вопросы по выбранным услугам"></textarea>
+                                  placeholder="{% trans 'additional_wishes_placeholder' %}"></textarea>
                     </div>
                     
                     <button type="submit" class="btn btn-primary w-100">
-                        Отправить заявку на консультацию
+                        {% trans "send_consultation_request" %}
                     </button>
                 </form>
                 <div id="cartConsultationMessage" class="mt-3"></div>
@@ -374,7 +374,7 @@
         
         if (existingItem) {
             // Показываем сообщение, что товар уже в корзине
-            showNotification('Услуга уже добавлена в корзину!', 'warning');
+            showNotification('{% trans "service_already_in_cart" %}', 'warning');
             return;
         }
         
@@ -390,7 +390,7 @@
 
         // Обновляем интерфейс
         updateCartDisplay();
-        showNotification(`Услуга "${serviceName}" добавлена в корзину!`, 'success');
+        showNotification(`{% trans "service_added_to_cart" %}: "${serviceName}"!`, 'success');
     }
 
     function removeFromCart(serviceId) {
@@ -398,7 +398,7 @@
         // Сохраняем в localStorage
         saveCartToStorage();
         updateCartDisplay();
-        showNotification('Услуга удалена из корзины', 'info');
+        showNotification('{% trans "service_removed_from_cart" %}', 'info');
     }
 
     function clearCart() {
@@ -407,7 +407,7 @@
         localStorage.removeItem('serviceCart');
         updateCartDisplay();
         hideCart();
-        showNotification('Корзина очищена', 'info');
+        showNotification('{% trans "cart_cleared" %}', 'info');
     }
 
     function updateCartDisplay() {
@@ -421,7 +421,6 @@
         
         if (cart.length === 0) {
             // Корзина пуста
-            cartItems.innerHTML = '<div class="cart-empty">Корзина пустая</div>';
             cartFooter.style.display = 'none';
         } else {
             // Показываем товары
@@ -436,7 +435,7 @@
                             <div class="cart-item-name">${item.name}</div>
                             <div class="cart-item-price">${item.price.toLocaleString()} ₸</div>
                         </div>
-                        <button class="cart-item-remove" onclick="removeFromCart(${item.id})" title="Удалить">
+                        <button class="cart-item-remove" onclick="removeFromCart(${item.id})" title="{% trans 'remove_item' %}">
                             ×
                         </button>
                     </div>
@@ -444,7 +443,7 @@
             });
             
             cartItems.innerHTML = itemsHtml;
-            cartTotal.textContent = `Общая сумма: ${total.toLocaleString()} ₸`;
+            cartTotal.textContent = `{% trans "total_amount" %}: ${total.toLocaleString()} ₸`;
             cartFooter.style.display = 'block';
         }
     }
@@ -470,7 +469,7 @@
     // Открытие модального окна консультации для корзины
     function openCartConsultationModal() {
         if (cart.length === 0) {
-            showNotification('Корзина пуста!', 'warning');
+            showNotification('{% trans "cart_empty_warning" %}', 'warning');
             return;
         }
         

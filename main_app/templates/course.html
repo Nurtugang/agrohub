@@ -2,7 +2,7 @@
 {% load i18n %}
 {% load static %}
 
-{% block title %}Молекулалық биология және генетика - Agrosector{% endblock %}
+{% block title %}{{ course.title }} - {% trans "site_title" %}{% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/course.css' %}">
@@ -13,8 +13,8 @@
 <section class="course-hero">
     <div class="container">
         <div class="hero-content">
-            <h1>Молекулалық биология және генетика</h1>
-            <a href="#registration-form" class="btn-primary btn-green">Оставить заявку</a>
+            <h1>{{ course.title }}</h1>
+            <a href="#registration-form" class="btn-primary btn-green">{% trans "leave_application" %}</a>
         </div>
     </div>
 </section>
@@ -22,273 +22,225 @@
 <!-- Breadcrumbs -->
 <div class="breadcrumbs">
     <div class="container">
-        <a href="javascript:history.back()"><i class="fas fa-arrow-left"></i> Назад</a>
+        <a href="javascript:history.back()"><i class="fas fa-arrow-left"></i> {% trans "back" %}</a>
         <span>/</span>
-        <a href="{% url 'courses' %}">Курс каталогы</a>
+        <a href="{% url 'courses_list' %}">{% trans "course_catalog" %}</a>
         <span>/</span>
-        <span>Молекулалық биология және генетика</span>
+        <span>{{ course.title }}</span>
     </div>
 </div>
 
 <!-- Course Content -->
 <section class="course-content">
     <div class="container">
-        <h2>Молекулалық биология және генетика</h2>
+        <h2>{{ course.title }}</h2>
         
         <!-- Course Info Section -->
         <div class="course-info-section">
             <div class="course-description">
-                <h3>Курс туралы</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <h3>{% trans "about_course" %}</h3>
+                {{ course.description|linebreaks }}
             </div>
             <div class="course-sidebar">
                 <div class="course-details-card">
-                    <h3>Негізгі ақпарат</h3>
+                    <h3>{% trans "main_information" %}</h3>
                     <div class="detail-item">
                         <i class="fas fa-clock"></i>
                         <div class="detail-text">
-                            <span>Аптасына 3 сағат</span>
-                            <span>Барлығы 36 сағат</span>
+                            <span>{% trans "per_week" %}: {{ course.hours_per_week }} {% trans "hours" %}</span>
+                            <span>{% trans "total" %}: {{ course.duration_hours }} {% trans "hours" %}</span>
                         </div>
                     </div>
-                    <div class="price">₸ 150 000 теңге</div>
-                    <a href="#registration-form" class="btn-primary btn-full">Оставить заявку</a>
+                    <div class="price">
+                        {% if course.has_discount and course.discount_percentage %}
+                            <span class="original-price">₸ {{ course.price|floatformat:0 }} {% trans "tenge" %}</span>
+                        {% else %}
+                            ₸ {{ course.price|floatformat:0 }} {% trans "tenge" %}
+                        {% endif %}
+                    </div>
+                    <a href="#registration-form" class="btn-primary btn-full">{% trans "leave_application" %}</a>
                 </div>
             </div>
         </div>
 
         <!-- What You'll Learn Section -->
         <div class="learning-section">
-            <h3>Курстан не үйренесіз?</h3>
+            <h3>{% trans "what_you_learn" %}</h3>
             <div class="learning-grid">
+                {% if course.short_description %}
+                    <div class="learning-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p>{{ course.short_description }}</p>
+                    </div>
+                {% endif %}
+                <!-- Можно добавить отдельное поле learning_outcomes в модель Course -->
                 <div class="learning-item">
                     <i class="fas fa-check-circle"></i>
-                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</p>
+                    <p>{% trans "comprehensive_knowledge" %}</p>
                 </div>
                 <div class="learning-item">
                     <i class="fas fa-check-circle"></i>
-                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</p>
+                    <p>{% trans "practical_skills" %}</p>
                 </div>
                 <div class="learning-item">
                     <i class="fas fa-check-circle"></i>
-                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</p>
+                    <p>{% trans "modern_methods" %}</p>
                 </div>
                 <div class="learning-item">
                     <i class="fas fa-check-circle"></i>
-                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</p>
+                    <p>{% trans "expert_guidance" %}</p>
                 </div>
                 <div class="learning-item">
                     <i class="fas fa-check-circle"></i>
-                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</p>
-                </div>
-                <div class="learning-item">
-                    <i class="fas fa-check-circle"></i>
-                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</p>
+                    <p>{% trans "certificate_completion" %}</p>
                 </div>
             </div>
         </div>
         
         <!-- Course Curriculum Section -->
+        {% if modules %}
         <div class="curriculum-section">
-            <h3>Курс бағдарламасы</h3>
+            <h3>{% trans "course_curriculum" %}</h3>
             <div class="curriculum-modules">
+                {% for module in modules %}
                 <div class="module">
-                    <div class="module-header">
-                        <h4>Модуль 1. Duis aute irure dolor in reprehenderit in voluptate velit esse</h4>
+                    <div class="module-header" onclick="toggleModule({{ forloop.counter }})">
+                        <h4>{% trans "module" %} {{ forloop.counter }}. {{ module.title }}</h4>
                         <i class="fas fa-chevron-down"></i>
                     </div>
-                    <div class="module-content hidden">
+                    <div class="module-content hidden" id="module-{{ forloop.counter }}">
+                        {% for topic in module.topics.all %}
                         <div class="topic">
                             <i class="fas fa-play-circle"></i>
-                            <p>Тақырып 1. Duis aute irure dolor in reprehenderit in voluptate velit</p>
+                            <p>{% trans "topic" %} {{ forloop.counter }}. {{ topic.title }}</p>
                         </div>
-                        <div class="topic">
-                            <i class="fas fa-play-circle"></i>
-                            <p>Тақырып 1. Duis aute irure dolor in reprehenderit in voluptate velit</p>
-                        </div>
-                        <div class="topic">
-                            <i class="fas fa-play-circle"></i>
-                            <p>Тақырып 1. Duis aute irure dolor in reprehenderit in voluptate velit</p>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
-                <div class="module">
-                    <div class="module-header">
-                        <h4>Модуль 2. Duis aute irure dolor in reprehenderit in voluptate velit esse</h4>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="module-content hidden">
-                        <!-- Topics will be shown when clicked -->
-                    </div>
-                </div>
-                <div class="module">
-                    <div class="module-header">
-                        <h4>Модуль 3. Duis aute irure dolor in reprehenderit in voluptate velit esse</h4>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="module-content hidden">
-                        <!-- Topics will be shown when clicked -->
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
+        {% endif %}
         
         <!-- Instructors Section -->
+        {% if instructors %}
         <div class="instructors-section">
-            <h3>Курс оқытушылары</h3>
+            <h3>{% trans "course_instructors" %}</h3>
+            {% for instructor in instructors %}
             <div class="instructor-card">
                 <div class="instructor-image">
-                    <img src="{% static 'images/instructor.jpg' %}" alt="Масков Илон Эрролулы">
+                    {% if instructor.photo %}
+                        <img src="{{ instructor.photo.url }}" alt="{{ instructor.name }}">
+                    {% else %}
+                        <img src="{% static 'images/instructor-placeholder.jpg' %}" alt="{{ instructor.name }}">
+                    {% endif %}
                 </div>
                 <div class="instructor-info">
-                    <h4>Масков Илон Эрролулы</h4>
-                    <p class="instructor-title">Курс оқытушысы</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <h4>{{ instructor.name }}</h4>
+                    <p class="instructor-title">{{ instructor.title }}</p>
+                    {{ instructor.bio|linebreaks }}
                 </div>
             </div>
+            {% endfor %}
         </div>
+        {% endif %}
         
         <!-- Reviews Section -->
+        {% if reviews %}
         <div class="reviews-section">
-            <h3>Курс туралы пікірлер</h3>
+            <h3>{% trans "course_reviews" %}</h3>
             <div class="reviews-grid">
+                {% for review in reviews|slice:":4" %}
                 <div class="review-card">
                     <div class="review-header">
                         <div class="reviewer-image">
-                            <img src="{% static 'images/avatar-placeholder.jpg' %}" alt="Reviewer">
+                            {% if review.reviewer_photo %}
+                                <img src="{{ review.reviewer_photo.url }}" alt="{{ review.reviewer_name }}">
+                            {% else %}
+                                <img src="{% static 'images/avatar-placeholder.jpg' %}" alt="{{ review.reviewer_name }}">
+                            {% endif %}
                         </div>
                         <div class="reviewer-info">
-                            <h4>Иванов Иван Иванович</h4>
-                            <div class="review-date">27.05.2025</div>
-                            <div class="review-stars">★★★★★</div>
+                            <h4>{{ review.reviewer_name }}</h4>
+                            <div class="review-date">{{ review.created_at|date:"d.m.Y" }}</div>
+                            <div class="review-stars">
+                                {% for i in "12345" %}
+                                    {% if forloop.counter <= review.rating %}★{% else %}☆{% endif %}
+                                {% endfor %}
+                            </div>
                         </div>
                     </div>
                     <div class="review-content">
-                        <p>Курс өте ұнады, супер бағдарлама. Оқытушылар жауапты, тәжірибелі. Мен барлық көршілерге кеңес беремін, курс ақшаға тұрарлық.</p>
+                        <p>{{ review.comment }}</p>
                     </div>
                 </div>
-                
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="reviewer-image">
-                            <img src="{% static 'images/avatar-placeholder.jpg' %}" alt="Reviewer">
-                        </div>
-                        <div class="reviewer-info">
-                            <h4>Иванов Иван Иванович</h4>
-                            <div class="review-date">27.05.2025</div>
-                            <div class="review-stars">★★★★★</div>
-                        </div>
-                    </div>
-                    <div class="review-content">
-                        <p>Курс өте ұнады, супер бағдарлама. Оқытушылар жауапты, тәжірибелі. Мен барлық көршілерге кеңес беремін, курс ақшаға тұрарлық.</p>
-                    </div>
-                </div>
-                
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="reviewer-image">
-                            <img src="{% static 'images/avatar-placeholder.jpg' %}" alt="Reviewer">
-                        </div>
-                        <div class="reviewer-info">
-                            <h4>Иванов Иван Иванович</h4>
-                            <div class="review-date">27.05.2025</div>
-                            <div class="review-stars">★★★★★</div>
-                        </div>
-                    </div>
-                    <div class="review-content">
-                        <p>Курс өте ұнады, супер бағдарлама. Оқытушылар жауапты, тәжірибелі. Мен барлық көршілерге кеңес беремін, курс ақшаға тұрарлық.</p>
-                    </div>
-                </div>
-                
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="reviewer-image">
-                            <img src="{% static 'images/avatar-placeholder.jpg' %}" alt="Reviewer">
-                        </div>
-                        <div class="reviewer-info">
-                            <h4>Иванов Иван Иванович</h4>
-                            <div class="review-date">27.05.2025</div>
-                            <div class="review-stars">★★★★★</div>
-                        </div>
-                    </div>
-                    <div class="review-content">
-                        <p>Курс өте ұнады, супер бағдарлама. Оқытушылар жауапты, тәжірибелі. Мен барлық көршілерге кеңес беремін, курс ақшаға тұрарлық.</p>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
             
             <!-- Hidden reviews that will be shown with button click -->
+            {% if reviews.count > 4 %}
             <div class="hidden-reviews hidden">
                 <div class="reviews-grid">
+                    {% for review in reviews|slice:"4:" %}
                     <div class="review-card">
                         <div class="review-header">
                             <div class="reviewer-image">
-                                <img src="{% static 'images/avatar-placeholder.jpg' %}" alt="Reviewer">
+                                {% if review.reviewer_photo %}
+                                    <img src="{{ review.reviewer_photo.url }}" alt="{{ review.reviewer_name }}">
+                                {% else %}
+                                    <img src="{% static 'images/avatar-placeholder.jpg' %}" alt="{{ review.reviewer_name }}">
+                                {% endif %}
                             </div>
                             <div class="reviewer-info">
-                                <h4>Иванов Иван Иванович</h4>
-                                <div class="review-date">27.05.2025</div>
-                                <div class="review-stars">★★★★★</div>
+                                <h4>{{ review.reviewer_name }}</h4>
+                                <div class="review-date">{{ review.created_at|date:"d.m.Y" }}</div>
+                                <div class="review-stars">
+                                    {% for i in "12345" %}
+                                        {% if forloop.counter <= review.rating %}★{% else %}☆{% endif %}
+                                    {% endfor %}
+                                </div>
                             </div>
                         </div>
                         <div class="review-content">
-                            <p>Курс өте ұнады, супер бағдарлама. Оқытушылар жауапты, тәжірибелі. Мен барлық көршілерге кеңес беремін, курс ақшаға тұрарлық.</p>
+                            <p>{{ review.comment }}</p>
                         </div>
                     </div>
-                    
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-image">
-                                <img src="{% static 'images/avatar-placeholder.jpg' %}" alt="Reviewer">
-                            </div>
-                            <div class="reviewer-info">
-                                <h4>Иванов Иван Иванович</h4>
-                                <div class="review-date">27.05.2025</div>
-                                <div class="review-stars">★★★★★</div>
-                            </div>
-                        </div>
-                        <div class="review-content">
-                            <p>Курс өте ұнады, супер бағдарлама. Оқытушылар жауапты, тәжірибелі. Мен барлық көршілерге кеңес беремін, курс ақшаға тұрарлық.</p>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
             
             <div class="read-more-container">
-                <button class="btn-secondary read-more-reviews">Читать все отзывы</button>
+                <button class="btn-secondary read-more-reviews">{% trans "read_all_reviews" %}</button>
             </div>
+            {% endif %}
         </div>
+        {% endif %}
         
         <!-- Registration Form Section -->
         <div id="registration-form" class="registration-section">
             <div class="registration-container">
                 <div class="registration-heading">
-                    <h3>Курсқа жазылыңыз немесе тегін кеңес алыңыз</h3>
+                    <h3>{% trans "enroll_course_or_get_consultation" %}</h3>
                 </div>
                 <div class="registration-form-container">
-                    <form class="registration-form">
+                    <form class="registration-form" id="courseApplicationForm">
+                        {% csrf_token %}
+                        <input type="hidden" name="course_id" value="{{ course.id }}">
+                        
                         <div class="form-group">
-                            <input type="text" placeholder="Толық аты-жөні" required>
+                            <input type="text" name="full_name" placeholder="{% trans 'full_name' %}" required>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
-                                <input type="tel" placeholder="Телефон" required>
+                                <input type="tel" name="phone" placeholder="{% trans 'phone' %}" required>
                             </div>
                             <div class="form-group">
-                                <input type="email" placeholder="Электронная почта" required>
+                                <input type="email" name="email" placeholder="{% trans 'email' %}" required>
                             </div>
                         </div>
-                        <button type="submit" class="btn-primary">Оставить заявку</button>
-                        <div class="form-checkbox">
-                            <input type="checkbox" id="privacy-policy" required>
-                            <label for="privacy-policy" class="form-disclaimer">Өтінімді жіберу арқылы сіз Құпиялылық саясатына сәйкес жеке деректеріңізді өңдеуге келісім бересіз.</label>
-                        </div>
+                        <button type="submit" class="btn-primary">{% trans "leave_application" %}</button>
                     </form>
+                    <div id="applicationMessage" class="mt-3"></div>
                 </div>
             </div>
         </div>
@@ -299,4 +251,65 @@
 {% block extra_js %}
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 <script src="{% static 'js/course.js' %}"></script>
+
+<script>
+// Toggle module content
+function toggleModule(element) {
+    const moduleId = element.getAttribute('data-module');
+    const content = document.getElementById('module-' + moduleId);
+    const chevron = element.querySelector('.fas');
+    
+    content.classList.toggle('hidden');
+    chevron.classList.toggle('fa-chevron-down');
+    chevron.classList.toggle('fa-chevron-up');
+}
+
+// Show/hide additional reviews
+document.addEventListener('DOMContentLoaded', function() {
+    const readMoreBtn = document.querySelector('.read-more-reviews');
+    const hiddenReviews = document.querySelector('.hidden-reviews');
+    
+    if (readMoreBtn && hiddenReviews) {
+        readMoreBtn.addEventListener('click', function() {
+            hiddenReviews.classList.toggle('hidden');
+            this.textContent = hiddenReviews.classList.contains('hidden') 
+                ? '{% trans "read_all_reviews" %}' 
+                : '{% trans "hide_reviews" %}';
+        });
+    }
+});
+
+// Course application form submission
+document.getElementById('courseApplicationForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(this);
+    
+    fetch('{% url "course_application" %}', {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'X-CSRFToken': formData.get('csrfmiddlewaretoken')
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        const messageDiv = document.getElementById('applicationMessage');
+        if (data.success) {
+            messageDiv.innerHTML = '<div class="alert alert-success">' + data.message + '</div>';
+            this.reset();
+            
+            // Scroll to message
+            messageDiv.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            messageDiv.innerHTML = '<div class="alert alert-danger">' + data.message + '</div>';
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        const messageDiv = document.getElementById('applicationMessage');
+        messageDiv.innerHTML = '<div class="alert alert-danger"> {% trans "request_error" %}</div>';
+    });
+});
+</script>
 {% endblock %}

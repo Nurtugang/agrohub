@@ -239,3 +239,132 @@ class ServiceRequest(models.Model):
         verbose_name = "Service Request"
         verbose_name_plural = "Service Requests"
         ordering = ['-created_at']
+
+class CourseCategory(models.Model):
+    """Категории курсов (Бизнес, Биология, Тамақ өнеркәсібі)"""
+    name = models.CharField(max_length=100)
+    slug = models.SlugField(unique=True)
+    is_active = models.BooleanField(default=True)
+    order = models.PositiveIntegerField(default=0)
+    
+    class Meta:
+        verbose_name = "Course Category"
+        verbose_name_plural = "Course Categories"
+        ordering = ['order', 'name']
+
+
+class Course(models.Model):
+    """Основная модель курса"""
+    title = models.CharField(max_length=200)
+    slug = models.SlugField(unique=True, blank=True)
+    description = models.TextField()
+    short_description = models.CharField(max_length=300)
+    
+    # Основная информация
+    category = models.ForeignKey(CourseCategory, related_name='courses', on_delete=models.CASCADE)
+    instructors = models.ManyToManyField('Instructor', related_name='taught_courses', blank=True)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    discount_percentage = models.PositiveIntegerField(default=0, blank=True)
+    
+    # Характеристики курса
+    duration_hours = models.PositiveIntegerField(help_text="Общее количество часов")
+    hours_per_week = models.PositiveIntegerField(help_text="Часов в неделю")
+    
+    # Изображения
+    main_image = models.ImageField(upload_to='course_images/')
+    
+    # Статусы и метки
+    is_active = models.BooleanField(default=True)
+    is_popular = models.BooleanField(default=False, help_text="ТОП курс")
+    has_discount = models.BooleanField(default=False, help_text="Есть скидка")
+    
+    # Временные метки
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
+    class Meta:
+        verbose_name = "Course"
+        verbose_name_plural = "Courses"
+        ordering = ['-created_at']
+    
+    def __str__(self):
+        return self.title
+
+
+class Instructor(models.Model):
+    """Преподаватели курсов"""
+    name = models.CharField(max_length=200)
+    title = models.CharField(max_length=200, help_text="Должность/звание")
+    bio = models.TextField()
+    photo = models.ImageField(upload_to='instructor_photos/')
+    
+    class Meta:
+        verbose_name = "Instructor"
+        verbose_name_plural = "Instructors"
+
+
+class CourseModule(models.Model):
+    """Модули курса"""
+    course = models.ForeignKey(Course, related_name='modules', on_delete=models.CASCADE)
+    title = models.CharField(max_length=200)
+    order = models.PositiveIntegerField(default=0)
+    
+    class Meta:
+        verbose_name = "Course Module"
+        verbose_name_plural = "Course Modules"
+        ordering = ['order']
+        
+    def __str__(self):
+        return f"{self.title}"
+
+
+class CourseTopic(models.Model):
+    """Темы в модулях"""
+    module = models.ForeignKey(CourseModule, related_name='topics', on_delete=models.CASCADE)
+    title = models.CharField(max_length=200)
+    order = models.PositiveIntegerField(default=0)
+    
+    class Meta:
+        verbose_name = "Course Topic"
+        verbose_name_plural = "Course Topics"
+        ordering = ['order']
+
+
+class CourseReview(models.Model):
+    """Отзывы о курсах"""
+    course = models.ForeignKey(Course, related_name='reviews', on_delete=models.CASCADE)
+    reviewer_name = models.CharField(max_length=200)
+    reviewer_photo = models.ImageField(upload_to='reviewer_photos/', blank=True)
+    rating = models.PositiveIntegerField(choices=[(i, i) for i in range(1, 6)])
+    comment = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    is_approved = models.BooleanField(default=True)
+    
+    class Meta:
+        verbose_name = "Course Review"
+        verbose_name_plural = "Course Reviews"
+        ordering = ['-created_at']
+
+
+class CourseApplication(models.Model):
+    """Заявки на курсы"""
+    course = models.ForeignKey(Course, related_name='applications', on_delete=models.CASCADE)
+    full_name = models.CharField(max_length=200)
+    phone = models.CharField(max_length=20)
+    email = models.EmailField()
+    
+    # Статус заявки
+    STATUS_CHOICES = [
+        ('pending', 'Ожидает'),
+        ('contacted', 'Связались'),
+        ('enrolled', 'Записан'),
+        ('rejected', 'Отклонен'),
+    ]
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='pending')
+    
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        verbose_name = "Course Application"
+        verbose_name_plural = "Course Applications"
+        ordering = ['-created_at']
