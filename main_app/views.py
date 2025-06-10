@@ -67,7 +67,23 @@ def lab(request):
     context = {
         'current_language': locale,
     }
-    return render(request, 'lab.html', context)
+    return render(request, 'labs/lab.html', context)
+
+def agrotehnopark(request):
+    locale = translation.get_language()
+    
+    context = {
+        'current_language': locale,
+    }
+    return render(request, 'labs/agrotehnopark.html', context)
+
+def engeneering_center(request):
+    locale = translation.get_language()
+    
+    context = {
+        'current_language': locale,
+    }
+    return render(request, 'labs/engeneering_center.html', context)
 
 def change_language(request, language_code):
     """Change the current language"""
@@ -514,3 +530,87 @@ def course_application(request):
         'success': False,
         'message': 'Метод не поддерживается'
     })
+
+def projects_catalog(request):
+    """Каталог проектов с фильтрацией и поиском"""
+    
+    # Получаем все опубликованные проекты
+    projects = Project.objects.filter(is_published=True).select_related('direction', 'status')
+    
+    # Получаем параметры фильтрации
+    direction_slug = request.GET.get('direction')
+    status_slug = request.GET.get('status')
+    search_query = request.GET.get('search', '').strip()
+    
+    # Фильтрация по направлению
+    if direction_slug:
+        projects = projects.filter(direction__slug=direction_slug)
+    
+    # Фильтрация по статусу
+    if status_slug:
+        projects = projects.filter(status__slug=status_slug)
+    
+    # Поиск
+    if search_query:
+        projects = projects.filter(
+            Q(title__icontains=search_query) |
+            Q(short_description__icontains=search_query) |
+            Q(description__icontains=search_query)
+        )
+    
+    # Сортировка: сначала рекомендуемые, потом по дате
+    projects = projects.order_by('-is_featured', '-created_at')
+    
+    # Пагинация (6 проектов на страницу как в дизайне)
+    paginator = Paginator(projects, 6)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    
+    # Получаем все направления и статусы для фильтров
+    directions = ProjectDirection.objects.filter(is_active=True).order_by('order', 'name')
+    statuses = ProjectStatus.objects.filter(is_active=True).order_by('order')
+    
+    context = {
+        'page_obj': page_obj,
+        'projects': page_obj.object_list,
+        'directions': directions,
+        'statuses': statuses,
+        'direction_filter': direction_slug,
+        'status_filter': status_slug,
+        'search_query': search_query,
+        'total_projects': paginator.count,
+    }
+    
+    return render(request, 'projects/catalog.html', context)
+
+def project_detail(request, slug):
+    """Детальная страница проекта"""
+    
+    # Получаем проект со всеми связанными данными
+    project = get_object_or_404(
+        Project.objects.select_related('direction', 'status')
+                      .prefetch_related('images', 'team_members'),
+        slug=slug,
+        is_published=True
+    )
+    
+    # Получаем похожие проекты (того же направления, исключая текущий)
+    similar_projects = Project.objects.filter(
+        direction=project.direction,
+        is_published=True
+    ).exclude(id=project.id).order_by('-is_featured', '-created_at')[:3]
+    
+    # Получаем все изображения проекта
+    project_images = project.images.all().order_by('order')
+    
+    # Получаем команду проекта
+    team_members = project.team_members.all()
+    
+    context = {
+        'project': project,
+        'similar_projects': similar_projects,
+        'project_images': project_images,
+        'team_members': team_members,
+    }
+    
+    return render(request, 'projects/detail.html', context)

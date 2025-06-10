@@ -1,4 +1,6 @@
 from django.contrib import admin
+from django.utils.html import format_html
+from django.utils.safestring import mark_safe
 from modeltranslation.admin import TranslationAdmin
 from .models import *
 
@@ -422,3 +424,194 @@ class CourseApplicationAdmin(admin.ModelAdmin):
         updated = queryset.update(status='rejected')
         self.message_user(request, f'{updated} заявок отмечены как "Отклонен".')
     mark_as_rejected.short_description = "Отметить как 'Отклонен'"
+
+
+@admin.register(ProjectDirection)
+class ProjectDirectionAdmin(TranslationAdmin):
+    list_display = ('name', 'slug', 'is_active', 'order', 'projects_count')
+    list_filter = ('is_active',)
+    search_fields = ('name', 'slug')
+    prepopulated_fields = {'slug': ('name',)}
+    list_editable = ('is_active', 'order')
+    ordering = ('order', 'name')
+    
+    def projects_count(self, obj):
+        return obj.projects.count()
+    projects_count.short_description = 'Количество проектов'
+
+
+@admin.register(ProjectStatus)
+class ProjectStatusAdmin(TranslationAdmin):
+    list_display = ('name', 'status_type', 'color_preview', 'is_active', 'order', 'projects_count')
+    list_filter = ('status_type', 'is_active')
+    search_fields = ('name', 'slug')
+    prepopulated_fields = {'slug': ('name',)}
+    list_editable = ('is_active', 'order')
+    ordering = ('order',)
+    
+    def color_preview(self, obj):
+        return format_html(
+            '<div style="width: 20px; height: 20px; background-color: {}; border: 1px solid #ccc; border-radius: 50%;"></div>',
+            obj.color
+        )
+    color_preview.short_description = 'Цвет'
+    
+    def projects_count(self, obj):
+        return obj.projects.count()
+    projects_count.short_description = 'Количество проектов'
+
+
+class ProjectImageInline(admin.TabularInline):
+    model = ProjectImage
+    extra = 1
+    fields = ('image', 'caption', 'order')
+    readonly_fields = ('image_preview',)
+    
+    def image_preview(self, obj):
+        if obj.image:
+            return format_html('<img src="{}" width="100" height="100" style="object-fit: cover;" />', obj.image.url)
+        return "Нет изображения"
+    image_preview.short_description = 'Превью'
+
+
+class ProjectTeamMemberInline(admin.TabularInline):
+    model = ProjectTeamMember
+    extra = 1
+    fields = ('name', 'position', 'email', 'photo_preview')
+    readonly_fields = ('photo_preview',)
+    
+    def photo_preview(self, obj):
+        if obj.photo:
+            return format_html('<img src="{}" width="50" height="50" style="object-fit: cover; border-radius: 50%;" />', obj.photo.url)
+        return "Нет фото"
+    photo_preview.short_description = 'Фото'
+
+
+@admin.register(Project)
+class ProjectAdmin(TranslationAdmin):
+    list_display = (
+        'title', 'direction', 'status_with_color', 'investment_formatted', 
+        'implementation_period', 'is_featured', 'is_published', 'created_at'
+    )
+    list_filter = ('direction', 'status', 'is_featured', 'is_published', 'created_at')
+    search_fields = ('title', 'short_description', 'description')
+    prepopulated_fields = {'slug': ('title',)}
+    list_editable = ('is_featured', 'is_published')
+    readonly_fields = ('image_preview', 'created_at', 'updated_at', 'get_absolute_url')
+    date_hierarchy = 'created_at'
+    ordering = ('-created_at',)
+    
+    fieldsets = (
+        ('Основная информация', {
+            'fields': ('title', 'slug', 'direction', 'status')
+        }),
+        ('Описания', {
+            'fields': ('short_description', 'description'),
+            'classes': ('wide',)
+        }),
+        ('Финансы и сроки', {
+            'fields': ('investment_amount', 'implementation_period')
+        }),
+        ('Изображение', {
+            'fields': ('main_image', 'image_preview')
+        }),
+        ('Настройки', {
+            'fields': ('is_featured', 'is_published'),
+            'classes': ('collapse',)
+        }),
+        ('Служебная информация', {
+            'fields': ('created_at', 'updated_at', 'get_absolute_url'),
+            'classes': ('collapse',),
+        }),
+    )
+    
+    inlines = [ProjectImageInline, ProjectTeamMemberInline]
+    
+    def status_with_color(self, obj):
+        return format_html(
+            '<span style="display: inline-flex; align-items: center;">'
+            '<div style="width: 12px; height: 12px; background-color: {}; border-radius: 50%; margin-right: 8px;"></div>'
+            '{}</span>',
+            obj.status.color,
+            obj.status.name
+        )
+    status_with_color.short_description = 'Статус'
+    
+    def investment_formatted(self, obj):
+        return f"{obj.get_formatted_investment()} ₸"
+    investment_formatted.short_description = 'Инвестиции'
+    
+    def image_preview(self, obj):
+        if obj.main_image:
+            return format_html('<img src="{}" width="300" style="max-height: 200px; object-fit: cover;" />', obj.main_image.url)
+        return "Нет изображения"
+    image_preview.short_description = 'Превью изображения'
+    
+    def get_absolute_url(self, obj):
+        if obj.pk:
+            url = obj.get_absolute_url()
+            return format_html('<a href="{}" target="_blank">Посмотреть на сайте</a>', url)
+        return "Сохраните проект для получения ссылки"
+    get_absolute_url.short_description = 'Ссылка на сайте'
+    
+    actions = ['make_featured', 'remove_featured', 'publish', 'unpublish']
+    
+    def make_featured(self, request, queryset):
+        queryset.update(is_featured=True)
+        self.message_user(request, f"Отмечено как рекомендуемые: {queryset.count()} проектов")
+    make_featured.short_description = "Отметить как рекомендуемые"
+    
+    def remove_featured(self, request, queryset):
+        queryset.update(is_featured=False)
+        self.message_user(request, f"Убрано из рекомендуемых: {queryset.count()} проектов")
+    remove_featured.short_description = "Убрать из рекомендуемых"
+    
+    def publish(self, request, queryset):
+        queryset.update(is_published=True)
+        self.message_user(request, f"Опубликовано: {queryset.count()} проектов")
+    publish.short_description = "Опубликовать"
+    
+    def unpublish(self, request, queryset):
+        queryset.update(is_published=False)
+        self.message_user(request, f"Снято с публикации: {queryset.count()} проектов")
+    unpublish.short_description = "Снять с публикации"
+
+
+@admin.register(ProjectImage)
+class ProjectImageAdmin(admin.ModelAdmin):
+    list_display = ('project', 'caption', 'order', 'image_preview')
+    list_filter = ('project__direction', 'project__status')
+    search_fields = ('project__title', 'caption')
+    list_editable = ('order',)
+    readonly_fields = ('image_preview',)
+    
+    def image_preview(self, obj):
+        if obj.image:
+            return format_html('<img src="{}" width="100" height="100" style="object-fit: cover;" />', obj.image.url)
+        return "Нет изображения"
+    image_preview.short_description = 'Превью'
+
+
+@admin.register(ProjectTeamMember)
+class ProjectTeamMemberAdmin(TranslationAdmin):
+    list_display = ('name', 'position', 'project', 'email', 'photo_preview')
+    list_filter = ('project__direction', 'project__status')
+    search_fields = ('name', 'position', 'project__title', 'email')
+    readonly_fields = ('photo_preview',)
+    
+    fieldsets = (
+        ('Основная информация', {
+            'fields': ('project', 'name', 'position', 'email')
+        }),
+        ('Дополнительно', {
+            'fields': ('bio', 'photo', 'photo_preview'),
+            'classes': ('wide',)
+        }),
+    )
+    
+    def photo_preview(self, obj):
+        if obj.photo:
+            return format_html('<img src="{}" width="100" height="100" style="object-fit: cover; border-radius: 50%;" />', obj.photo.url)
+        return "Нет фото"
+    photo_preview.short_description = 'Фото'
+

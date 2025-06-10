@@ -1,0 +1,279 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Shakarim Lab - Agrosector{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/lab.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="lab-hero d-flex align-items-center position-relative">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 col-md-12">
+                <div class="hero-badge text-center">
+                    <h1>Современные технологии – на службе науки и промышленности</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Main Content -->
+<div class="container">
+    <!-- Page Title -->
+    <div class="section-spacing">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="section-title text-center">Агротехнопарк</h1>
+            </div>
+        </div>
+
+        <!-- About Center Section -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <h2 class="section-subtitle">О центре</h2>
+            </div>
+            <div class="col-lg-8">
+                <div class="about-card">
+                    <p class="about-text">
+                        Shakarim Lab является ведущим научно-исследовательским центром, специализирующимся на современных методах анализа и исследований в области сельского хозяйства, экологии и промышленности.
+                    </p>
+                    <p class="about-text mt-3">
+                        Наш центр оснащен высокотехнологичным оборудованием и укомплектован квалифицированными специалистами, что позволяет проводить широкий спектр лабораторных исследований и анализов на международном уровне.
+                    </p>
+                    <p class="about-text mt-3">
+                        Мы предоставляем услуги как для научных учреждений и университетов, так и для коммерческих организаций, стремящихся к инновационному развитию и повышению качества своей продукции.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                         alt="Лаборатория" class="img-fluid h-100 w-100" style="object-fit: cover;">
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Services Section -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <h2 class="section-subtitle">Основные услуги центра</h2>
+            </div>
+            
+            <!-- First row of services -->
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-atom fa-2x text-success"></i>
+                    </div>
+                    <h3 class="service-title">Анализ тяжелых металлов и токсичных элементов</h3>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-microscope fa-2x text-success"></i>
+                    </div>
+                    <h3 class="service-title">Микроскопические исследования</h3>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-radiation fa-2x text-success"></i>
+                    </div>
+                    <h3 class="service-title">Радиометрия</h3>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-seedling fa-2x text-success"></i>
+                    </div>
+                    <h3 class="service-title">Определение макронутриентов</h3>
+                </div>
+            </div>
+            
+            <!-- Second row of services -->
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-flask fa-2x text-success"></i>
+                    </div>
+                    <h3 class="service-title">Общий химический анализ</h3>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line fa-2x text-success"></i>
+                    </div>
+                    <h3 class="service-title">Спектральный анализ</h3>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs fa-2x text-success"></i>
+                    </div>
+                    <h3 class="service-title">Самостоятельная работа на оборудовании</h3>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-search fa-2x text-success"></i>
+                    </div>
+                    <h3 class="service-title">Гранулометрический анализ</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- Labs Section -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <h2 class="section-subtitle">Лаборатории центра</h2>
+            </div>
+            
+            <div class="col-lg-6 mb-4">
+                <div class="lab-card fade-in">
+                    <div class="lab-image">
+                        <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                             alt="Лаборатория" class="img-fluid w-100 h-100" style="object-fit: cover;">
+                    </div>
+                    <div class="lab-content">
+                        <h3 class="lab-title">Лаборатория коллективного пользования</h3>
+                        <p class="lab-description">
+                            Современная лаборатория, оснащенная высокотехнологичным аналитическим оборудованием для проведения комплексных исследований в области сельского хозяйства и экологии.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6 mb-4">
+                <div class="lab-card fade-in">
+                    <div class="lab-image">
+                        <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                             alt="Лаборатория" class="img-fluid w-100 h-100" style="object-fit: cover;">
+                    </div>
+                    <div class="lab-content">
+                        <h3 class="lab-title">Лаборатория спектрального анализа</h3>
+                        <p class="lab-description">
+                            Специализированная лаборатория для проведения точных спектральных исследований и определения химического состава различных материалов и веществ.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6 mb-4">
+                <div class="lab-card fade-in">
+                    <div class="lab-image">
+                        <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                             alt="Лаборатория" class="img-fluid w-100 h-100" style="object-fit: cover;">
+                    </div>
+                    <div class="lab-content">
+                        <h3 class="lab-title">Лаборатория микроскопии</h3>
+                        <p class="lab-description">
+                            Лаборатория микроскопических исследований, оборудованная современными микроскопами для детального изучения структуры материалов.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6 mb-4">
+                <div class="lab-card fade-in">
+                    <div class="lab-image">
+                        <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                             alt="Лаборатория" class="img-fluid w-100 h-100" style="object-fit: cover;">
+                    </div>
+                    <div class="lab-content">
+                        <h3 class="lab-title">Лаборатория экологического мониторинга</h3>
+                        <p class="lab-description">
+                            Лаборатория для проведения экологического мониторинга и оценки воздействия на окружающую среду различных факторов.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quality Evidence Slider -->
+<section class="quality-slider section-spacing">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="quality-title">Доказательства качества</h2>
+            </div>
+        </div>
+        
+        <div class="slider-container">
+            <div class="slider-image slider-main">
+                <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                     alt="Сертификат качества" class="img-fluid w-100 h-100" style="object-fit: cover;">
+            </div>
+            <div class="slider-image slider-side slider-left">
+                <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                     alt="Сертификат" class="img-fluid w-100 h-100" style="object-fit: cover;">
+            </div>
+            <div class="slider-image slider-side slider-right">
+                <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                     alt="Сертификат" class="img-fluid w-100 h-100" style="object-fit: cover;">
+            </div>
+            <button class="slider-nav slider-next">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Information -->
+<div class="container">
+    <div class="section-spacing">
+        <div class="row">
+            <div class="col-12">
+                <div class="contact-card">
+                    <h2 class="contact-title">Контактная информация центра</h2>
+                    
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="contact-section">
+                                <h3 class="contact-label">Адрес</h3>
+                                <p class="contact-info">
+                                    Абайская область, город Семей,<br>
+                                    ул. Физкультурная, 4
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-2 d-flex justify-content-center">
+                            <div class="contact-divider"></div>
+                        </div>
+                        
+                        <div class="col-lg-5">
+                            <div class="contact-section">
+                                <h3 class="contact-label">Контакты</h3>
+                                <p class="contact-info">Email: center@shakarim.kz</p>
+                                <p class="contact-info">Телефон: +7 7222 50-00-00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/lab.js' %}"></script>
+{% endblock %}

@@ -65,3 +65,28 @@ class CourseTopicTranslationOptions(TranslationOptions):
 @register(CourseReview)
 class CourseReviewTranslationOptions(TranslationOptions):
     fields = ('reviewer_name', 'comment')
+    
+
+@register(ProjectDirection)
+class ProjectDirectionTranslationOptions(TranslationOptions):
+    fields = ('name',)
+
+
+@register(ProjectStatus)
+class ProjectStatusTranslationOptions(TranslationOptions):
+    fields = ('name',)
+
+
+@register(Project)
+class ProjectTranslationOptions(TranslationOptions):
+    fields = ('title', 'short_description', 'description', 'implementation_period')
+
+
+@register(ProjectImage)
+class ProjectImageTranslationOptions(TranslationOptions):
+    fields = ('caption',)
+
+
+@register(ProjectTeamMember)
+class ProjectTeamMemberTranslationOptions(TranslationOptions):
+    fields = ('name', 'position', 'bio')

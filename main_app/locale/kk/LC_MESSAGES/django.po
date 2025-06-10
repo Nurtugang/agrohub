@@ -37,6 +37,15 @@ msgstr "Компания туралы"
 msgid "nav_about_team"
 msgstr "Команда"
 
+msgid "nav_about_lab"
+msgstr "Shakarim Lab"
+
+msgid "nav_about_agrotehnopark"
+msgstr "Агротехнопарк"
+
+msgid "nav_about_engeneering_center"
+msgstr "Инженерлік орталық"
+
 msgid "nav_services"
 msgstr "Қызметтер"
 
@@ -818,3 +827,154 @@ msgstr "Телефон"
 
 msgid "email"
 msgstr "Email"
+
+
+# team.html
+
+
+msgid "together_achieve_dreams"
+msgstr "Арманыңызға бірге жетеміз"
+
+msgid "our_team"
+msgstr "Біздің команда"
+
+msgid "meet_our_professionals"
+msgstr "Біздің кәсіпқойлар командасымен танысыңыз."
+
+msgid "administrative_support"
+msgstr "Әкімшілік қолдау"
+
+msgid "admin1_full_name"
+msgstr "Дулатбай Ерасыл Алтайұлы"
+
+msgid "admin1_first_name"
+msgstr "Дулатбай"
+
+msgid "admin1_last_name"
+msgstr "Ерасыл Алтайұлы"
+
+msgid "admin1_position"
+msgstr "Басқарма мүшесі - интернационализация және инновациялар жөніндегі проректор"
+
+msgid "admin2_full_name"
+msgstr "Иванов Иван Иванович"
+
+msgid "admin2_first_name"
+msgstr "Иванов"
+
+msgid "admin2_last_name"
+msgstr "Иван Иванович"
+
+msgid "admin2_position"
+msgstr "Әкімшілік мәселелер жөніндегі директордың орынбасары"
+
+msgid "admin3_full_name"
+msgstr "Петров Петр Петрович"
+
+msgid "admin3_first_name"
+msgstr "Петров"
+
+msgid "admin3_last_name"
+msgstr "Петр Петрович"
+
+msgid "admin3_position"
+msgstr "Кадр бөлімінің басшысы"
+
+msgid "admin4_full_name"
+msgstr "Сидоров Сидор Сидорович"
+
+msgid "admin4_first_name"
+msgstr "Сидоров"
+
+msgid "admin4_last_name"
+msgstr "Сидор Сидорович"
+
+msgid "admin4_position"
+msgstr "Құжаттармен жұмыс жөніндегі бас маман"
+
+msgid "email_label"
+msgstr "Email:"
+
+msgid "phone_label"
+msgstr "Телефон:"
+
+msgid "shakarim_lab"
+msgstr "Shakarim Lab"
+
+msgid "lab_member1_name"
+msgstr "Кливенко Алексей Николаевич"
+
+msgid "lab_member2_name"
+msgstr "Абдуллин Марат Рустемович"
+
+msgid "lab_member3_name"
+msgstr "Жанузакова Айгуль Сериковна"
+
+msgid "lab_member4_name"
+msgstr "Токтарбаев Данияр Ермекович"
+
+msgid "projects_catalog_title"
+msgstr "Жобалар каталогы"
+
+msgid "project_detail"
+msgstr "Жоба туралы толық"
+
+msgid "search_projects_placeholder"
+msgstr "Жобаларды іздеу..."
+
+msgid "status_filter_title"
+msgstr "МӘРТЕБЕ БОЙЫНША СҮЗГІ"
+
+msgid "direction_filter_title"
+msgstr "БАҒЫТ БОЙЫНША СҮЗГІ"
+
+msgid "projects_pagination"
+msgstr "Жобалар беттері"
+
+msgid "all_statuses"
+msgstr "Барлық мәртебелер"
+
+msgid "all_directions"
+msgstr "Барлық бағыттар"
+
+msgid "investment_amount_label"
+msgstr "Инвестиция сомасы"
+
+msgid "implementation_period_label"
+msgstr "Іске асыру мерзімі"
+
+msgid "status_label"
+msgstr "Мәртебе"
+
+msgid "direction_label"
+msgstr "Бағыт"
+
+msgid "view_project"
+msgstr "Жобаны көру"
+
+msgid "back_to_projects"
+msgstr "Жобаларға оралу"
+
+msgid "project_overview"
+msgstr "Жоба шолуы"
+
+msgid "project_description"
+msgstr "Жоба сипаттамасы"
+
+msgid "investment_amount"
+msgstr "Инвестиция сомасы"
+
+msgid "project_details"
+msgstr "Жоба мәліметтері"
+
+msgid "implementation_period"
+msgstr "Іске асыру мерзімі"
+
+msgid "direction"
+msgstr "Бағыт"
+
+msgid "project_status"
+msgstr "Жоба мәртебесі"
+
+msgid "project_team"
+msgstr "Жоба командасы"
