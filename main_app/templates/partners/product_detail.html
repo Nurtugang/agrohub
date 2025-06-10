@@ -1,0 +1,210 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}{{ product.name }} - {% trans "site_title" %}{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/store_product.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- Breadcrumbs -->
+<section class="breadcrumbs-section">
+    <div class="breadcrumbs">
+        <div class="container">
+            <a href="javascript:history.back()"><i class="fas fa-arrow-left"></i> {% trans "back" %}</a>
+            <span>/</span>
+            <a href="{% url 'partner_shop' %}">{% trans "partner_shop" %}</a>
+            <span>/</span>
+            <span>{{ product.name }}</span>
+        </div>
+    </div>
+</section>
+
+<!-- Product Content -->
+<section class="product-section">
+    <div class="container">
+        <div class="product-title">
+            <h1>{{ product.name }}</h1>
+        </div>
+
+        <div class="product-card">
+            <div class="row">
+                <!-- Product Image Gallery -->
+                <div class="col-lg-6">
+                    <div class="product-images">
+                        <div class="main-image">
+                            {% if product.image %}
+                                <img src="{{ product.image.url }}" alt="{{ product.name }}" id="mainImage">
+                            {% else %}
+                                <div class="no-image">
+                                    <i class="fas fa-image"></i>
+                                    <p>{% trans "no_image" %}</p>
+                                </div>
+                            {% endif %}
+                        </div>
+                        {% if product.image %}
+                            <div class="thumbnail-images">
+                                <div class="thumbnail active" data-img="{{ product.image.url }}">
+                                    <img src="{{ product.image.url }}" alt="{% trans 'thumbnail' %} 1">
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+                
+                <!-- Product Details -->
+                <div class="col-lg-6">
+                    <div class="product-details">
+                        <div class="partner-info">
+                            <span class="label">{% trans "partner" %}:</span>
+                            <span class="value">{{ product.partner.name }}</span>
+                        </div>
+                        
+                        <div class="product-price">
+                            <span class="price-label">{% trans "price" %}:</span>
+                            <span class="price-value">{{ product.price|floatformat:0 }} {% trans "tenge" %}</span>
+                        </div>
+                        
+                        <div class="contact-button">
+                            {% if product.partner.website %}
+                                <a href="{{ product.partner.website }}" target="_blank" class="btn-contact">
+                                    {% trans "contact_manager" %}
+                                </a>
+                            {% else %}
+                                <button class="btn-contact" onclick="showContacts()">
+                                    {% trans "contact_manager" %}
+                                </button>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="partner-contacts">
+                            <h4>{% trans "partner_contacts" %}:</h4>
+                            
+                            {% if product.partner.phone %}
+                                <div class="contact-item">
+                                    <span class="contact-label">{% trans "phone" %}:</span>
+                                    <a href="tel:{{ product.partner.phone }}" class="contact-value">{{ product.partner.phone }}</a>
+                                </div>
+                            {% endif %}
+                            
+                            {% if product.partner.manager_phone %}
+                                <div class="contact-item">
+                                    <span class="contact-label">{% trans "manager_phone" %}:</span>
+                                    <a href="tel:{{ product.partner.manager_phone }}" class="contact-value">{{ product.partner.manager_phone }}</a>
+                                </div>
+                            {% endif %}
+                            
+                            {% if product.partner.email %}
+                                <div class="contact-item">
+                                    <span class="contact-label">Email:</span>
+                                    <a href="mailto:{{ product.partner.email }}" class="contact-link">{{ product.partner.email }}</a>
+                                </div>
+                            {% endif %}
+                            
+                            {% if product.partner.website %}
+                                <div class="contact-item">
+                                    <span class="contact-label">{% trans "website" %}:</span>
+                                    <a href="{{ product.partner.website }}" target="_blank" class="contact-link website">{{ product.partner.website }}</a>
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="product-meta">
+                            <div class="meta-item">
+                                <span class="meta-code">{% trans "product_code" %}: {{ product.article_number }}</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-text">{% trans "availability" %}: {{ product.availability }}</span>
+                            </div>
+                            {% if product.delivery_time %}
+                                <div class="meta-item">
+                                    <span class="meta-text">{% trans "delivery_time" %}: {{ product.delivery_time }}</span>
+                                </div>
+                            {% endif %}
+                            <div class="meta-item">
+                                <span class="meta-text">{% trans "prices_include_vat" %}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Image Viewer Modal -->
+<div class="image-viewer-modal">
+    <div class="image-viewer-content">
+        <span class="close-viewer">&times;</span>
+        <img id="zoomed-image" src="" alt="{% trans 'zoomed_image' %}">
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    function showContacts() {
+        // Прокрутка к контактам партнера
+        document.querySelector('.partner-contacts').scrollIntoView({
+            behavior: 'smooth'
+        });
+    }
+
+    // Image viewer functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const mainImage = document.getElementById('mainImage');
+        const thumbnails = document.querySelectorAll('.thumbnail');
+        const imageModal = document.querySelector('.image-viewer-modal');
+        const zoomedImage = document.getElementById('zoomed-image');
+        const closeViewer = document.querySelector('.close-viewer');
+
+        // Thumbnail click handlers
+        thumbnails.forEach(thumbnail => {
+            thumbnail.addEventListener('click', function() {
+                // Remove active class from all thumbnails
+                thumbnails.forEach(t => t.classList.remove('active'));
+                
+                // Add active class to clicked thumbnail
+                this.classList.add('active');
+                
+                // Change main image
+                const newSrc = this.dataset.img;
+                if (mainImage) {
+                    mainImage.src = newSrc;
+                }
+            });
+        });
+
+        // Main image click to zoom
+        if (mainImage) {
+            mainImage.addEventListener('click', function() {
+                zoomedImage.src = this.src;
+                imageModal.style.display = 'flex';
+            });
+        }
+
+        // Close image viewer
+        if (closeViewer) {
+            closeViewer.addEventListener('click', function() {
+                imageModal.style.display = 'none';
+            });
+        }
+
+        // Close on background click
+        imageModal.addEventListener('click', function(e) {
+            if (e.target === imageModal) {
+                imageModal.style.display = 'none';
+            }
+        });
+
+        // Close on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                imageModal.style.display = 'none';
+            }
+        });
+    });
+</script>
+{% endblock %}

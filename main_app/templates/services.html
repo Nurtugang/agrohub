@@ -425,6 +425,7 @@
         
         if (cart.length === 0) {
             // Корзина пуста
+            cartItems.innerHTML = '<div class="cart-empty">{% trans "cart_empty" %}</div>';
             cartFooter.style.display = 'none';
         } else {
             // Показываем товары
@@ -439,7 +440,7 @@
                             <div class="cart-item-name">${item.name}</div>
                             <div class="cart-item-price">${item.price.toLocaleString()} ₸</div>
                         </div>
-                        <button class="cart-item-remove" onclick="removeFromCart(${item.id})" title="{% trans 'remove_item' %}">
+                        <button class="cart-item-remove" data-id="${item.id}" title="{% trans 'remove_item' %}">
                             ×
                         </button>
                     </div>
@@ -467,6 +468,15 @@
         const cartWidget = document.querySelector('.cart-widget');
         if (!cartWidget.contains(e.target)) {
             hideCart();
+        }
+    });
+    
+    // Добавляем обработчик для кнопок удаления в корзине
+    document.addEventListener('click', function(e) {
+        if (e.target && e.target.classList.contains('cart-item-remove')) {
+            e.stopPropagation();
+            const serviceId = parseInt(e.target.getAttribute('data-id'));
+            removeFromCart(serviceId);
         }
     });
 

@@ -1000,3 +1000,83 @@ msgstr "Агро-гид: пайдалы кеңестер"
 
 msgid "guide_description"
 msgstr "Фермерлерге арналған тәжірибелік ұсыныстар мен қарапайым шешімдер."
+
+# partner_shop.html
+
+msgid "call"
+msgstr "Қоңырау шалу"
+
+msgid "website"
+msgstr "Веб-сайт"
+
+msgid "partner_products"
+msgstr "Серіктестік өнімдер"
+
+msgid "partner_products_description"
+msgstr "Біздің серіктестердің өнімдер каталогы"
+
+msgid "partner_products_catalog"
+msgstr "Серіктестік өнімдер каталогы"
+
+msgid "filter_by_partner"
+msgstr "Серіктес бойынша сүзгі"
+
+msgid "all_partners"
+msgstr "Барлық серіктестер"
+
+msgid "article"
+msgstr "Артикул"
+
+msgid "availability"
+msgstr "Қолжетімділік"
+
+msgid "delivery_time"
+msgstr "Жеткізу мерзімі"
+
+msgid "contact_partner"
+msgstr "Серіктеспен байланысу"
+
+msgid "no_products_found"
+msgstr "Өнімдер табылмады"
+
+msgid "partner_contacts"
+msgstr "Серіктес контактілері"
+
+msgid "manager_phone"
+msgstr "Менеджер телефоны"
+
+msgid "pagination"
+msgstr "Беттеу"
+
+msgid "partner_shop_title"
+msgstr "Серіктестер дүкені"
+
+msgid "view_product" 
+msgstr "Өнімді көру"
+
+msgid "partner_shop"
+msgstr "Серіктестер дүкені"
+
+msgid "no_image"
+msgstr "Сурет жоқ"
+
+msgid "thumbnail"
+msgstr "Кішкентай сурет"
+
+msgid "partner"
+msgstr "Серіктес"
+
+msgid "price"
+msgstr "Баға"
+
+msgid "contact_manager"
+msgstr "Менеджермен байланысу"
+
+msgid "product_code"
+msgstr "Тауар коды"
+
+msgid "prices_include_vat"
+msgstr "Бағалар ҚҚС-пен көрсетілген"
+
+msgid "zoomed_image"
+msgstr "Үлкейтілген сурет"

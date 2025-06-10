@@ -697,3 +697,56 @@ class ProjectTeamMember(models.Model):
         verbose_name = "Участник команды"
         verbose_name_plural = "Участники команды"
 
+
+class Partner(models.Model):
+    name = models.CharField(max_length=200)
+    phone = models.CharField(max_length=50)
+    manager_phone = models.CharField(max_length=50, blank=True)
+    email = models.EmailField(blank=True)
+    website = models.URLField(blank=True)
+    slug = models.SlugField(unique=True)
+    
+    
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        verbose_name = "Партнер"
+        verbose_name_plural = "Партнеры"
+
+class Product(models.Model):
+    name = models.CharField(max_length=200)
+    partner = models.ForeignKey(Partner, on_delete=models.CASCADE)
+    price = models.DecimalField(max_digits=12, decimal_places=2)
+    article_number = models.CharField(max_length=50)
+    availability = models.CharField(max_length=100, default='Под заказ')
+    delivery_time = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='products_images/')
+    
+    def save(self, *args, **kwargs):
+        if self.image:
+            self.image = self.compress_image(self.image)
+        super().save(*args, **kwargs)
+    
+    def compress_image(self, image):
+        img = Image.open(image)
+        img = img.convert('RGB')
+        
+        if img.width > 800:
+            ratio = 800 / img.width
+            new_height = int(img.height * ratio)
+            img = img.resize((800, new_height), Image.Resampling.LANCZOS)
+        
+        output = BytesIO()
+        img.save(output, format='WebP', quality=85, optimize=True)
+        output.seek(0)
+        
+        name = os.path.splitext(image.name)[0] + '.webp'
+        return ContentFile(output.read(), name=name)
+    
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "Партнерский продукт"
+        verbose_name_plural = "Партнерские продукты"

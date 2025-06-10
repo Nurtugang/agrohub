@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}{% trans "services_title" %} - {% trans "site_title" %}{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/services.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- Filters Section -->
+<section class="filters-section" style="margin-top: 100px;">
+    <div class="container">
+        <div class="filter-card" style="margin-bottom: 0px;">
+            <h2 class="h4 mb-4">{% trans "partner_products" %}</h2>
+            <!-- partner Filters -->
+            <div class="mb-4">
+                <h6 class="text-muted mb-3">{% trans "filter_title" %}</h6>
+                <div class="filter-buttons">
+                    <a href="?" class="filter-btn {% if not partner_filter %}active{% endif %}">
+                        {% trans "all_partners" %}
+                    </a>
+                    {% for partner in partners %}
+                        <a href="?partner={{ partner.slug }}" 
+                        class="filter-btn {% if partner_filter == partner.slug %}active{% endif %}">
+                            {{ partner.name }}
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <form method="GET">
+                <div class="col-md-8">
+                    {% if partner_filter %}<input type="hidden" name="partner" value="{{ partner_filter }}">{% endif %}
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Services Table Section -->
+<section class="services-table-section">
+    <div class="container">
+        {% if page_obj or not partner_filter %}
+            <!-- Обычная логика для выбранных фильтров -->
+            <div class="services-table">
+                <!-- Table Header -->
+                <div class="table-header">
+                    <div class="row">
+                        <div class="col-md-3">{% trans "service_name" %}</div>
+                        <div class="col-md-3">{% trans "availability" %}</div>
+                        <div class="col-md-2">{% trans "service_price_tenge" %}</div>
+                        <div class="col-md-4">{% trans "service_actions" %}</div>
+                    </div>
+                </div>
+                
+                <!-- Services Rows -->
+                {% for service in page_obj %}
+                    <div class="service-row">
+                        <div class="row align-items-center">
+                            <div class="col-md-3">
+                                <div class="service-name text-center">{{ service.name }}</div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="service-description text-center">
+                                    {{ service.availability }}
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="service-price">
+                                    {{ service.price|floatformat:0 }}
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="service-actions text-center">
+                                    <a href="{% url 'product_detail' service.pk %}" class="btn-consultation">
+                                        {% trans "view_product" %}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="text-center py-5">
+                <h3>{% trans "no_services_found" %}</h3>
+                <p>{% trans "try_different_filters" %}</p>
+            </div>
+        {% endif %}
+    </div>
+</section>
+
+
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+</script>
+{% endblock %}

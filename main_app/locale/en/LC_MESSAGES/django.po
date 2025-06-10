@@ -996,3 +996,83 @@ msgstr "Agro-guide: useful tips"
 
 msgid "guide_description"
 msgstr "Practical recommendations and simple solutions for farmers."
+
+# partner_shop.html
+
+msgid "call"
+msgstr "Call"
+
+msgid "website"
+msgstr "Website"
+
+msgid "partner_products"
+msgstr "Partner Products"
+
+msgid "partner_products_description"
+msgstr "Catalog of products from our partners"
+
+msgid "partner_products_catalog"
+msgstr "Partner Products Catalog"
+
+msgid "filter_by_partner"
+msgstr "Filter by Partner"
+
+msgid "all_partners"
+msgstr "All Partners"
+
+msgid "article"
+msgstr "Article"
+
+msgid "availability"
+msgstr "Availability"
+
+msgid "delivery_time"
+msgstr "Delivery Time"
+
+msgid "contact_partner"
+msgstr "Contact Partner"
+
+msgid "no_products_found"
+msgstr "No products found"
+
+msgid "partner_contacts"
+msgstr "Partner Contacts"
+
+msgid "manager_phone"
+msgstr "Manager Phone"
+
+msgid "pagination"
+msgstr "Pagination"
+
+msgid "partner_shop_title"
+msgstr "Partner Shop"
+
+msgid "view_product"
+msgstr "View Product" 
+
+msgid "partner_shop"
+msgstr "Partner Shop"
+
+msgid "no_image"
+msgstr "No image available"
+
+msgid "thumbnail"
+msgstr "Thumbnail"
+
+msgid "partner"
+msgstr "Partner"
+
+msgid "price"
+msgstr "Price"
+
+msgid "contact_manager"
+msgstr "Contact Manager"
+
+msgid "product_code"
+msgstr "Product Code"
+
+msgid "prices_include_vat"
+msgstr "Prices include VAT"
+
+msgid "zoomed_image"
+msgstr "Zoomed Image"

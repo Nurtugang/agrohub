@@ -629,3 +629,18 @@ class ExpertAdmin(TranslationAdmin):
             'fields': ('bio',)
         }),
     )
+
+
+@admin.register(Partner)
+class PartnerAdmin(TranslationAdmin):
+    list_display = ['name', 'phone', 'email', 'slug']
+    search_fields = ['name', 'email', 'slug']
+    prepopulated_fields = {'slug': ('name',)}
+    fields = ('name', 'slug', 'phone', 'manager_phone', 'email', 'website')
+
+@admin.register(Product)
+class ProductAdmin(TranslationAdmin):
+    list_display = ['name', 'partner', 'price', 'article_number']
+    list_filter = ['partner']
+    search_fields = ['name', 'article_number']
+    fields = ('name', 'partner', 'price', 'article_number', 'availability','delivery_time', 'image')

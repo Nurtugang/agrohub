@@ -93,3 +93,11 @@ class ProjectImageTranslationOptions(TranslationOptions):
 @register(ProjectTeamMember)
 class ProjectTeamMemberTranslationOptions(TranslationOptions):
     fields = ('name', 'position', 'bio')
+    
+@register(Partner)
+class PartnerTranslationOptions(TranslationOptions):
+    fields = ('name',)
+
+@register(Product)
+class ProductTranslationOptions(TranslationOptions):
+    fields = ('name', 'availability', 'delivery_time')

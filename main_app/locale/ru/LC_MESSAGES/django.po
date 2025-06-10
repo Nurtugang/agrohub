@@ -999,3 +999,83 @@ msgstr "Агро-гид: полезные советы"
 msgid "guide_description"
 msgstr "Практические рекомендации и простые решения для фермеров."
 
+
+# partner-shop.html
+
+msgid "call"
+msgstr "Позвонить"
+
+msgid "website"
+msgstr "Сайт"
+
+msgid "partner_products"
+msgstr "Партнерские товары"
+
+msgid "partner_products_description"
+msgstr "Каталог товаров от наших партнеров"
+
+msgid "partner_products_catalog"
+msgstr "Каталог партнерских товаров"
+
+msgid "filter_by_partner"
+msgstr "Фильтр по партнеру"
+
+msgid "all_partners"
+msgstr "Все партнеры"
+
+msgid "article"
+msgstr "Артикул"
+
+msgid "availability"
+msgstr "Наличие"
+
+msgid "delivery_time"
+msgstr "Срок поставки"
+
+msgid "contact_partner"
+msgstr "Связаться с партнером"
+
+msgid "no_products_found"
+msgstr "Товары не найдены"
+
+msgid "partner_contacts"
+msgstr "Контакты партнера"
+
+msgid "manager_phone"
+msgstr "Телефон менеджера"
+
+msgid "pagination"
+msgstr "Пагинация"
+
+msgid "partner_shop_title"
+msgstr "Магазин партнеров"
+
+msgid "view_product"
+msgstr "Смотреть товар"
+
+msgid "partner_shop"
+msgstr "Магазин партнеров"
+
+msgid "no_image"
+msgstr "Изображение отсутствует"
+
+msgid "thumbnail"
+msgstr "Миниатюра"
+
+msgid "partner"
+msgstr "Партнер"
+
+msgid "price"
+msgstr "Цена"
+
+msgid "contact_manager"
+msgstr "Связаться с менеджером"
+
+msgid "product_code"
+msgstr "Код товара"
+
+msgid "prices_include_vat"
+msgstr "Цены указаны с учетом НДС"
+
+msgid "zoomed_image"
+msgstr "Увеличенное изображение"

@@ -22,11 +22,9 @@ def reload_translations_view(request):
 def index(request):
     """Main page with multilingual content"""
     locale = translation.get_language()
-    things = Thing.objects.all()
-    latest_news = News.objects.filter(is_published=True, is_expert_news=False).order_by('-created_at')[:3]
+    latest_news = News.objects.filter(is_published=True, is_expert_news=False, is_guide=False).order_by('-created_at')[:3]
     
     context = {
-        'things': things,
         'current_language': locale,
         'latest_news': latest_news,
     }
@@ -164,7 +162,8 @@ def news_detail(request, pk):
     related_news = News.objects.filter(
         category=news.category, 
         is_published=True,
-        is_expert_news=False
+        is_expert_news=False,
+        is_guide=False
     ).exclude(pk=pk)[:3]
     
     context = {
@@ -523,21 +522,7 @@ def course_application(request):
         'message': 'Метод не поддерживается'
     })
 
-def partners(request):
-    locale = translation.get_language()
-    
-    context = {
-        'current_language': locale,
-    }
-    return render(request, 'partners.html', context)
 
-def store_product(request):
-    locale = translation.get_language()
-    
-    context = {
-        'current_language': locale,
-    }
-    return render(request, 'store_product.html', context)
 
 def knowledge_list(request):
     locale = translation.get_language()
@@ -771,3 +756,41 @@ def guide_detail(request, pk):
     }
     
     return render(request, 'guide/guide_detail.html', context)
+
+def partner_shop(request):
+    # Фильтры
+    partner_filter = request.GET.get('partner', '')
+    
+    products = Product.objects.all().select_related('partner')
+    
+    # Применяем фильтры
+    if partner_filter:
+        products = products.filter(partner__slug=partner_filter)
+    
+    # Пагинация
+    paginator = Paginator(products, 12)  # 12 товаров на страницу
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    
+    # Данные для фильтров
+    partners = Partner.objects.all()
+    
+    context = {
+        'page_obj': page_obj,
+        'partners': partners,
+        'partner_filter': partner_filter,
+    }
+    
+    return render(request, 'partners/partner_shop.html', context)
+
+def product_detail(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    return render(request, 'partners/product_detail.html', {'product': product})
+
+def partners(request):
+    locale = translation.get_language()
+    
+    context = {
+        'current_language': locale,
+    }
+    return render(request, 'partners/partners.html', context)
