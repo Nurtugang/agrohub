@@ -514,3 +514,27 @@ def course_application(request):
         'success': False,
         'message': 'Метод не поддерживается'
     })
+
+def partners(request):
+    locale = translation.get_language()
+    
+    context = {
+        'current_language': locale,
+    }
+    return render(request, 'partners.html', context)
+
+def store_product(request):
+    locale = translation.get_language()
+    
+    context = {
+        'current_language': locale,
+    }
+    return render(request, 'store_product.html', context)
+
+def knowledge_list(request):
+    locale = translation.get_language()
+    
+    context = {
+        'current_language': locale,
+    }
+    return render(request, 'knowledge_list.html', context)

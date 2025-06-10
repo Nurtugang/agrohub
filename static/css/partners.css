@@ -1,0 +1,555 @@
+.partners-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/w=240.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 0;
+    margin-bottom: 60px;
+    margin-top: 74px;
+}
+
+.partners-hero h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.partners-hero .btn {
+    background-color: #2E7D32;
+    border-color: #2E7D32;
+    font-weight: 600;
+    padding: 12px 24px;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+.partners-hero .btn:hover {
+    background-color: #1B5E20;
+    border-color: #1B5E20;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.intro-section {
+    padding: 40px 0;
+    margin-bottom: 50px;
+}
+
+.intro-section h2 {
+    color: #333;
+    font-weight: 700;
+}
+
+.intro-section p {
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.partners-section {
+    padding: 30px 0;
+    margin-bottom: 60px;
+}
+
+.section-title {
+    color: #333;
+    font-weight: 700;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.partner-cards {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+.partner-card-col {
+    padding: 10px;
+}
+
+.partner-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    text-align: center;
+    height: 100%;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.partner-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.partner-logo {
+    max-width: 100%;
+    height: auto;
+    max-height: 100px;
+    margin-bottom: 15px;
+}
+
+.partner-name {
+    margin-bottom: 0;
+    font-size: 1.1rem;
+    color: #333;
+    font-weight: 600;
+}
+
+.testimonials-section {
+    padding: 80px 0 120px;
+    background-color: #f9f9f9;
+    margin-bottom: 60px;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1400px;
+    height: 550px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+    margin: 0 auto;
+}
+
+.card {
+    position: absolute;
+    width: 380px;
+    height: 420px;
+    background: linear-gradient(135deg, #4CAF50, #2E7D32);
+    border-radius: 20px;
+    padding: 30px;
+    color: white;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+.card.active {
+    opacity: 1;
+    transform: scale(1) translateX(0);
+    z-index: 3;
+    filter: blur(0px);
+}
+
+.card.left {
+    opacity: 0.6;
+    transform: scale(0.85) translateX(-280px);
+    z-index: 1;
+    filter: blur(2px);
+}
+
+.card.right {
+    opacity: 0.6;
+    transform: scale(0.85) translateX(280px);
+    z-index: 1;
+    filter: blur(2px);
+}
+
+.card.entering-left {
+    opacity: 0;
+    transform: scale(0.7) translateX(-550px);
+    animation: slideInLeft 0.6s ease-out forwards;
+}
+
+.card.entering-right {
+    opacity: 0;
+    transform: scale(0.7) translateX(550px);
+    animation: slideInRight 0.6s ease-out forwards;
+}
+
+.card.exiting-left {
+    animation: slideOutLeft 0.6s ease-in forwards;
+}
+
+.card.exiting-right {
+    animation: slideOutRight 0.6s ease-in forwards;
+}
+
+@keyframes slideInLeft {
+    to {
+        opacity: 0.6;
+        transform: scale(0.85) translateX(-280px);
+    }
+}
+
+@keyframes slideInRight {
+    to {
+        opacity: 0.6;
+        transform: scale(0.85) translateX(280px);
+    }
+}
+
+@keyframes slideOutLeft {
+    to {
+        opacity: 0;
+        transform: scale(0.7) translateX(-550px);
+    }
+}
+
+@keyframes slideOutRight {
+    to {
+        opacity: 0;
+        transform: scale(0.7) translateX(550px);
+    }
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    background: transparent;
+    border-bottom: none;
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 20px;
+    border: 3px solid rgba(255,255,255,0.2);
+    object-fit: cover;
+}
+
+.person-info h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    border-bottom: none;
+}
+
+.person-info p {
+    font-size: 1rem;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+.card-content {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    opacity: 0.95;
+    font-weight: 300;
+}
+
+.nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    color: #333;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-button:hover {
+    background: rgba(255,255,255,0.3);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.nav-button:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.nav-button.prev {
+    left: 60px;
+}
+
+.nav-button.next {
+    right: 60px;
+}
+
+.indicators {
+    position: absolute;
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(76, 175, 80, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.indicator.active {
+    background: #4CAF50;
+    transform: scale(1.2);
+}
+
+.partner-form-section {
+    padding: 60px 0;
+    margin-bottom: 60px;
+}
+
+.contact-info h3 {
+    font-size: 1.3rem;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.contact-info p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.partner-form .form-control {
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.partner-form textarea.form-control {
+    resize: none;
+}
+
+.btn-orange {
+    background-color: #FF6A00;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-orange:hover {
+    background-color: #e05f00;
+    transform: translateY(-2px);
+}
+
+.form-check-label {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+
+
+@media (max-width: 1400px) {
+    .carousel-container {
+        max-width: 1200px;
+        height: 520px;
+    }
+    
+    .card {
+        width: 350px;
+        height: 400px;
+    }
+    
+    .card.left {
+        transform: scale(0.85) translateX(-240px);
+    }
+    
+    .card.right {
+        transform: scale(0.85) translateX(240px);
+    }
+    
+    .nav-button.prev {
+        left: 40px;
+    }
+    
+    .nav-button.next {
+        right: 40px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .carousel-container {
+        max-width: 1000px;
+        height: 500px;
+    }
+    
+    .card {
+        width: 330px;
+        height: 390px;
+        padding: 25px;
+    }
+    
+    .card.left {
+        transform: scale(0.85) translateX(-200px);
+    }
+    
+    .card.right {
+        transform: scale(0.85) translateX(200px);
+    }
+    
+    .nav-button.prev {
+        left: 30px;
+    }
+    
+    .nav-button.next {
+        right: 30px;
+    }
+}
+
+@media (max-width: 992px) {
+    .partners-hero {
+        padding: 80px 0;
+    }
+    
+    .partners-hero h1 {
+        font-size: 2.4rem;
+    }
+    
+    .carousel-container {
+        height: 480px;
+    }
+    
+    .card {
+        width: 300px;
+        height: 380px;
+        padding: 20px;
+    }
+    
+    .card.left {
+        transform: scale(0.8) translateX(-180px);
+    }
+    
+    .card.right {
+        transform: scale(0.8) translateX(180px);
+    }
+    
+    .avatar {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .person-info h3 {
+        font-size: 1.3rem;
+    }
+    
+    .card-content {
+        font-size: 1rem;
+    }
+    
+    .nav-button.prev {
+        left: 20px;
+    }
+    
+    .nav-button.next {
+        right: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .partners-hero {
+        padding: 60px 0;
+    }
+    
+    .partners-hero h1 {
+        font-size: 2rem;
+    }
+    
+    .carousel-container {
+        height: 450px;
+    }
+    
+    .card {
+        width: 280px;
+        padding: 20px;
+        height: 380px;
+    }
+    
+    .card.left, .card.right {
+        display: none;
+    }
+    
+    .avatar {
+        width: 60px;
+        height: 60px;
+        margin-right: 15px;
+    }
+    
+    .person-info h3 {
+        font-size: 1.2rem;
+    }
+    
+    .person-info p {
+        font-size: 0.9rem;
+    }
+    
+    .card-content {
+        font-size: 0.95rem;
+    }
+    
+    .nav-button {
+        width: 50px;
+        height: 50px;
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-container {
+        height: 430px;
+    }
+    
+    .card {
+        width: 260px;
+        padding: 15px;
+        height: 390px;
+    }
+    
+    .card-header {
+        margin-bottom: 15px;
+    }
+    
+    .card-content {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    
+    .nav-button {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+    }
+}
+
+/* Animation classes */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.partner-card {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.partner-cards .partner-card-col:nth-child(1) { animation-delay: 0.1s; }
+.partner-cards .partner-card-col:nth-child(2) { animation-delay: 0.2s; }
+.partner-cards .partner-card-col:nth-child(3) { animation-delay: 0.3s; }
+.partner-cards .partner-card-col:nth-child(4) { animation-delay: 0.4s; }
+
+/* Slider specific styles to show 3 cards with middle one highlighted */
+@media (min-width: 992px) {
+    .carousel-inner .carousel-item {
+        transition: transform 0.6s ease;
+    }
+}
