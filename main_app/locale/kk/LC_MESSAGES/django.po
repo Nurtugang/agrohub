@@ -235,35 +235,29 @@ msgstr ""
 "Қазақстандағы ең ірі аграрлық портал. Біз ауыл шаруашылығының барлық "
 "салаларында кешенді қызметтер көрсетеміз."
 
-msgid "footer_services_title"
-msgstr "Қызметтер"
+msgid "footer_about_portal"
+msgstr "Портал туралы"
 
-msgid "footer_services_agronomy"
-msgstr "Агрономия"
-
-msgid "footer_services_laboratory"
-msgstr "Лабораториялық"
-
-msgid "footer_services_veterinary"
-msgstr "Ветеринария"
-
-msgid "footer_services_courses"
-msgstr "Курстар"
-
-msgid "footer_company_title"
-msgstr "Компания"
-
-msgid "footer_company_about"
+msgid "footer_about_us"
 msgstr "Біз туралы"
 
-msgid "footer_company_partners"
-msgstr "Серіктестер"
+msgid "footer_team"
+msgstr "Команда"
 
-msgid "footer_company_projects"
-msgstr "Жобалар"
+msgid "footer_contacts"
+msgstr "Байланыстар"
 
-msgid "footer_company_careers"
-msgstr "Мансап"
+msgid "footer_useful_links"
+msgstr "Пайдалы сілтемелер"
+
+msgid "footer_courses"
+msgstr "Курстар"
+
+msgid "footer_news"
+msgstr "Жаңалықтар"
+
+msgid "footer_announcements"
+msgstr "Хабарландырулар"
 
 msgid "footer_contact_title"
 msgstr "Байланыс:"

@@ -239,35 +239,29 @@ msgstr ""
 "Крупнейший аграрный портал Казахстана. Мы предоставляем комплексные услуги "
 "во всех отраслях сельского хозяйства."
 
-msgid "footer_services_title"
-msgstr "Услуги"
+msgid "footer_about_portal"
+msgstr "О портале"
 
-msgid "footer_services_agronomy"
-msgstr "Агрономия"
-
-msgid "footer_services_laboratory"
-msgstr "Лабораторные"
-
-msgid "footer_services_veterinary"
-msgstr "Ветеринария"
-
-msgid "footer_services_courses"
-msgstr "Курсы"
-
-msgid "footer_company_title"
-msgstr "Компания"
-
-msgid "footer_company_about"
+msgid "footer_about_us"
 msgstr "О нас"
 
-msgid "footer_company_partners"
-msgstr "Партнеры"
+msgid "footer_team"
+msgstr "Команда"
 
-msgid "footer_company_projects"
-msgstr "Проекты"
+msgid "footer_contacts"
+msgstr "Контакты"
 
-msgid "footer_company_careers"
-msgstr "Карьера"
+msgid "footer_useful_links"
+msgstr "Полезные ссылки"
+
+msgid "footer_courses"
+msgstr "Курсы"
+
+msgid "footer_news"
+msgstr "Новости"
+
+msgid "footer_announcements"
+msgstr "Объявления"
 
 msgid "footer_contact_title"
 msgstr "Контакты:"
