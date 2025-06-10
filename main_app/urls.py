@@ -25,6 +25,11 @@ urlpatterns = [
     path('course/application/', views.course_application, name='course_application'), 
     path('course/<slug:slug>/', views.course_detail, name='course_detail'),
     
+    path('partners/', views.partners, name='partners'),
+    path('store-product/', views.store_product, name='store_product'),
+
+    path('knowledge-list/', views.knowledge_list, name='knowledge_list'),
+
     path('projects/', views.projects_catalog, name='projects_catalog'),
     path('project/<slug:slug>/', views.project_detail, name='project'),
     
@@ -33,7 +38,6 @@ urlpatterns = [
     
     path('guide/', views.guide_list, name='guide_list'),
     path('guide/<int:pk>', views.guide_detail, name='guide_detail'),
-    
     
     path('change-language/<str:language_code>/', views.change_language, name='change_language'),
 ]

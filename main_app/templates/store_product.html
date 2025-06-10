@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}Трактор Беларус МР-40 - {% trans "site_title" %}{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/store_product.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- Breadcrumbs -->
+<section class="breadcrumbs-section">
+    <div class="breadcrumbs">
+        <div class="container">
+            <a href="javascript:history.back()"><i class="fas fa-arrow-left"></i> Назад</a>
+            <span>/</span>
+            <a href="#">Серіктестік дүкені</a>
+            <span>/</span>
+            <span>Трактор Беларус МР-40</span>
+        </div>
+    </div>
+</section>
+
+<!-- Product Content -->
+<section class="product-section">
+    <div class="container">
+        <div class="product-title">
+            <h1>Трактор Беларус МР-40</h1>
+        </div>
+
+        <div class="product-card">
+            <div class="row">
+                <!-- Product Image Gallery -->
+                <div class="col-lg-6">
+                    <div class="product-images">
+                        <div class="main-image">
+                            <img src="{% static 'images/public_1.png' %}" alt="Трактор Беларус МР-40" id="mainImage">
+                        </div>
+                        <div class="thumbnail-images">
+                            <div class="thumbnail active" data-img="{% static 'images/public_1.png' %}">
+                                <img src="{% static 'images/public_1.png' %}" alt="Миниатюра 1">
+                            </div>
+                            <div class="thumbnail" data-img="{% static 'images/public_1.png' %}">
+                                <img src="{% static 'images/public_1.png' %}" alt="Миниатюра 2">
+                            </div>
+                            <div class="thumbnail" data-img="{% static 'images/public_1.png' %}">
+                                <img src="{% static 'images/public_1.png' %}" alt="Миниатюра 3">
+                            </div>
+                            <div class="thumbnail" data-img="{% static 'images/public_1.png' %}">
+                                <img src="{% static 'images/public_1.png' %}" alt="Миниатюра 4">
+                            </div>
+                            <div class="thumbnail" data-img="{% static 'images/public_1.png' %}">
+                                <img src="{% static 'images/public_1.png' %}" alt="Миниатюра 5">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Details -->
+                <div class="col-lg-6">
+                    <div class="product-details">
+                        <div class="partner-info">
+                            <span class="label">Партнер:</span>
+                            <span class="value">ТОО "Карагандинский машиностроительный завод"</span>
+                        </div>
+                        
+                        <div class="product-price">
+                            <span class="price-label">Цена:</span>
+                            <span class="price-value">2 500 000 тенге</span>
+                        </div>
+                        
+                        <div class="contact-button">
+                            <button class="btn-contact">Связаться с менеджером</button>
+                        </div>
+                        
+                        <div class="partner-contacts">
+                            <h4>Контакты партнера:</h4>
+                            <div class="contact-item">
+                                <span class="contact-label">Телефон:</span>
+                                <span class="contact-value">+7 7272 230 00 00 (Отдел продаж)</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-value phone-second">+7 700 000 00 00 (Менеджер Вася)</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-label">Email:</span>
+                                <a href="mailto:marketing@karmashzavod.kz" class="contact-link">marketing@karmashzavod.kz</a>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-label">Веб-сайт:</span>
+                                <a href="http://www.karmashzavod.com" target="_blank" class="contact-link website">www.karmashzavod.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="product-meta">
+                            <div class="meta-item">
+                                <span class="meta-code">Код товара: МР45321321</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-text">Наличие: Под заказ</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-text">Срок поставки: 5 - 7 дней</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-text">Цены указаны с учетом НДС</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Image Viewer Modal -->
+<div class="image-viewer-modal">
+    <div class="image-viewer-content">
+        <span class="close-viewer">&times;</span>
+        <img id="zoomed-image" src="" alt="Увеличенное изображение">
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/store_product.js' %}"></script>
+{% endblock %}

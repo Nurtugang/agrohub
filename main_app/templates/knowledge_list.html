@@ -1,0 +1,201 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}Агро-гид{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/knowledge_list.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<!-- Main Content -->
+<section class="content-section">
+    <div class="container">
+        <div class="knowledge-container">
+            <!-- Header Section -->
+            <div class="page-header">
+                <h1 class="main-title">Агро-гид: пайдалы кеңестер мен лайфхактар</h1>
+                <p class="subtitle">Фермерлерге арналған тәжірибелік ұсыныстар мен қарапайым шешімдер</p>
+            </div>
+            
+            <!-- Search Area -->
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" placeholder="Поиск по ключевым словам" class="search-input">
+                    <button class="search-button">Найти</button>
+                </div>
+            </div>
+            
+            <!-- Filter Options -->
+            <div class="filter-row">
+                <div class="dropdown-container">
+                    <select class="filter-dropdown">
+                        <option>Сезон: Лето</option>
+                    </select>
+                    <select class="filter-dropdown">
+                        <option>Период: Последние 3 месяца</option>
+                    </select>
+                    <select class="filter-dropdown">
+                        <option>Сортировка: Сначала новые</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Categories Section -->
+            <div class="categories-section">
+                <h3 class="categories-title">Категории</h3>
+                
+                <div class="categories-row">
+                    <div class="btn-container">
+                        <button class="btn-all-categories">Выбрать все</button>
+                        <button class="btn-clear-categories">Сбросить выбор</button>
+                    </div>
+                    
+                    <div class="categories-grid">
+                        <div class="category-item">
+                            <input type="checkbox" id="cat1" class="category-checkbox">
+                            <label for="cat1">Растениеводство</label>
+                        </div>
+                        <div class="category-item">
+                            <input type="checkbox" id="cat2" class="category-checkbox">
+                            <label for="cat2">Животноводство</label>
+                        </div>
+                        <div class="category-item">
+                            <input type="checkbox" id="cat3" class="category-checkbox">
+                            <label for="cat3">Полив и ирригация</label>
+                        </div>
+                        <div class="category-item">
+                            <input type="checkbox" id="cat4" class="category-checkbox">
+                            <label for="cat4">Техника и оборудование</label>
+                        </div>
+                        <div class="category-item">
+                            <input type="checkbox" id="cat5" class="category-checkbox">
+                            <label for="cat5">Защита растений и вредители</label>
+                        </div>
+                        <div class="category-item">
+                            <input type="checkbox" id="cat6" class="category-checkbox">
+                            <label for="cat6">Органическое земледелие</label>
+                        </div>
+                        <div class="category-item">
+                            <input type="checkbox" id="cat7" class="category-checkbox">
+                            <label for="cat7">Сезонные работы</label>
+                        </div>
+                        <div class="category-item">
+                            <input type="checkbox" id="cat8" class="category-checkbox">
+                            <label for="cat8">Почва и удобрения</label>
+                        </div>
+                        <div class="category-item">
+                            <input type="checkbox" id="cat9" class="category-checkbox">
+                            <label for="cat9">Хранение и переработка</label>
+                        </div>
+                        <div class="category-item">
+                            <input type="checkbox" id="cat10" class="category-checkbox">
+                            <label for="cat10">Государство и финансы</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Articles Section -->
+            <div class="articles-section">
+                <!-- Article 1 -->
+                <article class="article-card">
+                    <div class="category-badge plants">Защита растений и вредители</div>
+                    <img src="{% static 'images/knowledge/w=700.jpg' %}" alt="Фузариоз пшеницы" class="article-image">
+                    <div class="article-content">
+                        <h2 class="article-title">Фузариоз пшеницы: как защитить урожай от патогена</h2>
+                        <p class="article-description">Поговорим об одном из самых серьезных заболеваний зерновых культур, которое ежегодно наносит значительный ущерб аграриям всего мира. Фузариоз снижает урожайность, ухудшает хлебопекарные свойства зерна и приводит к накоплению. Рассмотрим наиболее действенные методы профилактики и борьбы с болезнью.</p>
+                        <p class="article-date">30 июня 2025</p>
+                        <div class="article-tags">
+                            <span class="tag">#Фузариоз</span>
+                            <span class="tag">#Пшеница</span>
+                            <span class="tag">#Защита пшеницы</span>
+                            <span class="tag">#Патогены</span>
+                            <span class="tag">#Болезни пшеницы</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Article 2 -->
+                <article class="article-card">
+                    <div class="category-badge finance">Государство и финансы</div>
+                    <img src="{% static 'images/knowledge/w=700.jpg' %}" alt="Гранты для фермеров" class="article-image">
+                    <div class="article-content">
+                        <h2 class="article-title">Как получить грант на открытие бизнеса в сельском хозяйстве в 2025 году</h2>
+                        <p class="article-description">Первый шаг – всегда самое сложный, а правильное начало – уже половина дела. Создать бизнес в АПК можно с поддержкой государства, получив грант. Рассказываем, на какие гранты можно претендовать в 2025 году, и что сделать, чтобы стать получателем господдержки.</p>
+                        <p class="article-date">25 июня 2025</p>
+                        <div class="article-tags">
+                            <span class="tag">#Фузариоз</span>
+                            <span class="tag">#Пшеница</span>
+                            <span class="tag">#Защита пшеницы</span>
+                            <span class="tag">#Патогены</span>
+                            <span class="tag">#Болезни пшеницы</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Article 3 -->
+                <article class="article-card">
+                    <div class="category-badge animals">Животноводство</div>
+                    <img src="{% static 'images/knowledge/w=700.jpg' %}" alt="Стельная корова" class="article-image">
+                    <div class="article-content">
+                        <h2 class="article-title">С ветеринаром и без: как определить, что корова стельная?</h2>
+                        <p class="article-description">Определение стельности у коров — важная часть управления стадом в современном хозяйстве. Чем раньше и точнее работники выявят отсутствие беременности, тем скорее получится повторить осеменение. Проверку важно проводить и на поздних сроках — это снизит риски для коровы, если беременность пошла не по плану</p>
+                        <p class="article-date">19 июня 2025</p>
+                        <div class="article-tags">
+                            <span class="tag">#КРС</span>
+                            <span class="tag">#Отёл</span>
+                            <span class="tag">#Стельная корова</span>
+                            <span class="tag">#Диагностика</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Article 4 -->
+                <article class="article-card">
+                    <div class="category-badge storage">Хранение и переработка</div>
+                    <img src="{% static 'images/knowledge/w=700.jpg' %}" alt="Кукуруза" class="article-image">
+                    <div class="article-content">
+                        <h2 class="article-title">Кукуруза без потерь: 5 типичных ошибок фермеров и их исправление</h2>
+                        <p class="article-description">Определение стельности у коров — важная часть управления стадом в современном хозяйстве. Чем раньше и точнее работники выявят отсутствие беременности, тем скорее получится повторить осеменение. Проверку важно проводить и на поздних сроках — это снизит риски для коровы, если беременность пошла не по плану</p>
+                        <p class="article-date">19 июня 2025</p>
+                        <div class="article-tags">
+                            <span class="tag">#КРС</span>
+                            <span class="tag">#Отёл</span>
+                            <span class="tag">#Стельная корова</span>
+                            <span class="tag">#Диагностика</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            
+            <!-- Pagination -->
+            <div class="pagination-container">
+                <div class="pagination">
+                    <a href="#" class="page-item active">1</a>
+                    <a href="#" class="page-item">2</a>
+                    <a href="#" class="page-item">3</a>
+                    <a href="#" class="page-item">4</a>
+                    <a href="#" class="page-item">5</a>
+                </div>
+            </div>
+            
+            <!-- Newsletter Subscription -->
+            <div class="newsletter-container">
+                <h3 class="newsletter-title">Жаңалықтарға жазылыңыз</h3>
+                <p class="newsletter-subtitle">Поштаға жаңа жаңартулар мен оқиғалар туралы хабарландырулар алыңыз</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Электронная почта" class="newsletter-input">
+                    <button class="newsletter-button">Жазылу</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+    <script src="{% static 'js/knowledge_list.js' %}"></script>
+{% endblock %}
