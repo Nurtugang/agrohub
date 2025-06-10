@@ -28,5 +28,12 @@ urlpatterns = [
     path('projects/', views.projects_catalog, name='projects_catalog'),
     path('project/<slug:slug>/', views.project_detail, name='project'),
     
+    path('expert_blog/', views.expert_blog_list, name='expert_blog_list'),
+    path('expert_blog/<int:pk>', views.expert_blog_detail, name='expert_blog_detail'),
+    
+    path('guide/', views.guide_list, name='guide_list'),
+    path('guide/<int:pk>', views.guide_detail, name='guide_detail'),
+    
+    
     path('change-language/<str:language_code>/', views.change_language, name='change_language'),
 ]

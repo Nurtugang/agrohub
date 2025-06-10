@@ -51,23 +51,12 @@
                 </div>
             </div>
             
-            <!-- Search -->
-            <div class="search-section">
-                <form method="GET" class="row g-3">
-                    <div class="col-md-8">
-                        <input type="text" name="search" class="form-control" 
-                               placeholder="{% trans 'search_services_placeholder' %}" 
-                               value="{{ search_query }}">
-                        {% if provider_filter %}<input type="hidden" name="provider" value="{{ provider_filter }}">{% endif %}
-                        {% if category_filter %}<input type="hidden" name="category" value="{{ category_filter }}">{% endif %}
-                    </div>
-                    <div class="col-md-4">
-                        <button type="submit" class="btn btn-primary w-100">
-                            {% trans "search_button" %}
-                        </button>
-                    </div>
-                </form>
-            </div>
+            <form method="GET">
+                <div class="col-md-8">
+                    {% if provider_filter %}<input type="hidden" name="provider" value="{{ provider_filter }}">{% endif %}
+                    {% if category_filter %}<input type="hidden" name="category" value="{{ category_filter }}">{% endif %}
+                </div>
+            </form>
         </div>
     </div>
 </section>

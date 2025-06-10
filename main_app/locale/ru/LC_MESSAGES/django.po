@@ -970,3 +970,32 @@ msgstr "Статус проекта"
 
 msgid "project_team"
 msgstr "Команда проекта"
+
+msgid "no_projects_found"
+msgstr "Проекты не найдены"
+
+msgid "view_all_projects"
+msgstr "Просмотреть все проекты"
+
+# expert_blog.html
+
+msgid "expert_blog_title"
+msgstr "Блог экспертов"
+
+msgid "expert_blog_description"
+msgstr "Научные и публицистические статьи ведущих экспертов и практиков отрасли."
+
+msgid "article_annotation"
+msgstr "Аннотация"
+
+msgid "home"
+msgstr "Главная"
+
+# guide.html
+
+msgid "guide_title"
+msgstr "Агро-гид: полезные советы"
+
+msgid "guide_description"
+msgstr "Практические рекомендации и простые решения для фермеров."
+

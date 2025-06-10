@@ -972,3 +972,31 @@ msgstr "Жоба мәртебесі"
 
 msgid "project_team"
 msgstr "Жоба командасы"
+
+msgid "no_projects_found"
+msgstr "Жобалар табылмады"
+
+msgid "view_all_projects"
+msgstr "Барлық жобаларды көру"
+
+# expert_blog.html
+
+msgid "expert_blog_title"
+msgstr "Эксперттер блогы"
+
+msgid "expert_blog_description"
+msgstr "Саланың жетекші сарапшылары мен практиктерінің ғылыми және публицистикалық мақалалары"
+
+msgid "article_annotation"
+msgstr "Аннотация"
+
+msgid "home"
+msgstr "Басты"
+
+# guide.html
+
+msgid "guide_title"
+msgstr "Агро-гид: пайдалы кеңестер"
+
+msgid "guide_description"
+msgstr "Фермерлерге арналған тәжірибелік ұсыныстар мен қарапайым шешімдер."

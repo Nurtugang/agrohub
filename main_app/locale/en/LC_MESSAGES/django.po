@@ -969,7 +969,30 @@ msgstr "Project Status"
 msgid "project_team"
 msgstr "Project Team"
 
+msgid "no_projects_found"
+msgstr "No projects found"
 
+msgid "view_all_projects"
+msgstr "View All Projects"
 
+# expert_blog.html
 
+msgid "expert_blog_title"
+msgstr "Experts Blog"
 
+msgid "expert_blog_description"
+msgstr "Scientific and journalistic articles by leading experts and practitioners in the industry."
+
+msgid "article_annotation"
+msgstr "Article Annotation"
+
+msgid "home"
+msgstr "Home"
+
+# guide.html
+
+msgid "guide_title"
+msgstr "Agro-guide: useful tips"
+
+msgid "guide_description"
+msgstr "Practical recommendations and simple solutions for farmers."

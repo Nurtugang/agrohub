@@ -1,0 +1,220 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}{% trans "agro_guide_title" %} - {% trans "site_title" %}{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/guide.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="guide-hero">
+    <div class="container">
+        <h1>{% trans "guide_title" %}</h1>
+    </div>
+</section>
+
+<!-- Main Content -->
+<section class="guide-content">
+    <div class="container">
+        <div class="row">
+            <!-- Filters Section -->
+            <div class="col-lg-4">
+                <div class="filter-section">
+                    <form method="GET" id="filterForm">
+                        <!-- Search -->
+                        <div class="search-box mb-4">
+                            <input type="text" name="search" class="form-control search-input" 
+                                   placeholder="{% trans 'search_news_placeholder' %}" 
+                                   value="{{ search_query }}">
+                            <button type="submit" class="btn btn-search">{% trans "search_button" %}</button>
+                        </div>
+
+                        <!-- Dropdowns -->
+                        <div class="filter-dropdowns mb-4">
+                            <select name="period" class="form-select mb-3" onchange="document.getElementById('filterForm').submit();">
+                                <option value="3months" {% if period_filter == '3months' %}selected{% endif %}>
+                                    {% trans "period_3months" %}
+                                </option>
+                                <option value="1month" {% if period_filter == '1month' %}selected{% endif %}>
+                                    {% trans "period_1month" %}
+                                </option>
+                                <option value="6months" {% if period_filter == '6months' %}selected{% endif %}>
+                                    {% trans "period_6months" %}
+                                </option>
+                                <option value="1year" {% if period_filter == '1year' %}selected{% endif %}>
+                                    {% trans "period_1year" %}
+                                </option>
+                                <option value="all" {% if period_filter == 'all' %}selected{% endif %}>
+                                    {% trans "period_all" %}
+                                </option>
+                            </select>
+
+                            <select name="sort" class="form-select mb-3" onchange="document.getElementById('filterForm').submit();">
+                                <option value="newest" {% if sort_filter == 'newest' %}selected{% endif %}>
+                                    {% trans "sort_newest" %}
+                                </option>
+                                <option value="oldest" {% if sort_filter == 'oldest' %}selected{% endif %}>
+                                    {% trans "sort_oldest" %}
+                                </option>
+                            </select>
+                        </div>
+
+                        <!-- Categories -->
+                        <div class="categories-filter">
+                            <h5 class="filter-title">{% trans "categories_title" %}</h5>
+                            
+                            <div class="category-actions mb-3">
+                                <button type="button" class="btn btn-select-all" onclick="selectAllCategories()">
+                                    {% trans "category_all" %}
+                                </button>
+                                <button type="button" class="btn btn-reset" onclick="resetCategories()">
+                                    {% trans "reset_filters" %}
+                                </button>
+                            </div>
+
+                            <div class="category-list">
+                                {% for category in categories %}
+                                <div class="category-item">
+                                    <input type="checkbox" 
+                                           id="cat_{{ category.id }}" 
+                                           name="category" 
+                                           value="{{ category.slug }}"
+                                           {% if category.slug == category_filter %}checked{% endif %}
+                                           onchange="document.getElementById('filterForm').submit();">
+                                    <label for="cat_{{ category.id }}">{{ category.name }}</label>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Articles Section -->
+            <div class="col-lg-8">
+                <div class="articles-section">
+                    {% for article in page_obj %}
+                    <article class="guide-card">
+                        <div class="guide-card-inner">
+                            <div class="guide-card-image">
+                                {% if article.image %}
+                                <img src="{{ article.image.url }}" alt="{{ article.title }}">
+                                {% else %}
+                                <img src="{% static 'images/placeholder.jpg' %}" alt="{{ article.title }}">
+                                {% endif %}
+                                
+                                <!-- Category Badge -->
+                                <span class="category-badge category-{{ article.category.slug }}">
+                                    {{ article.category.name }}
+                                </span>
+                            </div>
+                            
+                            <div class="guide-card-content">
+                                <h2 class="guide-card-title">
+                                    <a href="{% url 'guide_detail' article.pk %}">{{ article.title }}</a>
+                                </h2>
+                                
+                                <div class="guide-card-meta">
+                                    <span class="guide-card-date">
+                                        <i class="far fa-calendar"></i>
+                                        {{ article.created_at|date:"j E Y" }}
+                                    </span>
+                                    <span class="guide-card-category">
+                                        <i class="far fa-folder"></i>
+                                        {{ article.category.name }}
+                                    </span>
+                                </div>
+                                
+                                <p class="guide-card-description">
+                                    {{ article.short_description }}
+                                </p>
+                                
+                                <div class="guide-card-footer">
+                                    <a href="{% url 'guide_detail' article.pk %}" class="btn-read-more">
+                                        {% trans "read_more" %}
+                                    </a>
+                                    
+                                    <!-- Tags -->
+                                    {% if article.tags.all %}
+                                    <div class="guide-card-tags">
+                                        {% for tag in article.tags.all|slice:":3" %}
+                                        <span class="guide-tag">
+                                            #{{ tag.name }}
+                                        </span>
+                                        {% endfor %}
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    {% empty %}
+                    <div class="empty-state">
+                        <p>{% trans "no_articles_found" %}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <!-- Pagination -->
+                {% if page_obj.has_other_pages %}
+                <nav class="guide-pagination">
+                    <ul class="pagination">
+                        {% if page_obj.has_previous %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ page_obj.previous_page_number }}{% if search_query %}&search={{ search_query }}{% endif %}{% if category_filter %}&category={{ category_filter }}{% endif %}{% if period_filter %}&period={{ period_filter }}{% endif %}{% if sort_filter %}&sort={{ sort_filter }}{% endif %}">
+                                &laquo;
+                            </a>
+                        </li>
+                        {% endif %}
+                        
+                        {% for num in page_obj.paginator.page_range %}
+                            {% if page_obj.number == num %}
+                            <li class="page-item active">
+                                <span class="page-link">{{ num }}</span>
+                            </li>
+                            {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ num }}{% if search_query %}&search={{ search_query }}{% endif %}{% if category_filter %}&category={{ category_filter }}{% endif %}{% if period_filter %}&period={{ period_filter }}{% endif %}{% if sort_filter %}&sort={{ sort_filter }}{% endif %}">
+                                    {{ num }}
+                                </a>
+                            </li>
+                            {% endif %}
+                        {% endfor %}
+                        
+                        {% if page_obj.has_next %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ page_obj.next_page_number }}{% if search_query %}&search={{ search_query }}{% endif %}{% if category_filter %}&category={{ category_filter }}{% endif %}{% if period_filter %}&period={{ period_filter }}{% endif %}{% if sort_filter %}&sort={{ sort_filter }}{% endif %}">
+                                &raquo;
+                            </a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+function selectAllCategories() {
+    const checkboxes = document.querySelectorAll('.category-item input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+        checkbox.checked = true;
+    });
+}
+
+function resetCategories() {
+    const checkboxes = document.querySelectorAll('.category-item input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+        checkbox.checked = false;
+    });
+}
+</script>
+{% endblock %}

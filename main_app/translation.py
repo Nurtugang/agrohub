@@ -6,6 +6,9 @@ from .models import *
 class ThingTranslationOptions(TranslationOptions):
     fields = ('name', 'description')
     
+@register(Expert)
+class ExpertTranslationOptions(TranslationOptions):
+   fields = ('name', 'bio')
 
 @register(NewsCategory)
 class NewsCategoryTranslationOptions(TranslationOptions):
@@ -14,7 +17,7 @@ class NewsCategoryTranslationOptions(TranslationOptions):
 
 @register(News)
 class NewsTranslationOptions(TranslationOptions):
-   fields = ('title', 'content')
+   fields = ('title', 'content', 'short_description')
 
 
 @register(Newsletter)

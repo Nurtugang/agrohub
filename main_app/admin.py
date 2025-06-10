@@ -20,15 +20,15 @@ class ThingAdmin(TranslationAdmin):
 
 @admin.register(NewsCategory)
 class NewsCategoryAdmin(TranslationAdmin):
-   list_display = ('name', 'slug')
+   list_display = ('name', 'slug', 'type')
    prepopulated_fields = {'slug': ('name',)}
    search_fields = ('name',)
 
 
 @admin.register(News)
 class NewsAdmin(TranslationAdmin):
-   list_display = ('title', 'category', 'created_at', 'is_published')
-   list_filter = ('category', 'is_published', 'created_at')
+   list_display = ('title', 'category', 'created_at', 'is_published', 'is_expert_news', 'is_guide')
+   list_filter = ('category', 'is_published', 'created_at', 'is_expert_news', 'is_guide')
    search_fields = ('title', 'content')
    prepopulated_fields = {'slug': ('title',)} if hasattr(News, 'slug') else {}
    date_hierarchy = 'created_at'
@@ -36,7 +36,7 @@ class NewsAdmin(TranslationAdmin):
    
    fieldsets = (
        (None, {
-           'fields': ('title', 'content', 'image', 'category', 'is_published')
+           'fields': ('title', 'short_description', 'content', 'image', 'category', 'is_published', 'is_expert_news', 'expert', 'is_guide')
        }),
    )
 
@@ -615,3 +615,17 @@ class ProjectTeamMemberAdmin(TranslationAdmin):
         return "Нет фото"
     photo_preview.short_description = 'Фото'
 
+
+@admin.register(Expert)
+class ExpertAdmin(TranslationAdmin):
+    list_display = ('name', 'bio')
+    search_fields = ('name', 'bio')
+    
+    fieldsets = (
+        ('Личная информация', {
+            'fields': ('name', 'photo')
+        }),
+        ('Биография', {
+            'fields': ('bio',)
+        }),
+    )

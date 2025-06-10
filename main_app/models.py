@@ -18,26 +18,70 @@ class Thing(models.Model):
         verbose_name = "Thing"
         verbose_name_plural = "Things"
         
+class Expert(models.Model):
+    name = models.CharField(max_length=200)
+    bio = models.CharField(max_length=200)
+    photo = models.ImageField(upload_to='expert_photos/')
+    
+    def save(self, *args, **kwargs):
+        if self.photo:
+            self.photo = self.compress_image(self.photo)
+        super().save(*args, **kwargs)
+    
+    def compress_image(self, image):
+        img = Image.open(image)
+        img = img.convert('RGB')
         
-class NewsCategory(models.Model):
-    name = models.CharField(max_length=100)
-    slug = models.SlugField()
+        if img.width > 400:
+            ratio = 400 / img.width
+            new_height = int(img.height * ratio)
+            img = img.resize((400, new_height), Image.Resampling.LANCZOS)
+        
+        output = BytesIO()
+        img.save(output, format='WebP', quality=85, optimize=True)
+        output.seek(0)
+        
+        name = os.path.splitext(image.name)[0] + '.webp'
+        return ContentFile(output.read(), name=name)
     
     def __str__(self):
         return self.name
     
     class Meta:
-        verbose_name = "News Category"
-        verbose_name_plural = "News Categories"
+        verbose_name = "Эксперт"
+        verbose_name_plural = "Эксперты"
+        
+        
+class NewsCategory(models.Model):
+   TYPE_CHOICES = [
+       ('news', 'Новости'),
+       ('guide', 'Агро-гид'),
+       ('expert', 'Экспертный блог'),
+   ]
+   
+   name = models.CharField(max_length=100)
+   slug = models.SlugField()
+   type = models.CharField(max_length=10, choices=TYPE_CHOICES, default='news')
+   
+   def __str__(self):
+       return self.name
+   
+   class Meta:
+       verbose_name = "News Category"
+       verbose_name_plural = "News Categories"
 
 
 class News(models.Model):
     title = models.CharField(max_length=200)
+    short_description = models.CharField(max_length=300)
+    expert = models.ForeignKey(Expert, related_name='news', on_delete=models.CASCADE, blank=True, null=True)
     content = models.TextField()
     image = models.ImageField(upload_to='news_images/')
     category = models.ForeignKey(NewsCategory, related_name='news', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     is_published = models.BooleanField(default=True)
+    is_expert_news = models.BooleanField(default=False, help_text="Отображать в разделе Блог экспертов")
+    is_guide = models.BooleanField(default=False, help_text="Отображать в разделе Агро-гид")
     
     def save(self, *args, **kwargs):
         if self.image:

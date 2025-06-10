@@ -51,11 +51,16 @@
                             <li><a class="dropdown-item" href="#international">{% trans "nav_partners_international" %}</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item">
                         <a class="nav-link" href="{% url 'projects_catalog' %}">{% trans "nav_projects" %}</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'news_list' %}">{% trans "nav_news" %}</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#news" data-bs-toggle="dropdown">{% trans "nav_news" %}</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'news_list' %}">{% trans "nav_news" %}</a></li>
+                            <li><a class="dropdown-item" href="{% url 'expert_blog_list' %}">{% trans "expert_blog_title" %}</a></li>
+                            <li><a class="dropdown-item" href="{% url 'guide_list' %}">{% trans "guide_title" %}</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">{% trans "nav_contact" %}</a>
