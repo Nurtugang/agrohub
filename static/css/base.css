@@ -276,6 +276,17 @@ body {
     filter: brightness(0) invert(1);
 }
 
+/* Footer links styling */
+.footer a.text-white-50 {
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer a.text-white-50:hover {
+    text-decoration: underline;
+    color: #ffffff !important;
+}
+
 .language-switcher {
     list-style: none;
     display: flex;

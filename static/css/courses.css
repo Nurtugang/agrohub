@@ -91,20 +91,22 @@
     font-size: 16px;
     font-weight: 500;
     cursor: pointer;
-    border: 1px solid transparent;
+    border: 1px solid #4CAF50;
     transition: all 0.3s ease;
-    background-color: #1B760A;
-    color: white;
+    background-color: white;
+    color: #4CAF50;
+    text-decoration: none;
 }
 
 .filter-btn.active {
     background-color: #1B760A;
     color: white;
+    border-color: #1B760A;
 }
 
 .filter-btn:not(.active):not(.outline) {
-    background-color: #1B760A;
-    color: #FEFFFE;
+    background-color: white;
+    color: #4CAF50;
 }
 
 .filter-btn.outline {
@@ -135,6 +137,7 @@
     border: none;
     transition: all 0.3s ease;
     text-align: center;
+    text-decoration: none;
 }
 
 .category-btn.active {
