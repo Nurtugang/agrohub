@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}{{ article.title }} - {% trans "expert_blog_title" %}{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/expert_blog.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- Article Header -->
+<div class="article-header">
+    <div class="container">
+        <!-- Navigation Row -->
+        <div class="navigation-row">
+            <!-- Back Link -->
+            <a href="{% url 'expert_blog_list' %}" class="back-link">
+                <i class="fas fa-arrow-left me-2"></i>{% trans "back" %}
+            </a>
+            
+            <!-- Breadcrumbs -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="{% url 'index' %}">
+                            <i class="fas fa-home me-1"></i>{% trans "home" %}
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="{% url 'expert_blog_list' %}">{% trans "expert_blog_title" %}</a>
+                    </li>
+                    <li class="breadcrumb-item">{{ article.category.name }}</li>
+                </ol>
+            </nav>
+        </div>
+        
+        <!-- Article Title -->
+        <div class="row">
+            <div class="col-12">
+                <h1 class="display-5 fw-bold mb-0">{{ article.title }}</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Article Content -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-12">
+            <!-- Author Card -->
+            <div class="author-card">
+                <div class="row align-items-center">
+                    <div class="col-auto">
+                        {% if article.expert.photo %}
+                            <img src="{{ article.expert.photo.url }}" alt="{{ article.expert.name }}" class="author-avatar">
+                        {% else %}
+                            <div class="author-avatar bg-primary d-flex align-items-center justify-content-center text-white fw-bold">
+                                {{ article.expert.name|first }}
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="col">
+                        <h5 class="fw-bold mb-1">{{ article.expert.name }}</h5>
+                        {% if article.expert.bio %}
+                            <p class="text-muted mb-2">{{ article.expert.bio }}</p>
+                        {% endif %}
+                        <small class="article-meta">{{ article.created_at|date:"d F Y" }}</small>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Article Annotation -->
+            {% if article.short_description %}
+            <div class="article-annotation">
+                <h6 class="fw-bold mb-3">{% trans "article_annotation" %}</h6>
+                <p class="mb-0">{{ article.short_description }}</p>
+            </div>
+            {% endif %}
+            
+            <!-- Article Image -->
+            {% if article.image %}
+            <img src="{{ article.image.url }}" alt="{{ article.title }}" class="article-image">
+            {% endif %}
+            
+            <!-- Article Content -->
+            <div class="article-content">
+                {{ article.content|linebreaks }}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

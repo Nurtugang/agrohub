@@ -1,0 +1,238 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}{% trans "projects_catalog_title" %} - {% trans "site_title" %}{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/projects/catalog.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="services-hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="hero-content">
+                    <h1>{% trans "services_laboratory_analysis" %}</h1>
+                    
+                    <!-- Promotion Banner -->
+                    <div class="promotion-banner">
+                        <h3>{% trans "promotion_unprecedented_season" %}</h3>
+                        <p class="promo-text">{% trans "promotion_buy_one_get_50_off" %}</p>
+                        <p class="promo-deadline">{% trans "promotion_until_july_4" %}</p>
+                        <a href="#promotion-details" class="btn btn-light">
+                            {% trans "promotion_about" %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Main Content -->
+<section class="py-5">
+    <div class="container">
+        <!-- Search and Filters -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="filters-card fade-in-up">
+                    <!-- Search Form -->
+                    <form method="GET" class="mb-4">
+                        <div class="row g-3 align-items-end">
+                            <div class="col-md-6">
+                                <div class="search-container">
+                                    <input type="text" name="search" class="form-control" 
+                                           placeholder="{% trans 'search_projects_placeholder' %}" 
+                                           value="{{ search_query }}">
+                                    {% if direction_filter %}<input type="hidden" name="direction" value="{{ direction_filter }}">{% endif %}
+                                    {% if status_filter %}<input type="hidden" name="status" value="{{ status_filter }}">{% endif %}
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <button type="submit" class="btn btn-success w-100">
+                                    <i class="fas fa-search me-2"></i>{% trans "search_button" %}
+                                </button>
+                            </div>
+                            <div class="col-md-3">
+                                <a href="{% url 'projects_catalog' %}" class="btn btn-outline-secondary w-100">
+                                    {% trans "reset_filters" %}
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Status Filters -->
+                    <div class="mb-4">
+                        <h6 class="mb-3" style="color: #adb5bd; font-weight: 700; font-size: 0.9rem;">
+                            {% trans "status_filter_title" %}
+                        </h6>
+                        <div class="d-flex flex-wrap">
+                            <a href="?{% if direction_filter %}direction={{ direction_filter }}&{% endif %}{% if search_query %}search={{ search_query }}{% endif %}" 
+                               class="filter-btn {% if not status_filter %}active{% endif %}">
+                                {% trans "all_statuses" %}
+                            </a>
+                            {% for status in statuses %}
+                                <a href="?status={{ status.slug }}{% if direction_filter %}&direction={{ direction_filter }}{% endif %}{% if search_query %}&search={{ search_query }}{% endif %}" 
+                                   class="filter-btn {% if status_filter == status.slug %}active{% endif %}">
+                                    <span class="status-dot" style="background-color: {{ status.color }};"></span>
+                                    {{ status.name }}
+                                </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <!-- Direction Filters -->
+                    <div>
+                        <h6 class="mb-3" style="color: #adb5bd; font-weight: 700; font-size: 0.9rem;">
+                            {% trans "direction_filter_title" %}
+                        </h6>
+                        <div class="d-flex flex-wrap">
+                            <a href="?{% if status_filter %}status={{ status_filter }}&{% endif %}{% if search_query %}search={{ search_query }}{% endif %}" 
+                               class="direction-btn {% if not direction_filter %}active{% endif %}">
+                                {% trans "all_directions" %}
+                            </a>
+                            {% for direction in directions %}
+                                <a href="?direction={{ direction.slug }}{% if status_filter %}&status={{ status_filter }}{% endif %}{% if search_query %}&search={{ search_query }}{% endif %}" 
+                                   class="direction-btn {% if direction_filter == direction.slug %}active{% endif %}">
+                                    {{ direction.name }}
+                                </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="row">
+            {% if projects %}
+                {% for project in projects %}
+                    <div class="col-lg-6 mb-4">
+                        <div class="project-card fade-in-up" style="animation-delay: {{ forloop.counter0|add:1 }}00ms;">
+                            <div class="card h-100">
+                                <!-- Project Image -->
+                                <div class="project-image">
+                                    {% if project.main_image %}
+                                        <img src="{{ project.main_image.url }}" alt="{{ project.title }}">
+                                    {% else %}
+                                        <div class="d-flex align-items-center justify-content-center h-100 bg-light">
+                                            <i class="fas fa-image fa-3x text-muted"></i>
+                                        </div>
+                                    {% endif %}
+                                    
+                                    <!-- Status Badge -->
+                                    <div class="status-badge">
+                                        <span class="badge" style="background-color: {{ project.status.color }}; border-radius: 50px; padding: 8px 15px;">
+                                            {{ project.status.name }}
+                                        </span>
+                                    </div>
+                                    
+                                    <!-- Featured Badge -->
+                                    {% if project.is_featured %}
+                                        <div class="featured-badge">
+                                            <span class="badge bg-warning text-dark" style="border-radius: 50px; padding: 8px 15px;">
+                                                <i class="fas fa-star"></i> {% trans "featured" %}
+                                            </span>
+                                        </div>
+                                    {% endif %}
+                                </div>
+
+                                <div class="card-body d-flex flex-column p-4">
+                                    <!-- Project Info -->
+                                    <div class="project-meta mb-2">
+                                        {% trans "status_label" %}: {{ project.status.name }}
+                                    </div>
+                                    
+                                    <h5 class="card-title">{{ project.title }}</h5>
+                                    
+                                    <div class="project-meta mb-3">
+                                        {% trans "direction_label" %}: {{ project.direction.name }}
+                                    </div>
+
+                                    <!-- Short Description -->
+                                    <p class="description">{{ project.short_description|truncatewords:20 }}</p>
+
+                                    <!-- Project Details -->
+                                    <div class="mt-auto">
+                                        <div class="detail-item mb-2">
+                                            <strong>{% trans "investment_amount_label" %}:</strong> 
+                                            {{ project.get_formatted_investment }} ₸
+                                        </div>
+                                        <div class="detail-item mb-3">
+                                            <strong>{% trans "implementation_period_label" %}:</strong> 
+                                            {{ project.implementation_period }}
+                                        </div>
+
+                                        <!-- Action Button -->
+                                        <a href="{% url 'project' project.slug %}" class="btn btn-success w-100" style="border-radius: 8px; padding: 12px;">
+                                            {% trans "view_project" %}
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <!-- No Projects Found -->
+                <div class="col-12">
+                    <div class="no-results text-center fade-in-up">
+                        <i class="fas fa-search fa-4x"></i>
+                        <h3>{% trans "no_projects_found" %}</h3>
+                        <p class="text-muted">{% trans "try_different_filters" %}</p>
+                        <a href="{% url 'projects_catalog' %}" class="btn btn-success">
+                            {% trans "view_all_projects" %}
+                        </a>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+
+        <!-- Pagination -->
+        {% if page_obj.has_other_pages %}
+            <div class="row mt-5">
+                <div class="col-12">
+                    <nav aria-label="{% trans 'projects_pagination' %}">
+                        <ul class="pagination justify-content-center">
+                            {% if page_obj.has_previous %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}{% if direction_filter %}&direction={{ direction_filter }}{% endif %}{% if status_filter %}&status={{ status_filter }}{% endif %}{% if search_query %}&search={{ search_query }}{% endif %}">
+                                        {% trans "previous" %}
+                                    </a>
+                                </li>
+                            {% endif %}
+
+                            {% for num in page_obj.paginator.page_range %}
+                                {% if page_obj.number == num %}
+                                    <li class="page-item active">
+                                        <span class="page-link">{{ num }}</span>
+                                    </li>
+                                {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                                    <li class="page-item">
+                                        <a class="page-link" href="?page={{ num }}{% if direction_filter %}&direction={{ direction_filter }}{% endif %}{% if status_filter %}&status={{ status_filter }}{% endif %}{% if search_query %}&search={{ search_query }}{% endif %}">{{ num }}</a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+
+                            {% if page_obj.has_next %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{ page_obj.next_page_number }}{% if direction_filter %}&direction={{ direction_filter }}{% endif %}{% if status_filter %}&status={{ status_filter }}{% endif %}{% if search_query %}&search={{ search_query }}{% endif %}">
+                                        {% trans "next" %}
+                                    </a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/projects/catalog.js' %}"></script>
+{% endblock %}

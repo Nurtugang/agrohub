@@ -33,16 +33,13 @@
                             <li><a class="dropdown-item" href="{% url 'about' %}">{% trans "nav_about_company" %}</a></li>
                             <li><a class="dropdown-item" href="{% url 'team' %}">{% trans "nav_about_team" %}</a></li>
                             <li><a class="dropdown-item" href="{% url 'lab' %}">{% trans "nav_about_lab" %}</a></li>
+                            <li><a class="dropdown-item" href="{% url 'agrotehnopark' %}">{% trans "nav_about_agrotehnopark" %}</a></li>
+                            <li><a class="dropdown-item" href="{% url 'engeneering_center' %}">{% trans "nav_about_engeneering_center" %}</a></li>
+
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link" href="{% url 'services_list' %}" >{% trans "nav_services" %}</a>
-                        <!-- <a class="nav-link dropdown-toggle" href="#services" data-bs-toggle="dropdown">{% trans "nav_services" %}</a> -->
-                        <!-- <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#agronomy">{% trans "nav_services_agronomy" %}</a></li>
-                            <li><a class="dropdown-item" href="#laboratory">{% trans "nav_services_laboratory" %}</a></li>
-                            <li><a class="dropdown-item" href="#veterinary">{% trans "nav_services_veterinary" %}</a></li>
-                        </ul> -->
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'courses_list' %}">{% trans "nav_courses" %}</a>
@@ -50,15 +47,16 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'partners' %}">{% trans "nav_partners" %}</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#projects" data-bs-toggle="dropdown">{% trans "nav_projects" %}</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#current">{% trans "nav_projects_current" %}</a></li>
-                            <li><a class="dropdown-item" href="#completed">{% trans "nav_projects_completed" %}</a></li>
-                        </ul>
-                    </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'news_list' %}">{% trans "nav_news" %}</a>
+                        <a class="nav-link" href="{% url 'projects_catalog' %}">{% trans "nav_projects" %}</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#news" data-bs-toggle="dropdown">{% trans "nav_news" %}</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'news_list' %}">{% trans "nav_news" %}</a></li>
+                            <li><a class="dropdown-item" href="{% url 'expert_blog_list' %}">{% trans "expert_blog_title" %}</a></li>
+                            <li><a class="dropdown-item" href="{% url 'guide_list' %}">{% trans "guide_title" %}</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">{% trans "nav_contact" %}</a>
@@ -92,225 +90,12 @@
                         {% endif %}
                     </li>
                 </ul>
-                <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#loginModal">
-                    <i class="fas fa-user"></i>
-                </button>
             </div>
         </div>
     </nav>
 
     {% block content %}
-    <!-- Hero Section -->
-    <section id="home" class="hero-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="hero-content">
-                        <h1>{% trans "hero_title" %}</h1>
-                        <p>{% trans "hero_subtitle" %}</p>
-                        <button class="btn btn-hero" onclick="scrollToSection('about')">{% trans "hero_button" %}</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="py-5">
-        <div class="container">
-            <h2 class="section-title">{% trans "services_title" %}</h2>
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6">
-                    <div class="card service-card">
-                        <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="{% trans 'service_agronomy_alt' %}">
-                        <div class="card-body">
-                            <h5 class="card-title">{% trans "service_agronomy_title" %}</h5>
-                            <button class="btn btn-service">{% trans "service_button" %}</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card service-card">
-                        <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="{% trans 'service_laboratory_alt' %}">
-                        <div class="card-body">
-                            <h5 class="card-title">{% trans "service_laboratory_title" %}</h5>
-                            <button class="btn btn-service">{% trans "service_button" %}</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card service-card">
-                        <img src="https://images.unsplash.com/photo-1516467508483-a7212febe31a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="{% trans 'service_veterinary_alt' %}">
-                        <div class="card-body">
-                            <h5 class="card-title">{% trans "service_veterinary_title" %}</h5>
-                            <button class="btn btn-service">{% trans "service_button" %}</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card service-card">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="{% trans 'service_food_alt' %}">
-                        <div class="card-body">
-                            <h5 class="card-title">{% trans "service_food_title" %}</h5>
-                            <button class="btn btn-service">{% trans "service_button" %}</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card service-card">
-                        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="{% trans 'service_engineering_alt' %}">
-                        <div class="card-body">
-                            <h5 class="card-title">{% trans "service_engineering_title" %}</h5>
-                            <button class="btn btn-service">{% trans "service_button" %}</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card service-card">
-                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="{% trans 'service_business_alt' %}">
-                        <div class="card-body">
-                            <h5 class="card-title">{% trans "service_business_title" %}</h5>
-                            <button class="btn btn-service">{% trans "service_button" %}</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card service-card">
-                        <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="{% trans 'service_sociology_alt' %}">
-                        <div class="card-body">
-                            <h5 class="card-title">{% trans "service_sociology_title" %}</h5>
-                            <button class="btn btn-service">{% trans "service_button" %}</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card service-card">
-                        <img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="{% trans 'service_design_alt' %}">
-                        <div class="card-body">
-                            <h5 class="card-title">{% trans "service_design_title" %}</h5>
-                            <button class="btn btn-service">{% trans "service_button" %}</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card service-card">
-                        <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="{% trans 'service_courses_alt' %}">
-                        <div class="card-body">
-                            <h5 class="card-title">{% trans "service_courses_title" %}</h5>
-                            <button class="btn btn-service">{% trans "service_button" %}</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Advantages Section -->
-    <section class="advantages-section">
-        <div class="container">
-            <h2 class="advantages-title">{% trans "advantages_title" %}</h2>
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="advantage-item mb-4">
-                        <div class="d-flex align-items-center">
-                            <div class="advantage-icon me-3">
-                                <i class="fas fa-check-circle text-success fs-2"></i>
-                            </div>
-                            <div>
-                                <h4>{% trans "advantage_1_title" %}</h4>
-                                <p class="mb-0">{% trans "advantage_1_description" %}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="advantage-item mb-4">
-                        <div class="d-flex align-items-center">
-                            <div class="advantage-icon me-3">
-                                <i class="fas fa-medal text-warning fs-2"></i>
-                            </div>
-                            <div>
-                                <h4>{% trans "advantage_2_title" %}</h4>
-                                <p class="mb-0">{% trans "advantage_2_description" %}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="advantage-item mb-4">
-                        <div class="d-flex align-items-center">
-                            <div class="advantage-icon me-3">
-                                <i class="fas fa-clock text-primary fs-2"></i>
-                            </div>
-                            <div>
-                                <h4>{% trans "advantage_3_title" %}</h4>
-                                <p class="mb-0">{% trans "advantage_3_description" %}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="advantage-item mb-4">
-                        <div class="d-flex align-items-center">
-                            <div class="advantage-icon me-3">
-                                <i class="fas fa-chart-line text-info fs-2"></i>
-                            </div>
-                            <div>
-                                <h4>{% trans "advantage_4_title" %}</h4>
-                                <p class="mb-0">{% trans "advantage_4_description" %}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- News Section -->
-    <section id="news" class="py-5">
-        <div class="container">
-            <h2 class="section-title">{% trans "news_title" %}</h2>
-            <div class="row">
-                <div class="col-12">
-                    <div class="news-card">
-                        <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="https://images.unsplash.com/photo-1589923188900-85dae523342b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" class="news-image" alt="{% trans 'news_1_alt' %}">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h3 class="news-title">{% trans "news_1_title" %}</h3>
-                                    <p class="news-date">{% trans "news_1_date" %}</p>
-                                    <p class="news-excerpt">{% trans "news_1_excerpt" %}</p>
-                                    <button class="btn btn-news">{% trans "news_read_more" %}</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="news-card">
-                        <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" class="news-image" alt="{% trans 'news_2_alt' %}">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h3 class="news-title">{% trans "news_2_title" %}</h3>
-                                    <p class="news-date">{% trans "news_2_date" %}</p>
-                                    <p class="news-excerpt">{% trans "news_2_excerpt" %}</p>
-                                    <button class="btn btn-news">{% trans "news_read_more" %}</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-4">
-                <button class="btn btn-news btn-lg">{% trans "news_all" %}</button>
-            </div>
-        </div>
-    </section>
+        <!-- Content from other pages goes here -->
     {% endblock content %}
 
     <!-- Footer -->
@@ -324,21 +109,19 @@
                     <p class="mt-3">{% trans "footer_description" %}</p>
                 </div>
                 <div class="col-lg-2 mb-4">
-                    <h5>{% trans "footer_services_title" %}</h5>
+                    <h5>{% trans "footer_about_portal" %}</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="text-white-50">{% trans "footer_services_agronomy" %}</a></li>
-                        <li><a href="#" class="text-white-50">{% trans "footer_services_laboratory" %}</a></li>
-                        <li><a href="#" class="text-white-50">{% trans "footer_services_veterinary" %}</a></li>
-                        <li><a href="#" class="text-white-50">{% trans "footer_services_courses" %}</a></li>
+                        <li><a href="{% url 'about' %}" class="text-white-50">{% trans "footer_about_us" %}</a></li>
+                        <li><a href="{% url 'team' %}" class="text-white-50">{% trans "footer_team" %}</a></li>
+                        <li><a href="#" class="text-white-50">{% trans "footer_contacts" %}</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2 mb-4">
-                    <h5>{% trans "footer_company_title" %}</h5>
+                    <h5>{% trans "footer_useful_links" %}</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="text-white-50">{% trans "footer_company_about" %}</a></li>
-                        <li><a href="#" class="text-white-50">{% trans "footer_company_partners" %}</a></li>
-                        <li><a href="#" class="text-white-50">{% trans "footer_company_projects" %}</a></li>
-                        <li><a href="#" class="text-white-50">{% trans "footer_company_careers" %}</a></li>
+                        <li><a href="{% url 'courses_list' %}" class="text-white-50">{% trans "footer_courses" %}</a></li>
+                        <li><a href="{% url 'news_list' %}" class="text-white-50">{% trans "footer_news" %}</a></li>
+                        <li><a href="#" class="text-white-50">{% trans "footer_announcements" %}</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-4 mb-4">
@@ -379,45 +162,6 @@
             </div>
         </div>
     </footer>
-
-    <!-- Login Modal -->
-    <div class="modal fade" id="loginModal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">{% trans "login_title" %}</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <form method="post">
-                        {% csrf_token %}
-                        <div class="mb-3">
-                            <label for="email" class="form-label">{% trans "login_email" %}</label>
-                            <input type="email" class="form-control" id="email" name="email" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="password" class="form-label">{% trans "login_password" %}</label>
-                            <input type="password" class="form-control" id="password" name="password" required>
-                        </div>
-                        <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="remember" name="remember">
-                            <label class="form-check-label" for="remember">
-                                {% trans "login_remember" %}
-                            </label>
-                        </div>
-                        <button type="submit" class="btn btn-primary w-100">{% trans "login_submit" %}</button>
-                    </form>
-                    <div class="text-center mt-3">
-                        <a href="#" class="text-decoration-none">{% trans "login_forgot_password" %}</a>
-                    </div>
-                    <hr>
-                    <div class="text-center">
-                        <p class="mb-0">{% trans "login_no_account" %} <a href="#" class="text-decoration-none">{% trans "login_register" %}</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Back to Top Button -->
     <button class="btn btn-primary position-fixed bottom-0  m-4" id="backToTop" style="display: none; z-index: 1000;" onclick="scrollToTop()" title="{% trans 'back_to_top' %}">

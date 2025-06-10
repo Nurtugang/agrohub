@@ -16,7 +16,7 @@
                 <div class="hero-content">
                     <h1>{% trans "hero_title" %}</h1>
                     <p>{% trans "hero_subtitle" %}</p>
-                    <button class="btn btn-hero" onclick="scrollToSection('services')">{% trans "hero_button" %}</button>
+                    <button class="btn btn-hero" onclick="location.href='{% url 'about' %}'">{% trans "hero_button" %}</button>
                 </div>
             </div>
         </div>
@@ -24,7 +24,7 @@
 </section>
 
 <!-- Stats Section -->
-<section class="stats-section">
+<section class="stats-section d-none">
     <div class="container">
         <div class="row text-center">
             <div class="col-lg-3 col-md-6 mb-4">
@@ -265,8 +265,7 @@
                 <h2 class="mb-4">{% trans "cta_title" %}</h2>
                 <p class="lead mb-4">{% trans "cta_description" %}</p>
                 <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
-                    <a href="{% url 'index' %}" class="btn btn-light btn-lg">{% trans "cta_services_button" %}</a>
-                    <a href="{% url 'index' %}" class="btn btn-outline-light btn-lg">{% trans "cta_contact_button" %}</a>
+                    <a href="https://wa.me/+77081235060" target="_blank" class="btn btn-outline-light btn-lg">{% trans "cta_contact_button" %}</a>
                 </div>
             </div>
         </div>
@@ -275,5 +274,5 @@
 {% endblock %}
 
 {% block extra_js %}
-<script src="{% static 'js/index.js' %}"></script>
+    <script src="{% static 'js/index.js' %}"></script>
 {% endblock %}

@@ -37,6 +37,15 @@ msgstr "О компании"
 msgid "nav_about_team"
 msgstr "Команда"
 
+msgid "nav_about_lab"
+msgstr "Shakarim Lab"
+
+msgid "nav_about_agrotehnopark"
+msgstr "Агротехнопарк"
+
+msgid "nav_about_engeneering_center"
+msgstr "Инжиниринговый центр"
+
 msgid "nav_services"
 msgstr "Услуги"
 
@@ -230,35 +239,29 @@ msgstr ""
 "Крупнейший аграрный портал Казахстана. Мы предоставляем комплексные услуги "
 "во всех отраслях сельского хозяйства."
 
-msgid "footer_services_title"
-msgstr "Услуги"
+msgid "footer_about_portal"
+msgstr "О портале"
 
-msgid "footer_services_agronomy"
-msgstr "Агрономия"
-
-msgid "footer_services_laboratory"
-msgstr "Лабораторные"
-
-msgid "footer_services_veterinary"
-msgstr "Ветеринария"
-
-msgid "footer_services_courses"
-msgstr "Курсы"
-
-msgid "footer_company_title"
-msgstr "Компания"
-
-msgid "footer_company_about"
+msgid "footer_about_us"
 msgstr "О нас"
 
-msgid "footer_company_partners"
-msgstr "Партнеры"
+msgid "footer_team"
+msgstr "Команда"
 
-msgid "footer_company_projects"
-msgstr "Проекты"
+msgid "footer_contacts"
+msgstr "Контакты"
 
-msgid "footer_company_careers"
-msgstr "Карьера"
+msgid "footer_useful_links"
+msgstr "Полезные ссылки"
+
+msgid "footer_courses"
+msgstr "Курсы"
+
+msgid "footer_news"
+msgstr "Новости"
+
+msgid "footer_announcements"
+msgstr "Объявления"
 
 msgid "footer_contact_title"
 msgstr "Контакты:"
@@ -618,10 +621,10 @@ msgid "about_title"
 msgstr "О нас"
 
 msgid "about_hero_title"
-msgstr "Агросектор – ғылым мен бизнестің тоғысқан нүктесі"
+msgstr "Агросектор — это пересечение науки и бизнеса"
 
 msgid "about_hero_subtitle"
-msgstr "Ғылыми әзірлемелерді, оқыту курстарын және сараптамалық қолдауды бір алаңда біріктірдік"
+msgstr "Мы объединили на одной платформе научные разработки, обучающие курсы и экспертную поддержку"
 
 msgid "who_we_are_title"
 msgstr "Кто мы?"
@@ -693,16 +696,16 @@ msgid "courses_title"
 msgstr "Курсы"
 
 msgid "hero_unprecedented_season"
-msgstr "Бұрын-соңды болмаған жеңілдіктер маусымы"
+msgstr "Беспрецедентный сезон скидок"
 
 msgid "hero_until_july"
-msgstr "Тек 4 шілдеге дейін!"
+msgstr "Только до 4 июля!"
 
 msgid "hero_buy_one_get_50_off"
-msgstr "1 курс сатып алыңыз және екіншісін 50 % жеңілдікпен алыңыз"
+msgstr "Купите 1 курс и получите второй со скидкой 50%"
 
 msgid "about_promotion"
-msgstr "Акция туралы"
+msgstr "Об акции"
 
 msgid "course_catalog"
 msgstr "Каталог курсов"
@@ -711,22 +714,22 @@ msgid "filter_label"
 msgstr "Фильтр"
 
 msgid "all_courses"
-msgstr "Барлық курстар"
+msgstr "Все курсы"
 
 msgid "popular_courses"
-msgstr "Танымал курстар"
+msgstr "Популярные курсы"
 
 msgid "discount_courses"
-msgstr "Жеңілдік бар курстары"
+msgstr "Курсы со скидкой"
 
 msgid "search_courses_placeholder"
 msgstr "Поиск курсов..."
 
 msgid "categories_label"
-msgstr "Санаттар"
+msgstr "Категории"
 
 msgid "discount_label"
-msgstr "Жеңілдік"
+msgstr "Скидка"
 
 msgid "top_course_label"
 msgstr "ТОП курс"
@@ -817,3 +820,182 @@ msgstr "Телефон"
 
 msgid "email"
 msgstr "Email"
+
+
+# team.html
+
+msgid "together_achieve_dreams"
+msgstr "Вместе достигнем вашей мечты"
+
+msgid "our_team"
+msgstr "Наша команда"
+
+msgid "meet_our_professionals"
+msgstr "Познакомьтесь с нашей командой профессионалов."
+
+msgid "administrative_support"
+msgstr "Административная поддержка"
+
+msgid "admin1_full_name"
+msgstr "Дулатбай Ерасыл Алтайулы"
+
+msgid "admin1_first_name"
+msgstr "Дулатбай"
+
+msgid "admin1_last_name"
+msgstr "Ерасыл Алтайулы"
+
+msgid "admin1_position"
+msgstr "Член Правления- проректор по интернационализации и инновациям"
+
+msgid "admin2_full_name"
+msgstr "Иванов Иван Иванович"
+
+msgid "admin2_first_name"
+msgstr "Иванов"
+
+msgid "admin2_last_name"
+msgstr "Иван Иванович"
+
+msgid "admin2_position"
+msgstr "Заместитель директора по административным вопросам"
+
+msgid "admin3_full_name"
+msgstr "Петров Петр Петрович"
+
+msgid "admin3_first_name"
+msgstr "Петров"
+
+msgid "admin3_last_name"
+msgstr "Петр Петрович"
+
+msgid "admin3_position"
+msgstr "Руководитель отдела кадров"
+
+msgid "admin4_full_name"
+msgstr "Сидоров Сидор Сидорович"
+
+msgid "admin4_first_name"
+msgstr "Сидоров"
+
+msgid "admin4_last_name"
+msgstr "Сидор Сидорович"
+
+msgid "admin4_position"
+msgstr "Главный специалист по работе с документами"
+
+msgid "email_label"
+msgstr "Email:"
+
+msgid "phone_label"
+msgstr "Телефон:"
+
+msgid "shakarim_lab"
+msgstr "Shakarim Lab"
+
+msgid "lab_member1_name"
+msgstr "Кливенко Алексей Николаевич"
+
+msgid "lab_member2_name"
+msgstr "Абдуллин Марат Рустемович"
+
+msgid "lab_member3_name"
+msgstr "Жанузакова Айгуль Сериковна"
+
+msgid "lab_member4_name"
+msgstr "Токтарбаев Данияр Ермекович"
+
+msgid "projects_catalog_title"
+msgstr "Каталог проектов"
+
+msgid "project_detail"
+msgstr "Детали проекта"
+
+msgid "search_projects_placeholder"
+msgstr "Поиск проектов..."
+
+msgid "status_filter_title"
+msgstr "ФИЛЬТР ПО СТАТУСУ"
+
+msgid "direction_filter_title"
+msgstr "ФИЛЬТР ПО НАПРАВЛЕНИЮ"
+
+msgid "projects_pagination"
+msgstr "Пагинация проектов"
+
+msgid "all_statuses"
+msgstr "Все статусы"
+
+msgid "all_directions"
+msgstr "Все направления"
+
+msgid "investment_amount_label"
+msgstr "Сумма инвестиций"
+
+msgid "implementation_period_label"
+msgstr "Срок реализации"
+
+msgid "status_label"
+msgstr "Статус"
+
+msgid "direction_label"
+msgstr "Направление"
+
+msgid "view_project"
+msgstr "Просмотреть проект"
+
+msgid "back_to_projects"
+msgstr "Вернуться к проектам"
+
+msgid "project_overview"
+msgstr "Обзор проекта"
+
+msgid "project_description"
+msgstr "Описание проекта"
+
+msgid "investment_amount"
+msgstr "Сумма инвестиций"
+
+msgid "project_details"
+msgstr "Детали проекта"
+
+msgid "implementation_period"
+msgstr "Срок реализации"
+
+msgid "direction"
+msgstr "Направление"
+
+msgid "project_status"
+msgstr "Статус проекта"
+
+msgid "project_team"
+msgstr "Команда проекта"
+
+msgid "no_projects_found"
+msgstr "Проекты не найдены"
+
+msgid "view_all_projects"
+msgstr "Просмотреть все проекты"
+
+# expert_blog.html
+
+msgid "expert_blog_title"
+msgstr "Блог экспертов"
+
+msgid "expert_blog_description"
+msgstr "Научные и публицистические статьи ведущих экспертов и практиков отрасли."
+
+msgid "article_annotation"
+msgstr "Аннотация"
+
+msgid "home"
+msgstr "Главная"
+
+# guide.html
+
+msgid "guide_title"
+msgstr "Агро-гид: полезные советы"
+
+msgid "guide_description"
+msgstr "Практические рекомендации и простые решения для фермеров."
+

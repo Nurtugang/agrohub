@@ -2,6 +2,7 @@ import os
 from PIL import Image
 from io import BytesIO
 from django.db import models
+from django.urls import reverse
 from django.core.files.base import ContentFile
 
 
@@ -17,26 +18,70 @@ class Thing(models.Model):
         verbose_name = "Thing"
         verbose_name_plural = "Things"
         
+class Expert(models.Model):
+    name = models.CharField(max_length=200)
+    bio = models.CharField(max_length=200)
+    photo = models.ImageField(upload_to='expert_photos/')
+    
+    def save(self, *args, **kwargs):
+        if self.photo:
+            self.photo = self.compress_image(self.photo)
+        super().save(*args, **kwargs)
+    
+    def compress_image(self, image):
+        img = Image.open(image)
+        img = img.convert('RGB')
         
-class NewsCategory(models.Model):
-    name = models.CharField(max_length=100)
-    slug = models.SlugField()
+        if img.width > 400:
+            ratio = 400 / img.width
+            new_height = int(img.height * ratio)
+            img = img.resize((400, new_height), Image.Resampling.LANCZOS)
+        
+        output = BytesIO()
+        img.save(output, format='WebP', quality=85, optimize=True)
+        output.seek(0)
+        
+        name = os.path.splitext(image.name)[0] + '.webp'
+        return ContentFile(output.read(), name=name)
     
     def __str__(self):
         return self.name
     
     class Meta:
-        verbose_name = "News Category"
-        verbose_name_plural = "News Categories"
+        verbose_name = "Эксперт"
+        verbose_name_plural = "Эксперты"
+        
+        
+class NewsCategory(models.Model):
+   TYPE_CHOICES = [
+       ('news', 'Новости'),
+       ('guide', 'Агро-гид'),
+       ('expert', 'Экспертный блог'),
+   ]
+   
+   name = models.CharField(max_length=100)
+   slug = models.SlugField()
+   type = models.CharField(max_length=10, choices=TYPE_CHOICES, default='news')
+   
+   def __str__(self):
+       return self.name
+   
+   class Meta:
+       verbose_name = "News Category"
+       verbose_name_plural = "News Categories"
 
 
 class News(models.Model):
     title = models.CharField(max_length=200)
+    short_description = models.CharField(max_length=300)
+    expert = models.ForeignKey(Expert, related_name='news', on_delete=models.CASCADE, blank=True, null=True)
     content = models.TextField()
     image = models.ImageField(upload_to='news_images/')
     category = models.ForeignKey(NewsCategory, related_name='news', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     is_published = models.BooleanField(default=True)
+    is_expert_news = models.BooleanField(default=False, help_text="Отображать в разделе Блог экспертов")
+    is_guide = models.BooleanField(default=False, help_text="Отображать в разделе Агро-гид")
     
     def save(self, *args, **kwargs):
         if self.image:
@@ -431,3 +476,224 @@ class CourseApplication(models.Model):
         verbose_name = "Course Application"
         verbose_name_plural = "Course Applications"
         ordering = ['-created_at']
+        
+
+class ProjectDirection(models.Model):
+    """Направления проектов (Сельское хозяйство, Машиностроение, Биотехнология и т.д.)"""
+    name = models.CharField(max_length=150, verbose_name="Название направления")
+    slug = models.SlugField(unique=True, verbose_name="URL slug")
+    is_active = models.BooleanField(default=True, verbose_name="Активно")
+    order = models.PositiveIntegerField(default=0, verbose_name="Порядок сортировки")
+    
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        verbose_name = "Направление проекта"
+        verbose_name_plural = "Направления проектов"
+        ordering = ['order', 'name']
+
+
+class ProjectStatus(models.Model):
+    """Статусы проектов"""
+    STATUS_CHOICES = [
+        ('idea', 'Идея в разработке'),
+        ('prototype', 'Прототип'),
+        ('ready', 'Готов к внедрению'),
+        ('implementing', 'Реализуется'),
+        ('closed', 'Закрыт'),
+    ]
+    
+    # Цвета для статусов (как в дизайне)
+    COLOR_CHOICES = [
+        ('#adb5bd', 'Серый'),  # Идея в разработке
+        ('#ff9b10', 'Оранжевый'),  # Прототип
+        ('#4caf50', 'Зеленый'),  # Готов к внедрению
+        ('#234287', 'Синий'),  # Реализуется
+        ('#c91d00', 'Красный'),  # Закрыт
+    ]
+    
+    name = models.CharField(max_length=100, verbose_name="Название статуса")
+    slug = models.SlugField(unique=True, verbose_name="URL slug")
+    status_type = models.CharField(max_length=20, choices=STATUS_CHOICES, unique=True, verbose_name="Тип статуса")
+    color = models.CharField(max_length=7, choices=COLOR_CHOICES, verbose_name="Цвет")
+    is_active = models.BooleanField(default=True, verbose_name="Активен")
+    order = models.PositiveIntegerField(default=0, verbose_name="Порядок сортировки")
+    
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        verbose_name = "Статус проекта"
+        verbose_name_plural = "Статусы проектов"
+        ordering = ['order']
+
+
+class Project(models.Model):
+    """Основная модель проекта"""
+    title = models.CharField(max_length=250, verbose_name="Название проекта")
+    slug = models.SlugField(unique=True, blank=True, verbose_name="URL slug")
+    
+    # Описания
+    short_description = models.TextField(max_length=500, verbose_name="Краткое описание", 
+                                       help_text="Описание для карточки в каталоге")
+    description = models.TextField(verbose_name="Полное описание", 
+                                 help_text="Подробное описание проекта")
+    
+    # Основная информация
+    direction = models.ForeignKey(ProjectDirection, related_name='projects', on_delete=models.CASCADE, 
+                                verbose_name="Направление")
+    status = models.ForeignKey(ProjectStatus, related_name='projects', on_delete=models.CASCADE, 
+                             verbose_name="Статус")
+    
+    # Финансовая информация
+    investment_amount = models.DecimalField(max_digits=15, decimal_places=2, verbose_name="Сумма инвестиций", 
+                                          help_text="В тенге")
+    currency = models.CharField(max_length=10, default='KZT', verbose_name="Валюта")
+    
+    # Временные рамки
+    implementation_period = models.CharField(max_length=100, verbose_name="Срок реализации", 
+                                           help_text="Например: '3 года', '18 месяцев'")
+    
+    # Изображения
+    main_image = models.ImageField(upload_to='project_images/', verbose_name="Основное изображение")
+    
+    # Дополнительные поля
+    is_featured = models.BooleanField(default=False, verbose_name="Рекомендуемый проект")
+    is_published = models.BooleanField(default=True, verbose_name="Опубликован")
+    
+    # Временные метки
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
+    updated_at = models.DateTimeField(auto_now=True, verbose_name="Дата обновления")
+    
+    def save(self, *args, **kwargs):
+        # Автогенерация slug
+        if not self.slug:
+            base_slug = slugify(self.title)
+            slug = base_slug
+            counter = 1
+            while Project.objects.filter(slug=slug).exists():
+                slug = f"{base_slug}-{counter}"
+                counter += 1
+            self.slug = slug
+            
+        # Сжатие изображения
+        if self.main_image:
+            self.main_image = self.compress_image(self.main_image)
+            
+        super().save(*args, **kwargs)
+    
+    def compress_image(self, image):
+        """Сжатие изображения"""
+        img = Image.open(image)
+        img = img.convert('RGB')
+        
+        # Размер для карточек проектов
+        if img.width > 800:
+            ratio = 800 / img.width
+            new_height = int(img.height * ratio)
+            img = img.resize((800, new_height), Image.Resampling.LANCZOS)
+        
+        output = BytesIO()
+        img.save(output, format='WebP', quality=85, optimize=True)
+        output.seek(0)
+        
+        name = os.path.splitext(image.name)[0] + '.webp'
+        return ContentFile(output.read(), name=name)
+    
+    def get_formatted_investment(self):
+        """Форматированная сумма инвестиций"""
+        if self.investment_amount >= 1000000000:
+            return f"{self.investment_amount / 1000000000:.0f} млрд"
+        elif self.investment_amount >= 1000000:
+            return f"{self.investment_amount / 1000000:.0f} млн"
+        else:
+            return f"{self.investment_amount:,.0f}".replace(',', ' ')
+    
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        verbose_name = "Проект"
+        verbose_name_plural = "Проекты"
+        ordering = ['-created_at']
+
+
+class ProjectImage(models.Model):
+    """Дополнительные изображения проекта"""
+    project = models.ForeignKey(Project, related_name='images', on_delete=models.CASCADE, 
+                               verbose_name="Проект")
+    image = models.ImageField(upload_to='project_gallery/', verbose_name="Изображение")
+    caption = models.CharField(max_length=200, blank=True, verbose_name="Подпись к изображению")
+    order = models.PositiveIntegerField(default=0, verbose_name="Порядок")
+    
+    def save(self, *args, **kwargs):
+        if self.image:
+            self.image = self.compress_image(self.image)
+        super().save(*args, **kwargs)
+    
+    def compress_image(self, image):
+        """Сжатие изображения для галереи"""
+        img = Image.open(image)
+        img = img.convert('RGB')
+        
+        if img.width > 1200:
+            ratio = 1200 / img.width
+            new_height = int(img.height * ratio)
+            img = img.resize((1200, new_height), Image.Resampling.LANCZOS)
+        
+        output = BytesIO()
+        img.save(output, format='WebP', quality=90, optimize=True)
+        output.seek(0)
+        
+        name = os.path.splitext(image.name)[0] + '.webp'
+        return ContentFile(output.read(), name=name)
+    
+    def __str__(self):
+        return f"Изображение для {self.project.title}"
+    
+    class Meta:
+        verbose_name = "Изображение проекта"
+        verbose_name_plural = "Изображения проектов"
+        ordering = ['order']
+
+
+class ProjectTeamMember(models.Model):
+    """Участники команды проекта"""
+    project = models.ForeignKey(Project, related_name='team_members', on_delete=models.CASCADE, 
+                               verbose_name="Проект")
+    name = models.CharField(max_length=200, verbose_name="ФИО")
+    position = models.CharField(max_length=150, verbose_name="Должность")
+    bio = models.TextField(blank=True, verbose_name="Биография")
+    photo = models.ImageField(upload_to='team_photos/', blank=True, verbose_name="Фото")
+    email = models.EmailField(blank=True, verbose_name="Email")
+    
+    def save(self, *args, **kwargs):
+        if self.photo:
+            self.photo = self.compress_image(self.photo)
+        super().save(*args, **kwargs)
+    
+    def compress_image(self, image):
+        """Сжатие фото участника"""
+        img = Image.open(image)
+        img = img.convert('RGB')
+        
+        if img.width > 300:
+            ratio = 300 / img.width
+            new_height = int(img.height * ratio)
+            img = img.resize((300, new_height), Image.Resampling.LANCZOS)
+        
+        output = BytesIO()
+        img.save(output, format='WebP', quality=85, optimize=True)
+        output.seek(0)
+        
+        name = os.path.splitext(image.name)[0] + '.webp'
+        return ContentFile(output.read(), name=name)
+    
+    def __str__(self):
+        return f"{self.name} - {self.project.title}"
+    
+    class Meta:
+        verbose_name = "Участник команды"
+        verbose_name_plural = "Участники команды"
+

@@ -23,7 +23,7 @@ def index(request):
     """Main page with multilingual content"""
     locale = translation.get_language()
     things = Thing.objects.all()
-    latest_news = News.objects.filter(is_published=True).order_by('-created_at')[:3]
+    latest_news = News.objects.filter(is_published=True, is_expert_news=False).order_by('-created_at')[:3]
     
     context = {
         'things': things,
@@ -67,7 +67,23 @@ def lab(request):
     context = {
         'current_language': locale,
     }
-    return render(request, 'lab.html', context)
+    return render(request, 'labs/lab.html', context)
+
+def agrotehnopark(request):
+    locale = translation.get_language()
+    
+    context = {
+        'current_language': locale,
+    }
+    return render(request, 'labs/agrotehnopark.html', context)
+
+def engeneering_center(request):
+    locale = translation.get_language()
+    
+    context = {
+        'current_language': locale,
+    }
+    return render(request, 'labs/engeneering_center.html', context)
 
 def change_language(request, language_code):
     """Change the current language"""
@@ -84,7 +100,7 @@ def change_language(request, language_code):
 
 
 def news_list(request):
-    news = News.objects.filter(is_published=True)
+    news = News.objects.filter(is_published=True, is_expert_news=False, is_guide=False)
     
     # Поиск
     search_query = request.GET.get('search', '')
@@ -129,7 +145,7 @@ def news_list(request):
     page_obj = paginator.get_page(page_number)
     
     # Категории для фильтра
-    categories = NewsCategory.objects.all()
+    categories = NewsCategory.objects.filter(type='news')
     
     context = {
         'page_obj': page_obj,
@@ -147,7 +163,8 @@ def news_detail(request, pk):
     news = get_object_or_404(News, pk=pk, is_published=True)
     related_news = News.objects.filter(
         category=news.category, 
-        is_published=True
+        is_published=True,
+        is_expert_news=False
     ).exclude(pk=pk)[:3]
     
     context = {
@@ -187,7 +204,6 @@ def services_list(request):
     # Фильтры
     provider_filter = request.GET.get('provider', '')
     category_filter = request.GET.get('category', '')
-    search_query = request.GET.get('search', '')
     
     # Получаем все активные услуги
     services = Service.objects.filter(is_active=True).select_related('category', 'category__provider')
@@ -203,13 +219,6 @@ def services_list(request):
             services = services.filter(category__provider=selected_category.provider)
         except ServiceCategory.DoesNotExist:
             pass
-    
-    if search_query:
-        services = services.filter(
-            Q(name__icontains=search_query) | 
-            Q(description__icontains=search_query) |
-            Q(short_description__icontains=search_query)
-        )
     
     # Пагинация
     paginator = Paginator(services, 12)  # 12 услуг на страницу
@@ -234,7 +243,6 @@ def services_list(request):
         'categories': categories,
         'provider_filter': provider_filter,
         'category_filter': category_filter,
-        'search_query': search_query,
         'current_promotion': current_promotion,
     }
     
@@ -538,3 +546,228 @@ def knowledge_list(request):
         'current_language': locale,
     }
     return render(request, 'knowledge_list.html', context)
+  
+def projects_catalog(request):
+    """Каталог проектов с фильтрацией и поиском"""
+    
+    # Получаем все опубликованные проекты
+    projects = Project.objects.filter(is_published=True).select_related('direction', 'status')
+    
+    # Получаем параметры фильтрации
+    direction_slug = request.GET.get('direction')
+    status_slug = request.GET.get('status')
+    search_query = request.GET.get('search', '').strip()
+    
+    # Фильтрация по направлению
+    if direction_slug:
+        projects = projects.filter(direction__slug=direction_slug)
+    
+    # Фильтрация по статусу
+    if status_slug:
+        projects = projects.filter(status__slug=status_slug)
+    
+    # Поиск
+    if search_query:
+        projects = projects.filter(
+            Q(title__icontains=search_query) |
+            Q(short_description__icontains=search_query) |
+            Q(description__icontains=search_query)
+        )
+    
+    # Сортировка: сначала рекомендуемые, потом по дате
+    projects = projects.order_by('-is_featured', '-created_at')
+    
+    # Пагинация (6 проектов на страницу как в дизайне)
+    paginator = Paginator(projects, 6)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    
+    # Получаем все направления и статусы для фильтров
+    directions = ProjectDirection.objects.filter(is_active=True).order_by('order', 'name')
+    statuses = ProjectStatus.objects.filter(is_active=True).order_by('order')
+    
+    context = {
+        'page_obj': page_obj,
+        'projects': page_obj.object_list,
+        'directions': directions,
+        'statuses': statuses,
+        'direction_filter': direction_slug,
+        'status_filter': status_slug,
+        'search_query': search_query,
+        'total_projects': paginator.count,
+    }
+    
+    return render(request, 'projects/catalog.html', context)
+
+def project_detail(request, slug):
+    """Детальная страница проекта"""
+    
+    # Получаем проект со всеми связанными данными
+    project = get_object_or_404(
+        Project.objects.select_related('direction', 'status')
+                      .prefetch_related('images', 'team_members'),
+        slug=slug,
+        is_published=True
+    )
+    
+    # Получаем похожие проекты (того же направления, исключая текущий)
+    similar_projects = Project.objects.filter(
+        direction=project.direction,
+        is_published=True
+    ).exclude(id=project.id).order_by('-is_featured', '-created_at')[:3]
+    
+    # Получаем все изображения проекта
+    project_images = project.images.all().order_by('order')
+    
+    # Получаем команду проекта
+    team_members = project.team_members.all()
+    
+    context = {
+        'project': project,
+        'similar_projects': similar_projects,
+        'project_images': project_images,
+        'team_members': team_members,
+    }
+    
+    return render(request, 'projects/detail.html', context)
+
+def expert_blog_list(request):
+    news = News.objects.filter(is_published=True, is_expert_news=True)
+    
+    # Поиск
+    search_query = request.GET.get('search', '')
+    if search_query:
+        news = news.filter(
+            Q(title__icontains=search_query) | 
+            Q(content__icontains=search_query)
+        )
+    
+    # Фильтр по категории
+    category_filter = request.GET.get('category', '')
+    if category_filter and category_filter != 'all':
+        news = news.filter(category__slug=category_filter)
+    
+    # Фильтр по периоду
+    period_filter = request.GET.get('period', '3months')
+    if period_filter == '1month':
+        date_from = datetime.now() - timedelta(days=30)
+        news = news.filter(created_at__gte=date_from)
+    elif period_filter == '3months':
+        date_from = datetime.now() - timedelta(days=90)
+        news = news.filter(created_at__gte=date_from)
+    elif period_filter == '6months':
+        date_from = datetime.now() - timedelta(days=180)
+        news = news.filter(created_at__gte=date_from)
+    elif period_filter == '1year':
+        date_from = datetime.now() - timedelta(days=365)
+        news = news.filter(created_at__gte=date_from)
+    
+    # Сортировка
+    sort_filter = request.GET.get('sort', 'newest')
+    if sort_filter == 'newest':
+        news = news.order_by('-created_at')
+    elif sort_filter == 'oldest':
+        news = news.order_by('created_at')
+    elif sort_filter == 'title':
+        news = news.order_by('title')
+    
+    # Пагинация
+    paginator = Paginator(news, 8)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    
+    # Категории для фильтра
+    categories = NewsCategory.objects.filter(type='expert')
+    
+    context = {
+        'page_obj': page_obj,
+        'categories': categories,
+        'search_query': search_query,
+        'category_filter': category_filter,
+        'period_filter': period_filter,
+        'sort_filter': sort_filter,
+    }
+    
+    return render(request, 'expert_blog/expert_blog_list.html', context)
+
+def expert_blog_detail(request, pk):
+    article = get_object_or_404(News, pk=pk, is_published=True, is_expert_news=True)
+    
+    context = {
+        'article': article,
+        'expert': article.expert,
+        'category': article.category,
+    }
+    
+    return render(request, 'expert_blog/expert_blog_detail.html', context)
+
+
+
+def guide_list(request):
+    news = News.objects.filter(is_published=True, is_guide=True)
+    
+    # Поиск
+    search_query = request.GET.get('search', '')
+    if search_query:
+        news = news.filter(
+            Q(title__icontains=search_query) | 
+            Q(content__icontains=search_query)
+        )
+    
+    # Фильтр по категории
+    category_filter = request.GET.get('category', '')
+    if category_filter and category_filter != 'all':
+        news = news.filter(category__slug=category_filter)
+    
+    # Фильтр по периоду
+    period_filter = request.GET.get('period', '3months')
+    if period_filter == '1month':
+        date_from = datetime.now() - timedelta(days=30)
+        news = news.filter(created_at__gte=date_from)
+    elif period_filter == '3months':
+        date_from = datetime.now() - timedelta(days=90)
+        news = news.filter(created_at__gte=date_from)
+    elif period_filter == '6months':
+        date_from = datetime.now() - timedelta(days=180)
+        news = news.filter(created_at__gte=date_from)
+    elif period_filter == '1year':
+        date_from = datetime.now() - timedelta(days=365)
+        news = news.filter(created_at__gte=date_from)
+    
+    # Сортировка
+    sort_filter = request.GET.get('sort', 'newest')
+    if sort_filter == 'newest':
+        news = news.order_by('-created_at')
+    elif sort_filter == 'oldest':
+        news = news.order_by('created_at')
+    elif sort_filter == 'title':
+        news = news.order_by('title')
+    
+    # Пагинация
+    paginator = Paginator(news, 8)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    
+    # Категории для фильтра
+    categories = NewsCategory.objects.filter(type='guide')
+    
+    context = {
+        'page_obj': page_obj,
+        'categories': categories,
+        'search_query': search_query,
+        'category_filter': category_filter,
+        'period_filter': period_filter,
+        'sort_filter': sort_filter,
+    }
+    
+    return render(request, 'guide/guide_list.html', context)
+
+def guide_detail(request, pk):
+    article = get_object_or_404(News, pk=pk, is_published=True, is_guide=True)
+    
+    context = {
+        'article': article,
+        'category': article.category,
+    }
+    
+    return render(request, 'guide/guide_detail.html', context)

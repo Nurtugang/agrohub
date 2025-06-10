@@ -9,6 +9,8 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('team/', views.team, name='team'),
     path('lab/', views.lab, name='lab'),
+    path('agrotehnopark/', views.agrotehnopark, name='agrotehnopark'),
+    path('engeneering_center/', views.engeneering_center, name='engeneering_center'),
     
     path('news/', views.news_list, name='news_list'),
     path('news/<int:pk>/', views.news_detail, name='news_detail'),
@@ -27,6 +29,15 @@ urlpatterns = [
     path('store-product/', views.store_product, name='store_product'),
 
     path('knowledge-list/', views.knowledge_list, name='knowledge_list'),
+
+    path('projects/', views.projects_catalog, name='projects_catalog'),
+    path('project/<slug:slug>/', views.project_detail, name='project'),
+    
+    path('expert_blog/', views.expert_blog_list, name='expert_blog_list'),
+    path('expert_blog/<int:pk>', views.expert_blog_detail, name='expert_blog_detail'),
+    
+    path('guide/', views.guide_list, name='guide_list'),
+    path('guide/<int:pk>', views.guide_detail, name='guide_detail'),
     
     path('change-language/<str:language_code>/', views.change_language, name='change_language'),
 ]

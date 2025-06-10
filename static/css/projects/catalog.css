@@ -1,0 +1,230 @@
+.services-hero {
+    background: linear-gradient(135deg, #4caf50, #2e7d32);
+    color: white;
+    padding: 100px 0 50px;
+    margin-top: 76px;
+    position: relative;
+    overflow: hidden;
+}
+
+.services-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: url('https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') center/cover;
+    opacity: 0.3;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.promotion-banner {
+    background: linear-gradient(45deg, #ff9b10, #f89c1c);
+    color: white;
+    border-radius: 15px;
+    padding: 30px;
+    margin: 30px 0;
+    box-shadow: 0 10px 30px rgba(248, 156, 28, 0.3);
+}
+
+.promotion-banner h3 {
+    font-weight: 800;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.promotion-banner .promo-text {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.promotion-banner .promo-deadline {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+.project-card {
+    transition: all 0.3s ease;
+    height: 100%;
+}
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+.card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+.project-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+.project-card:hover .project-image img {
+    transform: scale(1.05);
+}
+.status-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 3;
+}
+.status-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+.featured-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 3;
+}
+.filters-card {
+    background: #f8f9fa;
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+.filter-btn, .direction-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 20px;
+    margin: 5px;
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 25px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+.filter-btn:hover, .direction-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    color: #333;
+}
+.filter-btn.active, .direction-btn.active {
+    background: #4caf50;
+    color: white;
+    border-color: #4caf50;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(76, 175, 80, 0.3);
+}
+.search-container {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+.search-container .form-control {
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+}
+.search-container .form-control:focus {
+    box-shadow: none;
+}
+.btn-success {
+    background: #4caf50;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+.btn-success:hover {
+    background: #2e7d32;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(76, 175, 80, 0.3);
+}
+.btn-outline-secondary {
+    border-radius: 8px;
+    padding: 12px 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+.card-title {
+    color: #2e7d32;
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+.project-meta {
+    color: #666;
+    font-size: 0.9rem;
+}
+.description {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+.detail-item {
+    font-size: 0.95rem;
+}
+.detail-item strong {
+    color: #2e7d32;
+}
+.no-results {
+    padding: 80px 0;
+}
+.no-results i {
+    color: #ccc;
+    margin-bottom: 20px;
+}
+.pagination .page-link {
+    border-radius: 8px;
+    margin: 0 4px;
+    border: none;
+    color: #666;
+    padding: 12px 16px;
+    transition: all 0.3s ease;
+}
+.pagination .page-link:hover {
+    background: #4caf50;
+    color: white;
+    transform: translateY(-2px);
+}
+.pagination .active .page-link {
+    background: #4caf50;
+    border-color: #4caf50;
+}
+.fade-in-up {
+    animation: fadeInUp 0.6s ease forwards;
+}
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}

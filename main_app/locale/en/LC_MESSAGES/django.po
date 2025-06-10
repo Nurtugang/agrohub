@@ -37,6 +37,15 @@ msgstr "About Company"
 msgid "nav_about_team"
 msgstr "Team"
 
+msgid "nav_about_lab"
+msgstr "Shakarim Lab"
+
+msgid "nav_about_agrotehnopark"
+msgstr "Agrotechnopark"
+
+msgid "nav_about_engeneering_center"
+msgstr "Engineering Center"
+
 msgid "nav_services"
 msgstr "Services"
 
@@ -227,35 +236,29 @@ msgstr ""
 "Kazakhstan's largest agricultural portal. We provide comprehensive services "
 "in all sectors of agriculture."
 
-msgid "footer_services_title"
-msgstr "Services"
+msgid "footer_about_portal"
+msgstr "About Portal"
 
-msgid "footer_services_agronomy"
-msgstr "Agronomy"
-
-msgid "footer_services_laboratory"
-msgstr "Laboratory"
-
-msgid "footer_services_veterinary"
-msgstr "Veterinary"
-
-msgid "footer_services_courses"
-msgstr "Courses"
-
-msgid "footer_company_title"
-msgstr "Company"
-
-msgid "footer_company_about"
+msgid "footer_about_us"
 msgstr "About Us"
 
-msgid "footer_company_partners"
-msgstr "Partners"
+msgid "footer_team"
+msgstr "Team"
 
-msgid "footer_company_projects"
-msgstr "Projects"
+msgid "footer_contacts"
+msgstr "Contacts"
 
-msgid "footer_company_careers"
-msgstr "Careers"
+msgid "footer_useful_links"
+msgstr "Useful Links"
+
+msgid "footer_courses"
+msgstr "Courses"
+
+msgid "footer_news"
+msgstr "News"
+
+msgid "footer_announcements"
+msgstr "Announcements"
 
 msgid "footer_contact_title"
 msgstr "Contact:"
@@ -815,3 +818,181 @@ msgstr "Phone"
 
 msgid "email"
 msgstr "Email"
+
+
+# team.html
+
+msgid "together_achieve_dreams"
+msgstr "Together we will achieve your dreams"
+
+msgid "our_team"
+msgstr "Our Team"
+
+msgid "meet_our_professionals"
+msgstr "Meet our team of professionals."
+
+msgid "administrative_support"
+msgstr "Administrative Support"
+
+msgid "admin1_full_name"
+msgstr "Dulatbay Yerassyl Altayuly"
+
+msgid "admin1_first_name"
+msgstr "Dulatbay"
+
+msgid "admin1_last_name"
+msgstr "Yerassyl Altayuly"
+
+msgid "admin1_position"
+msgstr "Board Member - Vice-Rector for Internationalization and Innovation"
+
+msgid "admin2_full_name"
+msgstr "Ivanov Ivan Ivanovich"
+
+msgid "admin2_first_name"
+msgstr "Ivanov"
+
+msgid "admin2_last_name"
+msgstr "Ivan Ivanovich"
+
+msgid "admin2_position"
+msgstr "Deputy Director for Administrative Affairs"
+
+msgid "admin3_full_name"
+msgstr "Petrov Petr Petrovich"
+
+msgid "admin3_first_name"
+msgstr "Petrov"
+
+msgid "admin3_last_name"
+msgstr "Petr Petrovich"
+
+msgid "admin3_position"
+msgstr "Head of Human Resources Department"
+
+msgid "admin4_full_name"
+msgstr "Sidorov Sidor Sidorovich"
+
+msgid "admin4_first_name"
+msgstr "Sidorov"
+
+msgid "admin4_last_name"
+msgstr "Sidor Sidorovich"
+
+msgid "admin4_position"
+msgstr "Chief Specialist for Document Management"
+
+msgid "email_label"
+msgstr "Email:"
+
+msgid "phone_label"
+msgstr "Phone:"
+
+msgid "shakarim_lab"
+msgstr "Shakarim Lab"
+
+msgid "lab_member1_name"
+msgstr "Klivenko Alexey Nikolayevich"
+
+msgid "lab_member2_name"
+msgstr "Abdullin Marat Rustemovich"
+
+msgid "lab_member3_name"
+msgstr "Zhanuzakova Aigul Serikovna"
+
+msgid "lab_member4_name"
+msgstr "Toktarbayev Daniyar Yermekovich"
+
+msgid "projects_catalog_title"
+msgstr "Projects Catalog"
+
+msgid "project_detail"
+msgstr "Project Detail"
+
+msgid "search_projects_placeholder"
+msgstr "Search projects..."
+
+msgid "status_filter_title"
+msgstr "FILTER BY STATUS"
+
+msgid "direction_filter_title"
+msgstr "FILTER BY DIRECTION"
+
+msgid "projects_pagination"
+msgstr "Projects Pagination"
+
+msgid "all_statuses"
+msgstr "All Statuses"
+
+msgid "all_directions"
+msgstr "All Directions"
+
+msgid "investment_amount_label"
+msgstr "Investment Amount"
+
+msgid "implementation_period_label"
+msgstr "Implementation Period"
+
+msgid "status_label"
+msgstr "Status"
+
+msgid "direction_label"
+msgstr "Direction"
+
+msgid "view_project"
+msgstr "View Project"
+
+msgid "back_to_projects"
+msgstr "Back to Projects"
+
+msgid "project_overview"
+msgstr "Project Overview"
+
+msgid "project_description"
+msgstr "Project Description"
+
+msgid "investment_amount"
+msgstr "Investment Amount"
+
+msgid "project_details"
+msgstr "Project Details"
+
+msgid "implementation_period"
+msgstr "Implementation Period"
+
+msgid "direction"
+msgstr "Direction"
+
+msgid "project_status"
+msgstr "Project Status"
+
+msgid "project_team"
+msgstr "Project Team"
+
+msgid "no_projects_found"
+msgstr "No projects found"
+
+msgid "view_all_projects"
+msgstr "View All Projects"
+
+# expert_blog.html
+
+msgid "expert_blog_title"
+msgstr "Experts Blog"
+
+msgid "expert_blog_description"
+msgstr "Scientific and journalistic articles by leading experts and practitioners in the industry."
+
+msgid "article_annotation"
+msgstr "Article Annotation"
+
+msgid "home"
+msgstr "Home"
+
+# guide.html
+
+msgid "guide_title"
+msgstr "Agro-guide: useful tips"
+
+msgid "guide_description"
+msgstr "Practical recommendations and simple solutions for farmers."

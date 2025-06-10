@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}Наша команда - Agrosector{% endblock %}
+{% load i18n %}
+{% block title %}{% trans "our_team" %} - Agrosector{% endblock %}
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'css/team.css' %}">
@@ -13,7 +14,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-8 col-md-10">
                 <div class="hero-badge text-center">
-                    <h1>Арманыңызға бірге жетеміз</h1>
+                    <h1>{% trans "together_achieve_dreams" %}</h1>
                 </div>
             </div>
         </div>
@@ -26,60 +27,27 @@
         <!-- Team Header -->
         <div class="row mb-5">
             <div class="col-12">
-                <h2 class="page-title mb-3">Наша команда</h2>
-                <p class="page-subtitle">Познакомьтесь с нашей командой профессионалов.</p>
+                <h2 class="page-title mb-3">{% trans "our_team" %}</h2>
+                <p class="page-subtitle">{% trans "meet_our_professionals" %}</p>
             </div>
         </div>
-
-        <!-- Shakarim Lab Section -->
-        <div class="mb-5">
-            <h3 class="section-title">Shakarim Lab</h3>
-            
-            <div class="row g-4 justify-content-center">
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="text-center">
-                        <div class="circle-avatar mb-3"></div>
-                        <div class="circle-name">Кливенко Алексей Николаевич</div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="text-center">
-                        <div class="circle-avatar mb-3"></div>
-                        <div class="circle-name">Кливенко Алексей Николаевич</div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="text-center">
-                        <div class="circle-avatar mb-3"></div>
-                        <div class="circle-name">Кливенко Алексей Николаевич</div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="text-center">
-                        <div class="circle-avatar mb-3"></div>
-                        <div class="circle-name">Кливенко Алексей Николаевич</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <!-- Administrative Support Section -->
-        <div class="">
-            <h3 class="section-title">Административная поддержка</h3>
+        <div>
+            <h3 class="section-title">{% trans "administrative_support" %}</h3>
             
             <div class="row g-4">
                 <div class="col-xl-3 col-lg-4 col-md-6">
                     <div class="team-card">
                         <div class="card-photo">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Дулатбай Ерасыл Алтайұлы" class="img-fluid">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="{% trans 'admin1_full_name' %}" class="img-fluid">
                         </div>
                         <div class="card-info p-3 text-center">
-                            <div class="card-name mb-2">Дулатбай<br>Ерасыл Алтайұлы</div>
+                            <div class="card-name mb-2">{% trans "admin1_first_name" %}<br>{% trans "admin1_last_name" %}</div>
                             <div class="card-position mb-3 d-flex align-items-center justify-content-center">
-                                Член Правления- проректор по интернационализации и инновациям
+                                {% trans "admin1_position" %}
                             </div>
-                            <div class="card-contact text-start mb-2">Email:</div>
-                            <div class="card-contact text-start">Телефон:</div>
+                            <div class="card-contact text-start mb-2">{% trans "email_label" %}</div>
+                            <div class="card-contact text-start">{% trans "phone_label" %}</div>
                         </div>
                     </div>
                 </div>
@@ -87,15 +55,15 @@
                 <div class="col-xl-3 col-lg-4 col-md-6">
                     <div class="team-card">
                         <div class="card-photo">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Дулатбай Ерасыл Алтайұлы" class="img-fluid">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="{% trans 'admin2_full_name' %}" class="img-fluid">
                         </div>
                         <div class="card-info p-3 text-center">
-                            <div class="card-name mb-2">Дулатбай<br>Ерасыл Алтайұлы</div>
+                            <div class="card-name mb-2">{% trans "admin2_first_name" %}<br>{% trans "admin2_last_name" %}</div>
                             <div class="card-position mb-3 d-flex align-items-center justify-content-center">
-                                Член Правления- проректор по интернационализации и инновациям
+                                {% trans "admin2_position" %}
                             </div>
-                            <div class="card-contact text-start mb-2">Email:</div>
-                            <div class="card-contact text-start">Телефон:</div>
+                            <div class="card-contact text-start mb-2">{% trans "email_label" %}</div>
+                            <div class="card-contact text-start">{% trans "phone_label" %}</div>
                         </div>
                     </div>
                 </div>
@@ -103,15 +71,15 @@
                 <div class="col-xl-3 col-lg-4 col-md-6">
                     <div class="team-card">
                         <div class="card-photo">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Дулатбай Ерасыл Алтайұлы" class="img-fluid">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="{% trans 'admin3_full_name' %}" class="img-fluid">
                         </div>
                         <div class="card-info p-3 text-center">
-                            <div class="card-name mb-2">Дулатбай<br>Ерасыл Алтайұлы</div>
+                            <div class="card-name mb-2">{% trans "admin3_first_name" %}<br>{% trans "admin3_last_name" %}</div>
                             <div class="card-position mb-3 d-flex align-items-center justify-content-center">
-                                Член Правления- проректор по интернационализации и инновациям
+                                {% trans "admin3_position" %}
                             </div>
-                            <div class="card-contact text-start mb-2">Email:</div>
-                            <div class="card-contact text-start">Телефон:</div>
+                            <div class="card-contact text-start mb-2">{% trans "email_label" %}</div>
+                            <div class="card-contact text-start">{% trans "phone_label" %}</div>
                         </div>
                     </div>
                 </div>
@@ -119,16 +87,47 @@
                 <div class="col-xl-3 col-lg-4 col-md-6">
                     <div class="team-card">
                         <div class="card-photo">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Дулатбай Ерасыл Алтайұлы" class="img-fluid">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="{% trans 'admin4_full_name' %}" class="img-fluid">
                         </div>
                         <div class="card-info p-3 text-center">
-                            <div class="card-name mb-2">Дулатбай<br>Ерасыл Алтайұлы</div>
+                            <div class="card-name mb-2">{% trans "admin4_first_name" %}<br>{% trans "admin4_last_name" %}</div>
                             <div class="card-position mb-3 d-flex align-items-center justify-content-center">
-                                Член Правления- проректор по интернационализации и инновациям
+                                {% trans "admin4_position" %}
                             </div>
-                            <div class="card-contact text-start mb-2">Email:</div>
-                            <div class="card-contact text-start">Телефон:</div>
+                            <div class="card-contact text-start mb-2">{% trans "email_label" %}</div>
+                            <div class="card-contact text-start">{% trans "phone_label" %}</div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Shakarim Lab Section -->
+        <div>
+            <h3 class="section-title">{% trans "shakarim_lab" %}</h3>
+            
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="text-center">
+                        <div class="circle-avatar mb-3"></div>
+                        <div class="circle-name">{% trans "lab_member1_name" %}</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="text-center">
+                        <div class="circle-avatar mb-3"></div>
+                        <div class="circle-name">{% trans "lab_member2_name" %}</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="text-center">
+                        <div class="circle-avatar mb-3"></div>
+                        <div class="circle-name">{% trans "lab_member3_name" %}</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="text-center">
+                        <div class="circle-avatar mb-3"></div>
+                        <div class="circle-name">{% trans "lab_member4_name" %}</div>
                     </div>
                 </div>
             </div>
@@ -138,5 +137,5 @@
 {% endblock %}
 
 {% block extra_js %}
-<script src="{% static 'js/team.js' %}"></script>
+    <script src="{% static 'js/team.js' %}"></script>
 {% endblock %}
