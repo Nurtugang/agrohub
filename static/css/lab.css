@@ -156,83 +156,7 @@
     line-height: 1.1;
 }
 
-/* Quality slider */
-.quality-slider {
-    background: #4caf50;
-    position: relative;
-    overflow: hidden;
-}
 
-.quality-title {
-    font-size: 1.75rem;
-    font-weight: 600;
-    color: white;
-    margin-bottom: 2rem;
-}
-
-.slider-container {
-    position: relative;
-    height: 500px;
-}
-
-.slider-image {
-    position: absolute;
-    border-radius: 8px;
-    overflow: hidden;
-    transition: transform 0.3s ease;
-}
-
-.slider-main {
-    width: 355px;
-    height: 500px;
-    left: 50%;
-    top: 0;
-    transform: translateX(-50%);
-    z-index: 3;
-}
-
-.slider-side {
-    width: 320px;
-    height: 450px;
-    top: 25px;
-    filter: blur(1px);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
-    z-index: 2;
-}
-
-.slider-left {
-    left: 15%;
-}
-
-.slider-right {
-    right: 15%;
-}
-
-.slider-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255,255,255,0.2);
-    border: none;
-    color: white;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    z-index: 4;
-}
-
-.slider-nav:hover {
-    background: rgba(255,255,255,0.3);
-}
-
-.slider-next {
-    right: 5%;
-}
 
 /* Contact section */
 .contact-card {
@@ -330,4 +254,284 @@
 .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Testimonials section */
+.testimonials-section {
+    padding: 60px 0 60px;
+    background-color: #f9f9f9;
+    margin-bottom: 60px;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1400px;
+    height: 550px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+    margin: 40px auto 0;
+}
+
+.card {
+    position: absolute;
+    width: 450px;
+    height: 640px; /* more proportional for the certificate image */
+    background: #fff;
+    border-radius: 20px;
+    padding: 0;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    overflow: hidden;
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+.card.active {
+    opacity: 1;
+    transform: scale(1) translateX(0);
+    z-index: 3;
+    filter: blur(0px);
+}
+
+.card.left {
+    opacity: 0.6;
+    transform: scale(0.85) translateX(-320px);
+    z-index: 1;
+    filter: blur(2px);
+}
+
+.card.right {
+    opacity: 0.6;
+    transform: scale(0.85) translateX(320px);
+    z-index: 1;
+    filter: blur(2px);
+}
+
+.card.entering-left {
+    opacity: 0;
+    transform: scale(0.7) translateX(-550px);
+    animation: slideInLeft 0.6s ease-out forwards;
+}
+
+.card.entering-right {
+    opacity: 0;
+    transform: scale(0.7) translateX(550px);
+    animation: slideInRight 0.6s ease-out forwards;
+}
+
+.card.exiting-left {
+    animation: slideOutLeft 0.6s ease-in forwards;
+}
+
+.card.exiting-right {
+    animation: slideOutRight 0.6s ease-in forwards;
+}
+
+@keyframes slideInLeft {
+    to {
+        opacity: 0.6;
+        transform: scale(0.85) translateX(-280px);
+    }
+}
+
+@keyframes slideInRight {
+    to {
+        opacity: 0.6;
+        transform: scale(0.85) translateX(280px);
+    }
+}
+
+@keyframes slideOutLeft {
+    to {
+        opacity: 0;
+        transform: scale(0.7) translateX(-550px);
+    }
+}
+
+@keyframes slideOutRight {
+    to {
+        opacity: 0;
+        transform: scale(0.7) translateX(550px);
+    }
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.certificate-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    color: #333;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-button:hover {
+    background: rgba(255,255,255,0.3);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.nav-button:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.nav-button.prev {
+    left: 60px;
+}
+
+.nav-button.next {
+    right: 60px;
+}
+
+
+
+/* Responsive adjustments for testimonials */
+@media (max-width: 1400px) {
+    .carousel-container {
+        max-width: 1200px;
+        height: 600px;
+    }
+    
+    .card {
+        width: 420px;
+        height: 600px;
+    }
+    
+    .card.left {
+        transform: scale(0.85) translateX(-300px);
+    }
+    
+    .card.right {
+        transform: scale(0.85) translateX(300px);
+    }
+    
+    .nav-button.prev {
+        left: 40px;
+    }
+    
+    .nav-button.next {
+        right: 40px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .carousel-container {
+        max-width: 1000px;
+        height: 550px;
+    }
+    
+    .card {
+        width: 400px;
+        height: 570px;
+        padding: 0;
+    }
+    
+    .card.left {
+        transform: scale(0.85) translateX(-280px);
+    }
+    
+    .card.right {
+        transform: scale(0.85) translateX(280px);
+    }
+    
+    .nav-button.prev {
+        left: 30px;
+    }
+    
+    .nav-button.next {
+        right: 30px;
+    }
+}
+
+@media (max-width: 992px) {
+    .carousel-container {
+        height: 520px;
+    }
+    
+    .card {
+        width: 370px;
+        height: 520px;
+        padding: 0;
+    }
+    
+    .card.left {
+        transform: scale(0.8) translateX(-250px);
+    }
+    
+    .card.right {
+        transform: scale(0.8) translateX(250px);
+    }
+    
+    .nav-button.prev {
+        left: 20px;
+    }
+    
+    .nav-button.next {
+        right: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-container {
+        height: 500px;
+    }
+    
+    .card {
+        width: 340px;
+        padding: 0;
+        height: 480px;
+    }
+    
+    .card.left, .card.right {
+        display: none;
+    }
+    
+    .nav-button {
+        width: 50px;
+        height: 50px;
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-container {
+        height: 470px;
+    }
+    
+    .card {
+        width: 300px;
+        padding: 0;
+        height: 430px;
+    }
+    
+    .nav-button {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+    }
 }
