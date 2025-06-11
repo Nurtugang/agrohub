@@ -43,7 +43,7 @@
                 <h6 class="text-muted mb-3">{% trans "filter_title" %}</h6>
                 <div class="filter-buttons">
                     {% for provider in providers %}
-                        <a href="?provider={{ provider.slug }}{% if category_filter %}&category={{ category_filter }}{% endif %}{% if search_query %}&search={{ search_query }}{% endif %}" 
+                        <a href="?provider={{ provider.slug }}{% if search_query %}&search={{ search_query }}{% endif %}" 
                            class="filter-btn {% if provider_filter == provider.slug or not provider_filter and forloop.first %}active{% endif %}">
                             {{ provider.name }}
                         </a>
