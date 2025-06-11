@@ -1,32 +1,31 @@
 .services-hero {
-    background: linear-gradient(135deg, #4caf50, #2e7d32);
+    background: url('../../images/background3.jpg') center/cover no-repeat;
     color: white;
-    padding: 100px 0 50px;
+    padding: 140px 0 70px;
     margin-top: 76px;
     position: relative;
     overflow: hidden;
+    height: auto;
+    min-height: 500px;
+    display: flex;
+    align-items: flex-end;
 }
 
 .services-hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 50%;
-    height: 100%;
-    background: url('https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') center/cover;
-    opacity: 0.3;
+    display: none;
 }
 
 .hero-content {
     position: relative;
     z-index: 2;
+    margin-bottom: 20px;
 }
 
 .hero-content h1 {
     font-size: 36px;
     font-weight: 700;
     margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .promotion-banner {
