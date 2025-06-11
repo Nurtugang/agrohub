@@ -118,7 +118,9 @@
                     <ul class="list-unstyled">
                         <li><a href="{% url 'about' %}" class="text-white-50">{% trans "footer_about_us" %}</a></li>
                         <li><a href="{% url 'team' %}" class="text-white-50">{% trans "footer_team" %}</a></li>
-                        <li><a href="#" class="text-white-50">{% trans "footer_contacts" %}</a></li>
+                        <li><a href="{% url 'lab' %}" class="text-white-50">{% trans "nav_about_lab" %}</a></li>
+                        <li><a href="{% url 'agrotehnopark' %}" class="text-white-50">{% trans "nav_about_agrotehnopark" %}</a></li>
+                        <li><a href="{% url 'engeneering_center' %}" class="text-white-50">{% trans "nav_about_engeneering_center" %}</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2 mb-4">
@@ -126,7 +128,8 @@
                     <ul class="list-unstyled">
                         <li><a href="{% url 'courses_list' %}" class="text-white-50">{% trans "footer_courses" %}</a></li>
                         <li><a href="{% url 'news_list' %}" class="text-white-50">{% trans "footer_news" %}</a></li>
-                        <li><a href="#" class="text-white-50">{% trans "footer_announcements" %}</a></li>
+                        <li><a href="{% url 'expert_blog_list' %}" class="text-white-50">{% trans "expert_blog_title" %}</a></li>
+                        <li><a href="{% url 'guide_list' %}" class="text-white-50">{% trans "guide_title" %}</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-4 mb-4">
@@ -144,14 +147,14 @@
                             <i class="fas fa-envelope me-2"></i>
                             {% trans "footer_contact_email" %}
                         </li>
-                        <li class="mb-2">
+                        <!-- <li class="mb-2">
                             <div class="social-links">
                                 <a href="#" class="text-white me-3" title="{% trans 'social_facebook' %}"><i class="fab fa-facebook-f"></i></a>
                                 <a href="#" class="text-white me-3" title="{% trans 'social_instagram' %}"><i class="fab fa-instagram"></i></a>
                                 <a href="#" class="text-white me-3" title="{% trans 'social_telegram' %}"><i class="fab fa-telegram"></i></a>
                                 <a href="#" class="text-white me-3" title="{% trans 'social_whatsapp' %}"><i class="fab fa-whatsapp"></i></a>
                             </div>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>
@@ -160,10 +163,10 @@
                 <div class="col-md-6">
                     <p class="mb-0">{% trans "footer_copyright" %}</p>
                 </div>
-                <div class="col-md-6 text-md-end">
+                <!-- <div class="col-md-6 text-md-end">
                     <a href="#" class="text-white-50 me-3">{% trans "footer_privacy" %}</a>
                     <a href="#" class="text-white-50">{% trans "footer_terms" %}</a>
-                </div>
+                </div> -->
             </div>
         </div>
     </footer>

@@ -264,13 +264,13 @@ msgid "footer_contact_title"
 msgstr "Contact:"
 
 msgid "footer_contact_address"
-msgstr "Nur-Sultan, Mangilik El Avenue, 55"
+msgstr "Republic of Kazakhstan, Abai region, Semey, 20A Glinka street, office 603"
 
 msgid "footer_contact_phone"
-msgstr "+7 (7172) 123-456"
+msgstr "+7 747 621 98 61"
 
 msgid "footer_contact_email"
-msgstr "info@agrosector.kz"
+msgstr "innovation@shakarim.kz"
 
 msgid "footer_copyright"
 msgstr "© 2025 Agrosector. All rights reserved."
@@ -1076,3 +1076,18 @@ msgstr "Prices include VAT"
 
 msgid "zoomed_image"
 msgstr "Zoomed Image"
+
+msgid "try_different_filters"
+msgstr "Try different filters"
+
+msgid "our_partners"
+msgstr "Our Partners"
+
+msgid "stronger_together_business_university"
+msgstr "Stronger Together: Business and University"
+
+msgid "our_partners_description"
+msgstr "Our partners are trusted companies and organizations with whom we jointly develop the agricultural sector."
+
+msgid "agroportal_university_description"
+msgstr "AgroPortal was created at the university as an intersection point of Science, Technology and Business. We offer entrepreneurs and investors access to laboratory research, ready-made technological solutions, and also support the implementation of innovative projects in the field of agricultural production."

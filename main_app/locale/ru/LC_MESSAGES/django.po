@@ -267,13 +267,13 @@ msgid "footer_contact_title"
 msgstr "Контакты:"
 
 msgid "footer_contact_address"
-msgstr "г. Нур-Султан, пр. Мангилик Ел, 55"
+msgstr "Республика Казахстан, область Абай, г. Семей, ул.Глинки 20А, Кабинет 603"
 
 msgid "footer_contact_phone"
-msgstr "+7 (7172) 123-456"
+msgstr "+7 747 621 98 61"
 
 msgid "footer_contact_email"
-msgstr "info@agrosector.kz"
+msgstr "innovation@shakarim.kz"
 
 msgid "footer_copyright"
 msgstr "© 2025 Agrosector. Все права защищены."
@@ -1079,3 +1079,15 @@ msgstr "Цены указаны с учетом НДС"
 
 msgid "zoomed_image"
 msgstr "Увеличенное изображение"
+
+msgid "our_partners"
+msgstr "Наши партнеры"
+
+msgid "stronger_together_business_university"
+msgstr "Вместе сильнее: бизнес и университет"
+
+msgid "our_partners_description"
+msgstr "Наши партнеры - это надежные компании и организации, с которыми мы вместе развиваем аграрный сектор."
+
+msgid "agroportal_university_description"
+msgstr "Агропортал создан в университете как точка пересечения Науки, Технологий и Бизнеса. Мы предлагаем предпринимателям и инвесторам доступ к лабораторным исследованиям, готовым технологическим решениям, а также поддерживаем внедрение инновационных проектов в области агропроизводства."

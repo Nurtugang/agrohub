@@ -263,13 +263,13 @@ msgid "footer_contact_title"
 msgstr "Байланыс:"
 
 msgid "footer_contact_address"
-msgstr "Нұр-Сұлтан қ., Мәңгілік Ел даңғылы, 55"
+msgstr "Қазақстан Республикасы, Абай облысы, Семей қ., Глинки көш. 20А, каб. 603"
 
 msgid "footer_contact_phone"
-msgstr "+7 (7172) 123-456"
+msgstr "+7 747 621 98 61"
 
 msgid "footer_contact_email"
-msgstr "info@agrosector.kz"
+msgstr "innovation@shakarim.kz"
 
 msgid "footer_copyright"
 msgstr "© 2025 Agrosector. Барлық құқықтар қорғалған."
@@ -1080,3 +1080,15 @@ msgstr "Бағалар ҚҚС-пен көрсетілген"
 
 msgid "zoomed_image"
 msgstr "Үлкейтілген сурет"
+
+msgid "our_partners"
+msgstr "Біздің серіктестер"
+
+msgid "stronger_together_business_university"
+msgstr "Бірге күштірек: бизнес және университет"
+
+msgid "our_partners_description"
+msgstr "Біздің серіктестеріміз - біз бірге аграрлық секторды дамытатын сенімді компаниялар мен ұйымдар."
+
+msgid "agroportal_university_description"
+msgstr "Агропортал университетте Ғылым, Технология және Бизнестің қиылысу нүктесі ретінде құрылған. Біз кәсіпкерлер мен инвесторларға зертханалық зерттеулерге, дайын технологиялық шешімдерге қол жеткізуді ұсынамыз, сондай-ақ агроөндіріс саласында инновациялық жобаларды енгізуді қолдаймыз."
