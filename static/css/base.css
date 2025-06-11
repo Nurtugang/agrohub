@@ -331,11 +331,11 @@ body {
 
 @media (max-width: 768px) {
     .hero-content h1 {
-        font-size: 48px;
+        font-size: 40px;
     }
     
     .hero-content p {
-        font-size: 24px;
+        font-size: 18px;
     }
     
     .service-card {
@@ -347,6 +347,38 @@ body {
     }
 }
 
+/* Mobile Navigation Dropdown Styles */
+@media (max-width: 991px) {
+    .navbar-nav .dropdown-menu {
+        background: rgba(243, 243, 243, 0.95);
+        border: none;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        padding: 10px 0;
+        margin: 0;
+        border-radius: 0;
+        position: static;
+        float: none;
+        width: 100%;
+        display: none;
+    }
+    
+    .navbar-nav .dropdown-menu.show {
+        display: block;
+    }
+    
+    .navbar-nav .dropdown-item {
+        color: var(--text-dark);
+        padding: 8px 25px;
+        font-weight: 500;
+        transition: all 0.2s ease;
+    }
+    
+    .navbar-nav .dropdown-item:hover {
+        background-color: rgba(76, 175, 80, 0.1);
+        color: var(--primary-green);
+    }
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -355,12 +387,13 @@ html {
     display: none;
 }
 
-.dropdown-toggle[aria-expanded="true"]::before {
-    content: '';
-    position: absolute;
-    width: 80%;
-    height: 2px;
-    bottom: 0;
-    left: 10%;
-    background: var(--primary-green);
+.dropdown-toggle[aria-expanded="true"]::after {
+    display: inline-block;
+    margin-left: 5px;
+    vertical-align: middle;
+    content: "";
+    border-top: 0;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0.3em solid;
+    border-left: 0.3em solid transparent;
 }
