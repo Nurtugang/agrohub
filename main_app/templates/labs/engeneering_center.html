@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
-
-{% block title %}Shakarim Lab - Agrosector{% endblock %}
+{% load i18n %}
+{% block title %}{% trans "page_title" %}{% endblock %}
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'css/lab.css' %}">
@@ -14,7 +14,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-10 col-md-12">
                 <div class="hero-badge text-center">
-                    <h1>Современные технологии – на службе науки и промышленности</h1>
+                    <h1>{% trans "hero_title" %}</h1>
                 </div>
             </div>
         </div>
@@ -27,216 +27,140 @@
     <div class="section-spacing">
         <div class="row">
             <div class="col-12">
-                <h1 class="section-title text-center">Инжиниринговый центр</h1>
+                <h1 class="section-title text-center">{% trans "engineering_center_title" %}</h1>
             </div>
         </div>
 
         <!-- About Center Section -->
         <div class="row mb-5">
             <div class="col-12">
-                <h2 class="section-subtitle">О центре</h2>
+                <h2 class="section-subtitle">{% trans "about_center" %}</h2>
             </div>
             <div class="col-lg-8">
                 <div class="about-card">
                     <p class="about-text">
-                        Shakarim Lab является ведущим научно-исследовательским центром, специализирующимся на современных методах анализа и исследований в области сельского хозяйства, экологии и промышленности.
+                        {% trans "eng_about_text_1" %}
                     </p>
                     <p class="about-text mt-3">
-                        Наш центр оснащен высокотехнологичным оборудованием и укомплектован квалифицированными специалистами, что позволяет проводить широкий спектр лабораторных исследований и анализов на международном уровне.
+                        {% trans "eng_about_text_2" %}
                     </p>
                     <p class="about-text mt-3">
-                        Мы предоставляем услуги как для научных учреждений и университетов, так и для коммерческих организаций, стремящихся к инновационному развитию и повышению качества своей продукции.
+                        {% trans "eng_about_text_3" %}
                     </p>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                         alt="Лаборатория" class="img-fluid h-100 w-100" style="object-fit: cover;">
+                    <img src="{% static 'images/eng0.jpg' %}" 
+                            alt="{% trans "engineering_center_alt" %}" class="img-fluid h-100 w-100" style="object-fit: cover;">
                 </div>
             </div>
-        </div>
+            </div>
 
         <!-- Main Services Section -->
         <div class="row mb-5">
+        <div class="col-12">
+            <h2 class="section-subtitle">{% trans "main_services_title" %}</h2>
+        </div>
+        
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="service-card fade-in">
+                <div class="service-icon">
+                    <i class="fas fa-cogs fa-2x text-success"></i>
+                </div>
+                <h3 class="service-title">{% trans "service_metalworking" %}</h3>
+            </div>
+        </div>
+        
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="service-card fade-in">
+                <div class="service-icon">
+                    <i class="fas fa-microscope fa-2x text-success"></i>
+                </div>
+                <h3 class="service-title">{% trans "service_metallography" %}</h3>
+            </div>
+        </div>
+        
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="service-card fade-in">
+                <div class="service-icon">
+                    <i class="fas fa-drafting-compass fa-2x text-success"></i>
+                </div>
+                <h3 class="service-title">{% trans "service_cad_design" %}</h3>
+            </div>
+        </div>
+        
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="service-card fade-in">
+                <div class="service-icon">
+                    <i class="fas fa-chart-line fa-2x text-success"></i>
+                </div>
+                <h3 class="service-title">{% trans "service_engineering_consulting" %}</h3>
+            </div>
+        </div>
+        
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="service-card fade-in">
+                <div class="service-icon">
+                    <i class="fas fa-robot fa-2x text-success"></i>
+                </div>
+                <h3 class="service-title">{% trans "service_process_automation" %}</h3>
+            </div>
+        </div>
+        </div>
+
+        <div class="row mb-5">
             <div class="col-12">
-                <h2 class="section-subtitle">Основные услуги центра</h2>
+                <h2 class="section-subtitle">{% trans "laboratories_title" %}</h2>
             </div>
-            
-            <!-- First row of services -->
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-atom fa-2x text-success"></i>
-                    </div>
-                    <h3 class="service-title">Анализ тяжелых металлов и токсичных элементов</h3>
+            <div class="col-lg-6">
+                <div class="about-card">
+                    <h3>{% trans "plasma_lab_title" %}</h3>
+                    <p class="about-text mt-3">
+                        {% trans "plasma_lab_description" %}
+                    </p>
                 </div>
             </div>
-            
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-microscope fa-2x text-success"></i>
-                    </div>
-                    <h3 class="service-title">Микроскопические исследования</h3>
-                </div>
-            </div>
-            
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-radiation fa-2x text-success"></i>
-                    </div>
-                    <h3 class="service-title">Радиометрия</h3>
-                </div>
-            </div>
-            
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-seedling fa-2x text-success"></i>
-                    </div>
-                    <h3 class="service-title">Определение макронутриентов</h3>
-                </div>
-            </div>
-            
-            <!-- Second row of services -->
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-flask fa-2x text-success"></i>
-                    </div>
-                    <h3 class="service-title">Общий химический анализ</h3>
-                </div>
-            </div>
-            
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-chart-line fa-2x text-success"></i>
-                    </div>
-                    <h3 class="service-title">Спектральный анализ</h3>
-                </div>
-            </div>
-            
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-cogs fa-2x text-success"></i>
-                    </div>
-                    <h3 class="service-title">Самостоятельная работа на оборудовании</h3>
-                </div>
-            </div>
-            
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-search fa-2x text-success"></i>
-                    </div>
-                    <h3 class="service-title">Гранулометрический анализ</h3>
+            <div class="col-lg-6">
+                <div class="about-image">
+                    <img src="{% static 'images/eng1.jpg' %}" 
+                            alt="{% trans "laboratory_alt" %}" class="img-fluid h-100 w-100" style="object-fit: cover;">
                 </div>
             </div>
         </div>
-
-        <!-- Labs Section -->
-        <div class="row mb-5">
-            <div class="col-12">
-                <h2 class="section-subtitle">Лаборатории центра</h2>
-            </div>
-            
-            <div class="col-lg-6 mb-4">
-                <div class="lab-card fade-in">
-                    <div class="lab-image">
-                        <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                             alt="Лаборатория" class="img-fluid w-100 h-100" style="object-fit: cover;">
-                    </div>
-                    <div class="lab-content">
-                        <h3 class="lab-title">Лаборатория коллективного пользования</h3>
-                        <p class="lab-description">
-                            Современная лаборатория, оснащенная высокотехнологичным аналитическим оборудованием для проведения комплексных исследований в области сельского хозяйства и экологии.
-                        </p>
-                    </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="about-card">
+                    <h3>{% trans "materials_lab_title" %}</h3>
+                    <p class="about-text mt-3">
+                        {% trans "materials_lab_description" %}
+                    </p>
                 </div>
             </div>
-            
-            <div class="col-lg-6 mb-4">
-                <div class="lab-card fade-in">
-                    <div class="lab-image">
-                        <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                             alt="Лаборатория" class="img-fluid w-100 h-100" style="object-fit: cover;">
-                    </div>
-                    <div class="lab-content">
-                        <h3 class="lab-title">Лаборатория спектрального анализа</h3>
-                        <p class="lab-description">
-                            Специализированная лаборатория для проведения точных спектральных исследований и определения химического состава различных материалов и веществ.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-lg-6 mb-4">
-                <div class="lab-card fade-in">
-                    <div class="lab-image">
-                        <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                             alt="Лаборатория" class="img-fluid w-100 h-100" style="object-fit: cover;">
-                    </div>
-                    <div class="lab-content">
-                        <h3 class="lab-title">Лаборатория микроскопии</h3>
-                        <p class="lab-description">
-                            Лаборатория микроскопических исследований, оборудованная современными микроскопами для детального изучения структуры материалов.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-lg-6 mb-4">
-                <div class="lab-card fade-in">
-                    <div class="lab-image">
-                        <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                             alt="Лаборатория" class="img-fluid w-100 h-100" style="object-fit: cover;">
-                    </div>
-                    <div class="lab-content">
-                        <h3 class="lab-title">Лаборатория экологического мониторинга</h3>
-                        <p class="lab-description">
-                            Лаборатория для проведения экологического мониторинга и оценки воздействия на окружающую среду различных факторов.
-                        </p>
-                    </div>
+            <div class="col-lg-6">
+                <div class="about-image">
+                    <img src="{% static 'images/eng2.jpg' %}" 
+                            alt="{% trans "laboratory_alt" %}" class="img-fluid h-100 w-100" style="object-fit: cover;">
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-
-  
-<!-- Testimonials Section -->
-<section class="testimonials-section">
-    <div class="container">
-        <h2 class="section-title text-center mb-5">Сертификаты</h2>
-    </div>
-    <div class="container position-relative">
-        <div class="carousel-container">
-            <button class="nav-button prev">‹</button>
-            <button class="nav-button next">›</button>
-        </div>
-    </div>
-</section>
-
 <!-- Contact Information -->
 <div class="container">
-    <div class="section-spacing">
+    <div class="section-spacing pt-0" >
         <div class="row">
             <div class="col-12">
                 <div class="contact-card">
-                    <h2 class="contact-title">Контактная информация центра</h2>
+                    <h2 class="contact-title">{% trans "contact_info_title" %}</h2>
                     
                     <div class="row">
                         <div class="col-lg-5">
                             <div class="contact-section">
-                                <h3 class="contact-label">Адрес</h3>
+                                <h3 class="contact-label">{% trans "address_label" %}</h3>
                                 <p class="contact-info">
-                                    Абайская область, город Семей,<br>
-                                    ул. Физкультурная, 4
+                                    {% trans "address_text" %}
                                 </p>
                             </div>
                         </div>
@@ -247,9 +171,9 @@
                         
                         <div class="col-lg-5">
                             <div class="contact-section">
-                                <h3 class="contact-label">Контакты</h3>
-                                <p class="contact-info">Email: center@shakarim.kz</p>
-                                <p class="contact-info">Телефон: +7 7222 50-00-00</p>
+                                <h3 class="contact-label">{% trans "contacts_label" %}</h3>
+                                <p class="contact-info">{% trans "email_text" %}</p>
+                                <p class="contact-info">{% trans "phone_text" %}</p>
                             </div>
                         </div>
                     </div>

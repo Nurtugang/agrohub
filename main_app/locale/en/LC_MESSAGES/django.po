@@ -1101,3 +1101,207 @@ msgstr "Our partners are trusted companies and organizations with whom we jointl
 
 msgid "agroportal_university_description"
 msgstr "AgroPortal was created at the university as an intersection point of Science, Technology and Business. We offer entrepreneurs and investors access to laboratory research, ready-made technological solutions, and also support the implementation of innovative projects in the field of agricultural production."
+
+msgid "main_services_title"
+msgstr "Main Services of Agrotechnopark"
+
+msgid "service_blood_analysis"
+msgstr "General clinical blood test of animals"
+
+msgid "service_pathological_examination"
+msgstr "Pathological anatomical examination"
+
+msgid "service_feed_analysis"
+msgstr "Analysis of animal feed"
+
+msgid "service_feed_processing"
+msgstr "Technical processing of feed"
+
+msgid "service_soil_analysis"
+msgstr "Soil analysis"
+
+msgid "service_milk_analysis"
+msgstr "Milk analysis"
+
+msgid "service_parasitological_research"
+msgstr "Parasitological research"
+
+msgid "service_microbiological_research"
+msgstr "Microbiological research"
+
+msgid "service_molecular_biological_research"
+msgstr "Molecular biological research"
+
+msgid "service_veterinary_services"
+msgstr "Veterinary services"
+
+msgid "service_radiological_services"
+msgstr "Radiological services"
+
+# General
+msgid "page_title"
+msgstr "Shakarim Lab - Agrosector"
+
+msgid "about_center"
+msgstr "About the Center"
+
+msgid "laboratories_title"
+msgstr "Center Laboratories"
+
+msgid "certificates_title"
+msgstr "Certificates"
+
+msgid "contact_info_title"
+msgstr "Center Contact Information"
+
+msgid "address_label"
+msgstr "Address"
+
+msgid "contacts_label"
+msgstr "Contacts"
+
+msgid "address_text"
+msgstr "Abai Region, Semey City,<br>Fizkulturnaya Street, 4"
+
+msgid "email_text"
+msgstr "Email: center@shakarim.kz"
+
+msgid "phone_text"
+msgstr "Phone: +7 7222 50-00-00"
+
+# Page titles
+msgid "agrotechnopark_title"
+msgstr "Agrotechnopark"
+
+msgid "engineering_center_title"
+msgstr "Engineering Center"
+
+msgid "shakarim_lab_title"
+msgstr "Shakarim Lab"
+
+# Alt texts
+msgid "agrotechnopark_alt"
+msgstr "Agrotechnopark"
+
+msgid "engineering_center_alt"
+msgstr "Engineering Center"
+
+msgid "laboratory_alt"
+msgstr "Laboratory"
+
+msgid "veterinary_clinic_alt"
+msgstr "Veterinary Clinic"
+
+# Agrotechnopark about texts
+msgid "about_text_1"
+msgstr "The Agrotechnopark of Shakarim University is a modern scientific and educational complex specializing in the development of innovative technologies in agriculture, veterinary medicine, and food safety."
+
+msgid "about_text_2"
+msgstr "Our center brings together advanced laboratories, a veterinary clinic, and research departments equipped with modern diagnostic and analytical equipment. We provide a full range of services from laboratory analysis to veterinary care."
+
+msgid "about_text_3"
+msgstr "The Agrotechnopark serves as a platform for student practical training, scientific research, and professional services to the regional agrarian sector, contributing to the development of modern and safe agriculture."
+
+# Engineering center about texts
+msgid "eng_about_text_1"
+msgstr "The Engineering Center offers a wide range of services for strengthening and restoring machine parts, modeling, and implementing modern technical solutions for various industries. Engineering services aim to increase productivity and techno-economic efficiency of mechanical engineering enterprises."
+
+msgid "eng_about_text_2"
+msgstr "We specialize in the full range of engineering tasks: from technical documentation and risk analysis to project management and implementation of innovative technologies. Our team of professional engineers and designers ensures high-quality work delivery on time."
+
+msgid "eng_about_text_3"
+msgstr "Main areas of activity include: design and calculations, production process optimization, software development."
+
+# Lab about texts
+msgid "lab_about_text_1"
+msgstr "Shakarim Lab is a leading research center specializing in modern analytical and research methods in agriculture, ecology, and industry."
+
+msgid "lab_about_text_2"
+msgstr "Our center is equipped with high-tech instruments and staffed with qualified specialists, enabling a wide range of laboratory tests and analyses at the international level."
+
+msgid "lab_about_text_3"
+msgstr "We provide services for both scientific institutions and universities, as well as commercial organizations aiming for innovation and product quality improvement."
+
+# Engineering services
+msgid "service_metalworking"
+msgstr "Metalworking"
+
+msgid "service_metallography"
+msgstr "Metallography"
+
+msgid "service_cad_design"
+msgstr "Design (CAD)"
+
+msgid "service_engineering_consulting"
+msgstr "Engineering Consulting"
+
+msgid "service_process_automation"
+msgstr "Process Automation"
+
+# Lab services
+msgid "service_heavy_metals_analysis"
+msgstr "Heavy Metals and Toxic Elements Analysis"
+
+msgid "service_microscopic_research"
+msgstr "Microscopic Research"
+
+msgid "service_radiometry"
+msgstr "Radiometry"
+
+msgid "service_macronutrients_determination"
+msgstr "Macronutrient Determination"
+
+msgid "service_general_chemical_analysis"
+msgstr "General Chemical Analysis"
+
+msgid "service_spectral_analysis"
+msgstr "Spectral Analysis"
+
+msgid "service_equipment_self_work"
+msgstr "Independent Work on Equipment"
+
+msgid "service_granulometric_analysis"
+msgstr "Granulometric Analysis"
+
+# Laboratory titles and descriptions
+msgid "lab_food_safety_title"
+msgstr "Laboratory of Biological and Food Safety"
+
+msgid "lab_food_safety_description"
+msgstr "A modern laboratory for comprehensive analysis of food products and biological materials for safety and quality. We conduct microbiological research, detection of pathogenic microorganisms, analysis of pesticide, antibiotic, and other harmful substance content. The lab is equipped with high-precision equipment to ensure quality control of food products in accordance with international standards."
+
+msgid "veterinary_clinic_title"
+msgstr "Veterinary Clinic"
+
+msgid "veterinary_clinic_description"
+msgstr "A modern veterinary clinic providing a full range of services for farm and domestic animals. We perform diagnostics, treatment, disease prevention, vaccination, and surgeries. The clinic is equipped with modern diagnostic tools including X-ray, ultrasound, and lab equipment for express tests. Our specialists offer high-quality veterinary care and consultations on animal keeping."
+
+msgid "milk_analysis_lab_title"
+msgstr "Milk Analysis Laboratory"
+
+msgid "milk_analysis_lab_description"
+msgstr "A specialized laboratory offering a full range of analyses for milk and dairy products. We determine physicochemical parameters, fat, protein, lactose, and somatic cell content. We conduct microbiological control, antibiotic, and inhibitor testing. The lab is equipped with modern milk analyzers and complies with dairy quality standards."
+
+msgid "plasma_lab_title"
+msgstr "Plasma Surface Treatment Technologies Laboratory"
+
+msgid "plasma_lab_description"
+msgstr "A specialized lab focused on developing and applying plasma technologies for material surface modification. We perform plasma spraying, ion-plasma treatment, and protective coating creation. The lab is equipped with modern plasma systems to enhance mechanical, chemical, and physical properties of materials for industrial and research purposes."
+
+msgid "materials_lab_title"
+msgstr "Materials Science and Electrolyte-Plasma Technologies Laboratory"
+
+msgid "materials_lab_description"
+msgstr "A research laboratory specializing in material property studies and application of electrolyte-plasma technologies. We analyze structures and properties of metals, alloys, ceramics, and composites. We develop new methods of electrolyte-plasma oxidation to create functional coatings with specific properties. Equipped with advanced analytical instruments for a full cycle of materials science research."
+
+msgid "testing_lab_title"
+msgstr "Testing Laboratory (Soil, Feed)"
+
+msgid "testing_lab_description"
+msgstr "A modern testing lab specializing in comprehensive soil and feed analysis. We study soil fertility, nutrient content, and analyze the quality and safety of animal feed. The lab is equipped with high-precision analytical equipment for chemical, physical, and microbiological research."
+
+msgid "collective_lab_title"
+msgstr "Shared Research Laboratory"
+
+msgid "collective_lab_description"
+msgstr "A multifunctional shared research laboratory providing a wide range of analytical services for research projects. It includes modern equipment for spectral analysis, chromatography, microscopy, and other research methods. The lab serves both internal scientific projects and external requests from universities and commercial organizations."
