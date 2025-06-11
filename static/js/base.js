@@ -119,6 +119,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
         link.addEventListener('click', function(event) {
+            // Prevent scrolling to footer for contact link 
+            if (this.getAttribute('href') === '#' || this.getAttribute('data-bs-toggle') === 'dropdown') {
+                event.preventDefault();
+            }
+            
             if (window.innerWidth < 992) {
                 // Don't close menu if this is a dropdown toggle
                 if (this.classList.contains('dropdown-toggle')) {
