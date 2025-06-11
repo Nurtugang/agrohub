@@ -625,7 +625,7 @@ msgid "about_hero_title"
 msgstr "Агросектор – ғылым мен бизнестің тоғысқан нүктесі"
 
 msgid "about_hero_subtitle"
-msgstr "Ғылыми әзірлемелерді, оқыту курстарын және сараптамалық қолдауды бір алаңда біріктірдік"
+msgstr "Ғылыми әзірлемелерді, оқыту курстарын және сараптамалық қолдауды біріктірдік"
 
 msgid "who_we_are_title"
 msgstr "Біз кімбіз?"
@@ -1080,6 +1080,16 @@ msgstr "Бағалар ҚҚС-пен көрсетілген"
 
 msgid "zoomed_image"
 msgstr "Үлкейтілген сурет"
+
+# Contact Information
+msgid "contact_address_line1"
+msgstr "Қазақстан Республикасы, Абай облысы, Семей қ."
+
+msgid "contact_address_line2"
+msgstr "Глинки көш. 20А"
+
+msgid "contact_address_line3"
+msgstr "Кабинет 603"
 
 msgid "our_partners"
 msgstr "Біздің серіктестер"

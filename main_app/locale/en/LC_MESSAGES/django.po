@@ -1077,6 +1077,16 @@ msgstr "Prices include VAT"
 msgid "zoomed_image"
 msgstr "Zoomed Image"
 
+# Contact Information
+msgid "contact_address_line1"
+msgstr "Republic of Kazakhstan, Abai region, Semey"
+
+msgid "contact_address_line2"
+msgstr "20A Glinka street"
+
+msgid "contact_address_line3"
+msgstr "Office 603"
+
 msgid "try_different_filters"
 msgstr "Try different filters"
 

@@ -1080,6 +1080,16 @@ msgstr "Цены указаны с учетом НДС"
 msgid "zoomed_image"
 msgstr "Увеличенное изображение"
 
+# Contact Information
+msgid "contact_address_line1"
+msgstr "Республика Казахстан, область Абай, г. Семей"
+
+msgid "contact_address_line2"
+msgstr "ул.Глинки 20А"
+
+msgid "contact_address_line3"
+msgstr "Кабинет 603"
+
 msgid "our_partners"
 msgstr "Наши партнеры"
 
