@@ -63,8 +63,18 @@
                             <li><a class="dropdown-item" href="{% url 'guide_list' %}">{% trans "guide_title" %}</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">{% trans "nav_contact" %}</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">{% trans "nav_contact" %}</a>
+                        <ul class="dropdown-menu">
+                            <li class="contact-info px-3 py-2">
+                                <p class="mb-1"><i class="fas fa-map-marker-alt me-2"></i>{% trans "contact_address_line1" %}</p>
+                                <p class="mb-1">{% trans "contact_address_line2" %}</p>
+                                <p class="mb-3">{% trans "contact_address_line3" %}</p>
+                                
+                                <p class="mb-1"><i class="fas fa-envelope me-2"></i>{% trans "contact_email" %}</p>
+                                <p class="mb-1"><i class="fas fa-phone me-2"></i>{% trans "contact_phone" %}</p>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>
