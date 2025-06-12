@@ -603,6 +603,9 @@ class Project(models.Model):
     
     def get_formatted_investment(self):
         """Форматированная сумма инвестиций"""
+        if not self.investment_amount:
+            return "Не указано"
+        
         if self.investment_amount >= 1000000000:
             return f"{self.investment_amount / 1000000000:.0f} млрд"
         elif self.investment_amount >= 1000000:
