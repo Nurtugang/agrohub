@@ -1305,3 +1305,9 @@ msgstr "Shared Research Laboratory"
 
 msgid "collective_lab_description"
 msgstr "A multifunctional shared research laboratory providing a wide range of analytical services for research projects. It includes modern equipment for spectral analysis, chromatography, microscopy, and other research methods. The lab serves both internal scientific projects and external requests from universities and commercial organizations."
+
+msgid "no_articles_found"
+msgstr "No articles found"
+
+msgid "project_gallery"
+msgstr "Project gallery"

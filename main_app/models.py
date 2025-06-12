@@ -547,12 +547,12 @@ class Project(models.Model):
                              verbose_name="Статус")
     
     # Финансовая информация
-    investment_amount = models.DecimalField(max_digits=15, blank=True, decimal_places=2, verbose_name="Сумма инвестиций", 
+    investment_amount = models.DecimalField(max_digits=15, blank=True, null=True, decimal_places=2, verbose_name="Сумма инвестиций", 
                                           help_text="В тенге")
     currency = models.CharField(max_length=10, default='KZT', verbose_name="Валюта")
     
     # Временные рамки
-    implementation_period = models.CharField(max_length=100, blank=True, verbose_name="Срок реализации", 
+    implementation_period = models.CharField(max_length=100, blank=True, null=True, verbose_name="Срок реализации", 
                                            help_text="Например: '3 года', '18 месяцев'")
     
     # Изображения
