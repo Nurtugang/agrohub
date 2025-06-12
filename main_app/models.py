@@ -1,10 +1,11 @@
 import os
+import sys
 from PIL import Image
 from io import BytesIO
 from django.db import models
 from django.urls import reverse
 from django.core.files.base import ContentFile
-
+from django.core.files.uploadedfile import InMemoryUploadedFile
 
 class Thing(models.Model):
     name = models.CharField(max_length=255)
@@ -587,20 +588,25 @@ class Project(models.Model):
         """Сжатие изображения"""
         img = Image.open(image)
         img = img.convert('RGB')
-        
-        # Размер для карточек проектов
+
         if img.width > 800:
             ratio = 800 / img.width
             new_height = int(img.height * ratio)
             img = img.resize((800, new_height), Image.Resampling.LANCZOS)
-        
+
         output = BytesIO()
-        img.save(output, format='WebP', quality=85, optimize=True)
+        img.save(output, format='WebP', quality=85)
         output.seek(0)
-        
-        name = os.path.splitext(image.name)[0] + '.webp'
-        return ContentFile(output.read(), name=name)
-    
+
+        new_name = os.path.splitext(image.name)[0] + '.webp'
+        return InMemoryUploadedFile(
+            output,               # file
+            'ImageField',         # field_name
+            new_name,             # name
+            'image/webp',         # content_type
+            sys.getsizeof(output),# size
+            None                  # charset
+        )
     def get_formatted_investment(self):
         """Форматированная сумма инвестиций"""
         if not self.investment_amount:
